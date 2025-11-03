@@ -47,8 +47,7 @@ export default async function Home({
               className="font-medium text-zinc-950 dark:text-zinc-50"
             >
               {t('learning')}
-            </a>{' '}
-            {locale === 'en' && t('center')}
+            </a>
           </p>
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
