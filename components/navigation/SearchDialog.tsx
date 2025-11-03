@@ -125,7 +125,7 @@ export function SearchDialog({ open: controlledOpen, onOpenChange }: SearchDialo
                   value={query}
                   onChange={handleChange}
                   placeholder={t('search.placeholder')}
-                  className="flex-1 text-lg outline-none bg-transparent placeholder:text-text-secondary text-text-primary [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden [-ms-clear]:hidden"
+                  className="flex-1 text-lg outline-none bg-transparent placeholder:text-text-secondary text-text-primary"
                   autoComplete="off"
                   autoCorrect="off"
                   autoCapitalize="off"
