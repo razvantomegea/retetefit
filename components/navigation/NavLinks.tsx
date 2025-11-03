@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
+import { defaultLocale } from '@/i18n/config';
 import { NAV_CATEGORIES } from '@/lib/navigation';
 import { cn } from '@/lib/utils';
 
@@ -18,7 +19,7 @@ export function NavLinks({ onLinkClick, className, linkClassName }: NavLinksProp
   const t = useTranslations();
   const params = useParams();
   const pathname = usePathname();
-  const locale = params?.locale || 'ro';
+  const locale = params?.locale || defaultLocale;
 
   return (
     <nav className={cn('flex items-center gap-1', className)}>

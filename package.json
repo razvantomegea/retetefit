@@ -10,7 +10,6 @@
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
-  "postinstall": "next-themes@^0.4.6 postinstall || true",
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",

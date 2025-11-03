@@ -97,7 +97,7 @@ export function SearchDialog({ open: controlledOpen, onOpenChange }: SearchDialo
     <>
       <button
         onClick={handleOpen}
-        className="w-full flex items-center gap-3 text-left text-base px-4 py-3 rounded-md hover:bg-surface-elevated transition-colors cursor-pointer text-text-primary font-medium"
+        className="w-full flex items-center gap-3 text-left text-lg px-4 py-3 rounded-md hover:bg-surface-elevated transition-colors cursor-pointer text-text-primary font-medium"
         aria-label={t('search.title')}
       >
         <Search className="h-5 w-5 shrink-0" />
@@ -148,8 +148,6 @@ export function SearchDialog({ open: controlledOpen, onOpenChange }: SearchDialo
                     <span className="text-xs">{t('search.toSearch')}</span>
                   </div>
                 </div>
-                {/* Mobile: Show simple hint */}
-                <div className="sm:hidden text-xs text-center">{t('search.mobileHint')}</div>
               </motion.div>
             </form>
           </div>

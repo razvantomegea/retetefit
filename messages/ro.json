@@ -15,8 +15,19 @@
   "nav": {
     "lowCalorie": "Puține Calorii",
     "theme": "Temă",
-    "language": "Limbă",
+    "language": {
+      "switchTo": "Schimbă la {language}",
+      "names": {
+        "ro": "Română",
+        "en": "English"
+      }
+    },
     "mobileMenu": "Meniu de navigare"
+  },
+  "theme": {
+    "light": "Luminos",
+    "dark": "Întunecat",
+    "switchTo": "Schimbă la tema {theme}"
   },
   "search": {
     "title": "Căutare",
@@ -27,5 +38,11 @@
     "pressEnter": "Scrie și apasă Enter pentru a căuta",
     "toSearch": "pentru a căuta",
     "mobileHint": "Scrie pentru a căuta"
-  }
+  },
+  "loadingLanguage": "Se încarcă limba",
+  "language": {
+    "romanian": "Română",
+    "english": "English"
+  },
+  "switchTo": "Schimbă la {lang}"
 }

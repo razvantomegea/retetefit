@@ -40,34 +40,54 @@ export function MobileNav() {
     });
   }, []);
 
+  const isDark = resolvedTheme === 'dark';
+
   const handleThemeToggle = () => {
-    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+    setTheme(isDark ? 'light' : 'dark');
   };
 
   const handleLanguageToggle = () => {
     switchLanguage({ currentLocale, pathname, router });
   };
 
-  const nextLang = LANGUAGES.find((lang) => lang.code !== currentLocale) || LANGUAGES[0];
-  const nextLangLabel = nextLang.code === 'ro' ? 'Română' : 'English';
+  const currentIndex = LANGUAGES.findIndex((lang) => lang.code === currentLocale);
+  const nextIndex = (currentIndex + 1) % LANGUAGES.length;
+  const nextLang = LANGUAGES[nextIndex];
+  const nextLangLabel = t(`nav.language.names.${nextLang.code}`);
 
   const sheetClassName = useMemo(
     () =>
-      mounted && resolvedTheme === 'dark'
+      mounted && isDark
         ? 'w-full bg-zinc-900/60 backdrop-blur-[64px] border-l border-white/10 shadow-2xl'
         : 'w-full bg-white backdrop-blur-none border-l border-border shadow-2xl',
-    [mounted, resolvedTheme]
-  );
-
-  const nextThemeLabel = useMemo(
-    () => (mounted && resolvedTheme === 'dark' ? 'light' : 'dark'),
-    [mounted, resolvedTheme]
+    [mounted, isDark]
   );
 
   const toggleClassName = useMemo(
     () =>
       'w-full flex items-center gap-3 text-left text-lg px-4 py-3 rounded-md hover:bg-surface-elevated transition-colors cursor-pointer text-text-primary font-medium',
     []
+  );
+
+  const toggleThemeAriaLabel = useMemo(
+    () =>
+      mounted
+        ? t('theme.switchTo', {
+            theme: isDark ? 'light' : 'dark',
+            defaultValue: `Switch to ${isDark ? 'light' : 'dark'} theme`,
+          })
+        : t('nav.theme', { defaultValue: 'Theme' }),
+    [mounted, t, isDark]
+  );
+
+  const toggleThemeLabel = useMemo(
+    () =>
+      mounted
+        ? isDark
+          ? t('theme.light', { defaultValue: 'Light' })
+          : t('theme.dark', { defaultValue: 'Dark' })
+        : '',
+    [mounted, t, isDark]
   );
 
   return (
@@ -102,23 +122,23 @@ export function MobileNav() {
             <button
               onClick={handleThemeToggle}
               className={toggleClassName}
-              aria-label={`Switch to ${nextThemeLabel} theme`}
+              aria-label={toggleThemeAriaLabel}
               disabled={!mounted}
             >
-              {mounted && resolvedTheme === 'dark' ? (
+              {mounted && isDark ? (
                 <Sun className="h-6 w-6 shrink-0 text-amber-500" />
               ) : mounted ? (
                 <Moon className="h-6 w-6 shrink-0 text-text-primary" />
               ) : (
                 <div className="h-6 w-6 shrink-0" />
               )}
-              <span>{mounted ? (resolvedTheme === 'dark' ? 'Light' : 'Dark') : ''}</span>
+              <span>{toggleThemeLabel}</span>
             </button>
 
             <button
               onClick={handleLanguageToggle}
               className={toggleClassName}
-              aria-label={`Switch to ${nextLangLabel}`}
+              aria-label={t('nav.language.switchTo', { language: nextLangLabel })}
             >
               <span className="text-xl shrink-0">{nextLang.flag}</span>
               <span>{nextLangLabel}</span>

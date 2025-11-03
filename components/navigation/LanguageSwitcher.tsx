@@ -1,6 +1,7 @@
 'use client';
 
 import { useParams, usePathname, useRouter } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import { startTransition, useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -27,6 +28,7 @@ export const switchLanguage = ({ currentLocale, pathname, router }: SwitchLangua
 
 export function LanguageSwitcher() {
   const [mounted, setMounted] = useState(false);
+  const t = useTranslations();
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
@@ -51,13 +53,15 @@ export function LanguageSwitcher() {
         size="icon"
         className="w-10 h-10"
         disabled
-        aria-label="Loading language"
+        aria-label={t('loadingLanguage')}
       />
     );
   }
 
-  const nextLang = LANGUAGES.find((lang) => lang.code !== currentLocale) || LANGUAGES[0];
-  const nextLangLabel = nextLang.code === 'ro' ? 'Română' : 'English';
+  const currentIndex = LANGUAGES.findIndex((lang) => lang.code === currentLocale);
+  const nextIndex = (currentIndex + 1) % LANGUAGES.length;
+  const nextLang = LANGUAGES[nextIndex];
+  const nextLangLabel = nextLang.code === 'ro' ? t('language.romanian') : t('language.english');
 
   return (
     <Button
@@ -65,8 +69,8 @@ export function LanguageSwitcher() {
       size="icon"
       onClick={handleSwitchLanguage}
       className="w-10 h-10 rounded-md hover:bg-surface-elevated transition-colors"
-      aria-label={`Switch to ${nextLangLabel}`}
-      title={`Switch to ${nextLangLabel}`}
+      aria-label={t('switchTo', { lang: nextLangLabel })}
+      title={t('switchTo', { lang: nextLangLabel })}
     >
       <span className="text-lg leading-none">{nextLang.flag}</span>
       <span className="sr-only">{nextLangLabel}</span>
