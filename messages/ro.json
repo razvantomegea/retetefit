@@ -1,0 +1,16 @@
+{
+  "HomePage": {
+    "title": "Pentru a începe, editează fișierul page.tsx.",
+    "description": "Cauți un punct de plecare sau mai multe instrucțiuni? Accesează",
+    "templates": "Template-uri",
+    "or": "sau",
+    "learning": "centrul de învățare",
+    "deployNow": "Deploy Acum",
+    "documentation": "Documentație"
+  },
+  "Metadata": {
+    "title": "Creează Next App",
+    "description": "Generat cu create next app"
+  }
+}
+
