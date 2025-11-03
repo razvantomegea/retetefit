@@ -1,13 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Search } from 'lucide-react';
+import { Search, X } from 'lucide-react';
 import { useParams, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import { startTransition, useCallback, useEffect, useRef, useState } from 'react';
 
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { Dialog, DialogClose, DialogContent, DialogTitle } from '@/components/ui/dialog';
 
 interface SearchDialogProps {
   open?: boolean;
@@ -82,8 +82,8 @@ export function SearchDialog({ open: controlledOpen, onOpenChange }: SearchDialo
 
   const dialogClassName =
     mounted && resolvedTheme === 'dark'
-      ? 'overflow-hidden p-0 shadow-2xl h-auto items-center sm:max-w-2xl bg-zinc-900/60 backdrop-blur-[64px] border border-white/10'
-      : 'overflow-hidden p-0 shadow-2xl h-auto items-center sm:max-w-2xl bg-white backdrop-blur-none border border-border';
+      ? 'overflow-hidden p-0 shadow-2xl h-auto items-center inset-auto left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-lg rounded-lg sm:max-w-2xl bg-zinc-900/60 backdrop-blur-[64px] border border-white/10'
+      : 'overflow-hidden p-0 shadow-2xl h-auto items-center inset-auto left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 w-[calc(100%-2rem)] max-w-lg rounded-lg sm:max-w-2xl bg-white backdrop-blur-none border border-border';
 
   const handleOpen = () => {
     setOpen(true);
@@ -131,15 +131,25 @@ export function SearchDialog({ open: controlledOpen, onOpenChange }: SearchDialo
                   autoCapitalize="off"
                   spellCheck="false"
                 />
+                <DialogClose className="rounded-sm opacity-70 transition-all hover:opacity-100 hover:bg-surface-elevated focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:pointer-events-none flex items-center justify-center h-8 w-8 shrink-0">
+                  <motion.div
+                    whileHover={{ rotate: 90, scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                  >
+                    <X className="h-4 w-4 text-text-primary" />
+                  </motion.div>
+                  <span className="sr-only">Close</span>
+                </DialogClose>
               </div>
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.2 }}
-                className="mt-6 text-sm text-text-secondary"
+                className="hidden sm:flex mt-6 text-sm text-text-secondary"
               >
                 {/* Desktop: Show Enter key hint */}
-                <div className="hidden sm:flex items-center justify-between">
+                <div className="flex items-center justify-between gap-2">
                   <span className="text-xs">{t('search.pressEnter')}</span>
                   <div className="flex items-center gap-2">
                     <kbd className="px-2 py-1 text-xs font-semibold text-text-primary bg-surface-elevated border border-border rounded">

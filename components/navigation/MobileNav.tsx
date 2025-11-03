@@ -98,7 +98,7 @@ export function MobileNav() {
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className={sheetClassName} open={open}>
-        <SheetHeader className="flex-row items-center justify-between pr-12">
+        <SheetHeader className="flex-row items-center justify-between" showClose>
           <SheetTitle className="text-left">
             <Logo />
           </SheetTitle>

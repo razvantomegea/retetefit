@@ -127,16 +127,6 @@ const SheetContent = React.forwardRef<
               className={cn(sheetVariants({ side }), className)}
             >
               {children}
-              <DialogPrimitive.Close className="absolute right-4 top-6 rounded-sm opacity-70 transition-all hover:opacity-100 hover:bg-surface-elevated focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:pointer-events-none flex items-center justify-center h-8 -translate-y-1/2">
-                <motion.div
-                  whileHover={{ rotate: 90, scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                >
-                  <X className="h-4 w-4 text-text-primary" />
-                </motion.div>
-                <span className="sr-only">Close</span>
-              </DialogPrimitive.Close>
             </motion.div>
           </DialogPrimitive.Content>
         )}
@@ -146,9 +136,26 @@ const SheetContent = React.forwardRef<
 });
 SheetContent.displayName = DialogPrimitive.Content.displayName;
 
-const SheetHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn('flex flex-col space-y-2 text-center sm:text-left', className)} {...props} />
-);
+const SheetHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement> & { showClose?: boolean }
+>(({ className, showClose = false, children, ...props }, ref) => (
+  <div ref={ref} className={cn('flex flex-col space-y-2 text-center sm:text-left', className)} {...props}>
+    {children}
+    {showClose && (
+      <DialogPrimitive.Close className="rounded-sm opacity-70 transition-all hover:opacity-100 hover:bg-surface-elevated focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:pointer-events-none flex items-center justify-center h-8 w-8 shrink-0">
+        <motion.div
+          whileHover={{ rotate: 90, scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+        >
+          <X className="h-4 w-4 text-text-primary" />
+        </motion.div>
+        <span className="sr-only">Close</span>
+      </DialogPrimitive.Close>
+    )}
+  </div>
+));
 SheetHeader.displayName = 'SheetHeader';
 
 const SheetFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (

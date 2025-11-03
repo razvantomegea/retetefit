@@ -1,9 +1,15 @@
 'use client';
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import { AnimatePresence,motion } from 'framer-motion';
-import { X } from 'lucide-react';
-import * as React from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import {
+  ComponentPropsWithoutRef,
+  ComponentRef,
+  forwardRef,
+  HTMLAttributes,
+  useEffect,
+  useState,
+} from 'react';
 
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { cn } from '@/lib/utils';
@@ -28,9 +34,9 @@ const overlayVariants = {
   },
 };
 
-const DialogOverlay = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+const DialogOverlay = forwardRef<
+  ComponentRef<typeof DialogPrimitive.Overlay>,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
 >(({ className, ...props }, ref) => {
   const prefersReducedMotion = useReducedMotion();
 
@@ -107,67 +113,56 @@ interface DialogContentProps
   open?: boolean;
 }
 
-const DialogContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Content>,
-  DialogContentProps
->(({ className, children, open, ...props }, ref) => {
-  const prefersReducedMotion = useReducedMotion();
-  const [isMobile, setIsMobile] = React.useState(false);
+const DialogContent = forwardRef<ComponentRef<typeof DialogPrimitive.Content>, DialogContentProps>(
+  ({ className, children, open, ...props }, ref) => {
+    const prefersReducedMotion = useReducedMotion();
+    const [isMobile, setIsMobile] = useState(false);
 
-  React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+    useEffect(() => {
+      const checkMobile = () => setIsMobile(window.innerWidth < 640);
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
-  const variants = isMobile ? mobileContentVariants : contentVariants;
+    const variants = isMobile ? mobileContentVariants : contentVariants;
 
-  return (
-    <DialogPortal forceMount>
-      <AnimatePresence>
-        {open && <DialogOverlay key="dialog-overlay" />}
-        {open && (
-          <DialogPrimitive.Content ref={ref} asChild forceMount key="dialog-content" {...props}>
-            <motion.div
-              variants={prefersReducedMotion ? undefined : variants}
-              initial={prefersReducedMotion ? undefined : 'hidden'}
-              animate={prefersReducedMotion ? undefined : 'visible'}
-              exit={prefersReducedMotion ? undefined : 'exit'}
-              className={cn(
-                'fixed z-50 grid gap-4 shadow-lg',
-                'inset-0 sm:inset-auto sm:left-[50%] sm:top-[50%] sm:-translate-x-1/2 sm:-translate-y-1/2',
-                'w-full sm:max-w-lg sm:rounded-lg',
-                'p-6',
-                className
-              )}
-            >
-              {children}
-              <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 transition-all hover:opacity-100 hover:bg-surface-elevated focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:pointer-events-none">
-                <motion.div
-                  whileHover={{ rotate: 90, scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-                >
-                  <X className="h-4 w-4 text-text-primary" />
-                </motion.div>
-                <span className="sr-only">Close</span>
-              </DialogPrimitive.Close>
-            </motion.div>
-          </DialogPrimitive.Content>
-        )}
-      </AnimatePresence>
-    </DialogPortal>
-  );
-});
+    return (
+      <DialogPortal forceMount>
+        <AnimatePresence>
+          {open && <DialogOverlay key="dialog-overlay" />}
+          {open && (
+            <DialogPrimitive.Content ref={ref} asChild forceMount key="dialog-content" {...props}>
+              <motion.div
+                variants={prefersReducedMotion ? undefined : variants}
+                initial={prefersReducedMotion ? undefined : 'hidden'}
+                animate={prefersReducedMotion ? undefined : 'visible'}
+                exit={prefersReducedMotion ? undefined : 'exit'}
+                className={cn(
+                  'fixed z-50 grid gap-4 shadow-lg',
+                  'inset-0 sm:inset-auto sm:left-[50%] sm:top-[50%] sm:-translate-x-1/2 sm:-translate-y-1/2',
+                  'w-full sm:max-w-lg sm:rounded-lg',
+                  'p-6',
+                  className
+                )}
+              >
+                {children}
+              </motion.div>
+            </DialogPrimitive.Content>
+          )}
+        </AnimatePresence>
+      </DialogPortal>
+    );
+  }
+);
 DialogContent.displayName = DialogPrimitive.Content.displayName;
 
-const DialogHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const DialogHeader = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => (
   <div className={cn('flex flex-col space-y-1.5 text-center sm:text-left', className)} {...props} />
 );
 DialogHeader.displayName = 'DialogHeader';
 
-const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const DialogFooter = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn('flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2', className)}
     {...props}
@@ -175,9 +170,9 @@ const DialogFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivEleme
 );
 DialogFooter.displayName = 'DialogFooter';
 
-const DialogTitle = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+const DialogTitle = forwardRef<
+  ComponentRef<typeof DialogPrimitive.Title>,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
@@ -187,9 +182,9 @@ const DialogTitle = React.forwardRef<
 ));
 DialogTitle.displayName = DialogPrimitive.Title.displayName;
 
-const DialogDescription = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+const DialogDescription = forwardRef<
+  ComponentRef<typeof DialogPrimitive.Description>,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
