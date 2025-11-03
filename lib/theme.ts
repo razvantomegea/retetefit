@@ -9,7 +9,7 @@ export const getThemeLabel = (theme: Theme | undefined): string => {
     system: '⚙️ System',
   };
 
-  return labels[theme as Theme] || 'System';
+  return theme != null && theme in labels ? labels[theme] : 'System';
 };
 
 export const getThemeIcon = (theme: Theme | undefined) => {
