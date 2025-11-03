@@ -1,19 +1,18 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
-import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
-import { Geist, Geist_Mono } from 'next/font/google';
-import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import '../globals.css';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
+import { Inter } from 'next/font/google';
+import { notFound } from 'next/navigation';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+import { Navbar } from '@/components/navigation/Navbar';
+import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { routing } from '@/i18n/routing';
+
+const inter = Inter({
+  variable: '--font-sans',
   subsets: ['latin'],
+  display: 'swap',
 });
 
 export function generateStaticParams() {
@@ -40,9 +39,7 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${inter.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -51,11 +48,11 @@ export default async function LocaleLayout({
           storageKey="maingain-theme"
         >
           <NextIntlClientProvider messages={messages}>
-            {children}
+            <Navbar />
+            <main>{children}</main>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
     </html>
   );
 }
-

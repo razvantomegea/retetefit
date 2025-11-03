@@ -41,4 +41,3 @@ export function ThemeProvider({
     </NextThemesProvider>
   );
 }
-

@@ -11,6 +11,21 @@
   "Metadata": {
     "title": "Creează Next App",
     "description": "Generat cu create next app"
+  },
+  "nav": {
+    "lowCalorie": "Puține Calorii",
+    "theme": "Temă",
+    "language": "Limbă",
+    "mobileMenu": "Meniu de navigare"
+  },
+  "search": {
+    "title": "Căutare",
+    "placeholder": "Caută rețete...",
+    "noResults": "Nu am găsit rețete.",
+    "recipes": "Rețete",
+    "comingSoon": "Funcționalitatea de căutare vine în curând!",
+    "pressEnter": "Scrie și apasă Enter pentru a căuta",
+    "toSearch": "pentru a căuta",
+    "mobileHint": "Scrie pentru a căuta"
   }
 }
-

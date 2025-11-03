@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { getTranslations } from 'next-intl/server';
-import { ThemeToggle } from '@/components/theme/ThemeToggle';
 
 export async function generateMetadata() {
   const t = await getTranslations('Metadata');
@@ -70,10 +69,8 @@ export default async function Home() {
           >
             {t('documentation')}
           </a>
-          <ThemeToggle />
         </div>
       </main>
     </div>
   );
 }
-

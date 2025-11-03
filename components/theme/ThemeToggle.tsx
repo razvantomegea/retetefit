@@ -1,8 +1,9 @@
 'use client';
 
-import { useTheme } from 'next-themes';
-import { useEffect, useState, startTransition } from 'react';
 import { Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { startTransition, useEffect, useState } from 'react';
+
 import { Button } from '@/components/ui/button';
 
 export function ThemeToggle() {
@@ -31,7 +32,7 @@ export function ThemeToggle() {
   const isDark = resolvedTheme === 'dark';
 
   const handleThemeToggle = () => {
-    setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+    setTheme(isDark ? 'light' : 'dark');
   };
 
   return (
@@ -39,15 +40,14 @@ export function ThemeToggle() {
       variant="ghost"
       size="icon"
       onClick={handleThemeToggle}
-      className="w-10 h-10 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+      className="w-10 h-10 rounded-md hover:bg-surface-elevated transition-colors"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} theme`}
     >
       {isDark ? (
         <Sun className="w-5 h-5 text-amber-500" />
       ) : (
-        <Moon className="w-5 h-5 text-zinc-700 dark:text-zinc-300" />
+        <Moon className="w-5 h-5 text-text-primary" />
       )}
     </Button>
   );
 }
-

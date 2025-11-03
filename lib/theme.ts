@@ -22,4 +22,3 @@ export const getThemeIcon = (theme: Theme | undefined) => {
       return '⚙️';
   }
 };
-

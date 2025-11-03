@@ -17,12 +17,9 @@ export function Button({
     'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50';
 
   const variantStyles = {
-    default:
-      'bg-green-500 text-white hover:bg-green-600 active:bg-green-700',
-    ghost:
-      'hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-900 dark:text-zinc-50',
-    outline:
-      'border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800',
+    default: 'bg-green-500 text-white hover:bg-green-600 active:bg-green-700',
+    ghost: 'hover:bg-surface-elevated text-text-primary',
+    outline: 'border border-border hover:bg-surface-elevated text-text-primary',
   };
 
   const sizeStyles = {
@@ -41,4 +38,3 @@ export function Button({
     </button>
   );
 }
-
