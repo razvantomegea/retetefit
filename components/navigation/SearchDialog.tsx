@@ -121,44 +121,73 @@ export function SearchDialog({ open: controlledOpen, onOpenChange }: SearchDialo
                 </motion.div>
                 <input
                   ref={inputRef}
-                  type="text"
+                  type="search"
                   value={query}
                   onChange={handleChange}
                   placeholder={t('search.placeholder')}
-                  className="flex-1 text-lg outline-none bg-transparent placeholder:text-text-secondary text-text-primary"
+                  className="flex-1 text-lg outline-none bg-transparent placeholder:text-text-secondary text-text-primary [&::-webkit-search-cancel-button]:hidden [&::-webkit-search-decoration]:hidden [-ms-clear]:hidden"
                   autoComplete="off"
                   autoCorrect="off"
                   autoCapitalize="off"
                   spellCheck="false"
+                  enterKeyHint="search"
                 />
-                <DialogClose className="rounded-sm opacity-70 transition-all hover:opacity-100 hover:bg-surface-elevated focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:pointer-events-none flex items-center justify-center h-8 w-8 shrink-0">
-                  <motion.div
-                    whileHover={{ rotate: 90, scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                {query && (
+                  <button
+                    type="button"
+                    onClick={() => setQuery('')}
+                    className="rounded-sm opacity-70 transition-all hover:opacity-100 hover:bg-surface-elevated focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:pointer-events-none flex items-center justify-center h-8 w-8 shrink-0"
+                    aria-label="Clear search"
                   >
-                    <X className="h-4 w-4 text-text-primary" />
-                  </motion.div>
-                  <span className="sr-only">Close</span>
-                </DialogClose>
+                    <motion.div
+                      whileHover={{ rotate: 90, scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                    >
+                      <X className="h-4 w-4 text-text-primary" />
+                    </motion.div>
+                  </button>
+                )}
+                {!query && (
+                  <DialogClose className="rounded-sm opacity-70 transition-all hover:opacity-100 hover:bg-surface-elevated focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:pointer-events-none flex items-center justify-center h-8 w-8 shrink-0">
+                    <motion.div
+                      whileHover={{ rotate: 90, scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+                    >
+                      <X className="h-4 w-4 text-text-primary" />
+                    </motion.div>
+                    <span className="sr-only">Close</span>
+                  </DialogClose>
+                )}
               </div>
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.2 }}
-                className="hidden sm:flex mt-6 text-sm text-text-secondary"
-              >
-                {/* Desktop: Show Enter key hint */}
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs">{t('search.pressEnter')}</span>
-                  <div className="flex items-center gap-2">
-                    <kbd className="px-2 py-1 text-xs font-semibold text-text-primary bg-surface-elevated border border-border rounded">
-                      Enter
-                    </kbd>
-                    <span className="text-xs">{t('search.toSearch')}</span>
+              {query && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1, duration: 0.2 }}
+                  className="mt-6 text-sm text-text-secondary"
+                >
+                  <div className="flex flex-col gap-3 sm:gap-4">
+                    {/* Mobile: Show keyboard hint */}
+                    <div className="sm:hidden flex items-center gap-2">
+                      <div className="inline-flex items-center gap-1 px-2 py-1 bg-surface-elevated border border-border rounded text-xs font-semibold text-text-primary">
+                        <span>🔍</span>
+                      </div>
+                      <span className="text-xs">{t('search.toSearch')}</span>
+                    </div>
+                    {/* Desktop: Show Enter key hint */}
+                    <div className="hidden sm:flex items-center">
+                      <div className="flex items-center gap-2">
+                        <kbd className="px-2 py-1 text-xs font-semibold text-text-primary bg-surface-elevated border border-border rounded">
+                          Enter
+                        </kbd>
+                        <span className="text-xs">{t('search.toSearch')}</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              )}
             </form>
           </div>
         </DialogContent>

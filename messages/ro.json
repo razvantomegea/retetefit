@@ -37,7 +37,8 @@
     "comingSoon": "Funcționalitatea de căutare vine în curând!",
     "pressEnter": "Scrie și apasă",
     "toSearch": "pentru a căuta",
-    "mobileHint": "Scrie pentru a căuta"
+    "mobileHint": "Atinge butonul de căutare de pe tastatură",
+    "searchButton": "Căutare"
   },
   "loadingLanguage": "Se încarcă limba",
   "language": {

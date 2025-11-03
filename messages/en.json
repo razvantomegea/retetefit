@@ -37,7 +37,8 @@
     "comingSoon": "Search functionality coming soon!",
     "pressEnter": "Type and press",
     "toSearch": "to search",
-    "mobileHint": "Type to search"
+    "mobileHint": "Tap the search button on your keyboard",
+    "searchButton": "Search"
   },
   "loadingLanguage": "Loading language",
   "language": {
