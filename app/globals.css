@@ -1,26 +1,171 @@
 @import "tailwindcss";
 
+/* Light Mode (Default) */
 :root {
+  /* Primary - Green (Action & Brand) */
+  --green-50: #f0fdf4;
+  --green-100: #dcfce7;
+  --green-500: #22c55e; /* Main action color */
+  --green-600: #16a34a; /* Hover state */
+  --green-700: #15803d; /* Active state */
+  --green-900: #14532d; /* Dark accents */
+
+  /* Neutral - Base Colors */
+  --white: #ffffff;
+  --zinc-50: #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+  --zinc-600: #52525b;
+  --zinc-700: #3f3f46;
+  --zinc-900: #18181b;
+
+  /* Semantic Colors */
+  --success: #22c55e; /* Green-500 */
+  --warning: #f59e0b; /* Amber-500 */
+  --error: #ef4444; /* Red-500 */
+  --info: #3b82f6; /* Blue-500 */
+
+  /* Surface & Background */
   --background: #ffffff;
-  --foreground: #171717;
+  --surface: #fafafa; /* Zinc-50 */
+  --surface-elevated: #ffffff;
+
+  /* Text */
+  --text-primary: #18181b; /* Zinc-900 */
+  --text-secondary: #52525b; /* Zinc-600 */
+  --text-tertiary: #a1a1aa; /* Zinc-400 */
+
+  /* Borders */
+  --border-light: #f4f4f5; /* Zinc-100 */
+  --border: #e4e4e7; /* Zinc-200 */
+  --border-strong: #d4d4d8; /* Zinc-300 */
+
+  /* Overlays */
+  --overlay: rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Nutrition-Specific Colors (both themes) */
+  --macro-protein: #3b82f6; /* Blue */
+  --macro-carbs: #f59e0b; /* Amber */
+  --macro-fat: #ec4899; /* Pink */
+  --macro-fiber: #8b5cf6; /* Purple */
+  --macro-calories: #22c55e; /* Green */
+
+  /* Category Colors (subtle backgrounds) */
+  --cat-breakfast: #fef3c7; /* Amber-100 */
+  --cat-lunch: #dbeafe; /* Blue-100 */
+  --cat-dinner: #f3e8ff; /* Purple-100 */
+  --cat-snacks: #dcfce7; /* Green-100 */
+  --cat-desserts: #fce7f3; /* Pink-100 */
 }
 
+/* Dark Mode */
+.dark {
+  /* Primary - Green (slightly brighter for dark bg) */
+  --green-400: #4ade80; /* Main action color */
+  --green-500: #22c55e; /* Hover state */
+  --green-600: #16a34a; /* Active state */
+
+  /* Neutral - Dark Base */
+  --zinc-800: #27272a;
+  --zinc-850: #1f1f23; /* Custom darker shade */
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+
+  /* Surface & Background */
+  --background: #09090b; /* Zinc-950 */
+  --surface: #18181b; /* Zinc-900 */
+  --surface-elevated: #27272a; /* Zinc-800 */
+
+  /* Text */
+  --text-primary: #fafafa; /* Zinc-50 */
+  --text-secondary: #d4d4d8; /* Zinc-300 */
+  --text-tertiary: #71717a; /* Zinc-500 */
+
+  /* Borders */
+  --border-light: #27272a; /* Zinc-800 */
+  --border: #3f3f46; /* Zinc-700 */
+  --border-strong: #52525b; /* Zinc-600 */
+
+  /* Action Color Override */
+  --success: #4ade80; /* Green-400 (brighter) */
+
+  /* Overlays */
+  --overlay: rgba(0, 0, 0, 0.7);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+
+  /* Dark mode category backgrounds */
+  --cat-breakfast: rgba(245, 158, 11, 0.1);
+  --cat-lunch: rgba(59, 130, 246, 0.1);
+  --cat-dinner: rgba(139, 92, 246, 0.1);
+  --cat-snacks: rgba(34, 197, 94, 0.1);
+  --cat-desserts: rgba(236, 72, 153, 0.1);
+}
+
+/* Tailwind v4 Theme Integration */
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-foreground: var(--text-primary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Make PRD colors available as Tailwind utilities */
+  --color-green-50: var(--green-50);
+  --color-green-100: var(--green-100);
+  --color-green-400: var(--green-400);
+  --color-green-500: var(--green-500);
+  --color-green-600: var(--green-600);
+  --color-green-700: var(--green-700);
+  --color-green-900: var(--green-900);
+  
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  
+  --color-border: var(--border);
+  --color-border-light: var(--border-light);
+  --color-border-strong: var(--border-strong);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Smooth transitions for theme changes */
+* {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
+/* Body styling */
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont,
+    'Segoe UI', system-ui, sans-serif;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0ms !important;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Optional: Image theme-aware background */
+.theme-image-wrapper {
+  background: var(--zinc-100);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.dark .theme-image-wrapper {
+  background: var(--zinc-800);
 }
