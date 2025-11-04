@@ -35,7 +35,7 @@
     "noResults": "No recipes found.",
     "recipes": "Recipes",
     "comingSoon": "Search functionality coming soon!",
-    "pressEnter": "Type and press",
+    "pressEnter": "Press",
     "toSearch": "to search",
     "mobileHint": "Tap the search button on your keyboard",
     "searchButton": "Search"
@@ -45,5 +45,11 @@
     "romanian": "Română",
     "english": "English"
   },
-  "switchTo": "Switch to {lang}"
+  "switchTo": "Switch to {lang}",
+  "hero": {
+    "title": "Healthy Recipes Under 30 Minutes",
+    "subtitle": "Discover delicious, low-calorie meals that fuel your fitness goals. Quick prep, maximum flavor, zero compromise.",
+    "cta": "Discover Recipes",
+    "scrollButton": "Scroll to recipes"
+  }
 }

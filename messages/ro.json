@@ -35,7 +35,7 @@
     "noResults": "Nu am găsit rețete.",
     "recipes": "Rețete",
     "comingSoon": "Funcționalitatea de căutare vine în curând!",
-    "pressEnter": "Scrie și apasă",
+    "pressEnter": "Apasă",
     "toSearch": "pentru a căuta",
     "mobileHint": "Atinge butonul de căutare de pe tastatură",
     "searchButton": "Căutare"
@@ -45,5 +45,11 @@
     "romanian": "Română",
     "english": "English"
   },
-  "switchTo": "Schimbă la {lang}"
+  "switchTo": "Schimbă la {lang}",
+  "hero": {
+    "title": "Rețete Sănătoase Sub 30 de Minute",
+    "subtitle": "Descoperă mese delicioase și cu puține calorii care îți susțin obiectivele de fitness. Pregătire rapidă, gust maxim, zero compromisuri.",
+    "cta": "Descoperă Rețetele",
+    "scrollButton": "Vezi rețetele"
+  }
 }

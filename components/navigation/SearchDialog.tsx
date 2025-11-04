@@ -171,13 +171,15 @@ export function SearchDialog({ open: controlledOpen, onOpenChange }: SearchDialo
                   <div className="flex flex-col gap-3 sm:gap-4">
                     {/* Mobile: Show keyboard hint */}
                     <div className="sm:hidden flex items-center gap-2">
-                      <div className="inline-flex items-center gap-1 px-2 py-1 bg-surface-elevated border border-border rounded text-xs font-semibold text-text-primary">
-                        <span>🔍</span>
-                      </div>
+                      <span className="text-xs">{t('search.pressEnter')}</span>
+                      <kbd className="px-2 py-1 text-xs font-semibold text-text-primary bg-surface-elevated border border-border rounded">
+                        Search
+                      </kbd>
                       <span className="text-xs">{t('search.toSearch')}</span>
                     </div>
                     {/* Desktop: Show Enter key hint */}
-                    <div className="hidden sm:flex items-center">
+                    <div className="hidden sm:flex items-center gap-2">
+                      <span className="text-xs">{t('search.pressEnter')}</span>
                       <div className="flex items-center gap-2">
                         <kbd className="px-2 py-1 text-xs font-semibold text-text-primary bg-surface-elevated border border-border rounded">
                           Enter
