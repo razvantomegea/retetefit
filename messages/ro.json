@@ -50,6 +50,28 @@
     "title": "Rețete Sănătoase Sub 30 de Minute",
     "subtitle": "Descoperă mese delicioase și cu puține calorii care îți susțin obiectivele de fitness. Pregătire rapidă, gust maxim, zero compromisuri.",
     "cta": "Descoperă Rețetele",
-    "scrollButton": "Vezi rețetele"
+    "scrollButton": "Vezi rețetele",
+    "quickPrep": "< 30 min",
+    "lowCalorie": "Puține Calorii"
+  },
+  "recipes": {
+    "title": "Rețete Sănătoase",
+    "subtitle": "Explorează colecția noastră de rețete nutriționale, dedicate fitness-ului, create să îți susțină călătoria către o viață mai sănătoasă.",
+    "viewRecipe": "Vezi rețeta",
+    "min": "min",
+    "kcal": "kcal",
+    "lowCalorie": "Puține Calorii",
+    "categories": {
+      "breakfast": "Mic Dejun",
+      "lunch": "Prânz",
+      "dinner": "Cină",
+      "snack": "Gustare"
+    },
+    "nutrition": {
+      "protein": "Proteine",
+      "carbs": "Carbohidrați",
+      "fat": "Grăsimi",
+      "calories": "Cal"
+    }
   }
 }

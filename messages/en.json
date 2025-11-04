@@ -50,6 +50,28 @@
     "title": "Healthy Recipes Under 30 Minutes",
     "subtitle": "Discover delicious, low-calorie meals that fuel your fitness goals. Quick prep, maximum flavor, zero compromise.",
     "cta": "Discover Recipes",
-    "scrollButton": "Scroll to recipes"
+    "scrollButton": "Scroll to recipes",
+    "quickPrep": "< 30 min",
+    "lowCalorie": "Low Calorie"
+  },
+  "recipes": {
+    "title": "Healthy Recipes",
+    "subtitle": "Explore our collection of nutritious, fitness-focused recipes designed to support your wellness journey.",
+    "viewRecipe": "View recipe",
+    "min": "min",
+    "kcal": "kcal",
+    "lowCalorie": "Low Calorie",
+    "categories": {
+      "breakfast": "Breakfast",
+      "lunch": "Lunch",
+      "dinner": "Dinner",
+      "snack": "Snack"
+    },
+    "nutrition": {
+      "protein": "Protein",
+      "carbs": "Carbs",
+      "fat": "Fat",
+      "calories": "Cal"
+    }
   }
 }

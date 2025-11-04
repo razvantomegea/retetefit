@@ -12,44 +12,66 @@ export function Hero() {
   const t = useTranslations('hero');
   const prefersReducedMotion = useReducedMotion();
 
+  // Smooth scroll handler
+  const handleScrollToRecipes = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const recipesSection = document.getElementById('recipes');
+    if (recipesSection) {
+      recipesSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   // Animation variants for staggered entrance
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : {
+            staggerChildren: 0.15,
+            delayChildren: 0.1,
+          },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: prefersReducedMotion ? 0 : 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.4, 0, 0.2, 1], // cubic-bezier ease-in-out
-      },
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : {
+            duration: 0.5,
+            ease: [0.4, 0, 0.2, 1], // cubic-bezier ease-in-out
+          },
     },
   };
 
   const iconVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.8, rotate: -10 },
+    hidden: {
+      opacity: 0,
+      scale: prefersReducedMotion ? 1 : 0.8,
+      rotate: prefersReducedMotion ? 0 : -10,
+    },
     visible: {
       opacity: 1,
       scale: 1,
       rotate: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.4, 0, 0.2, 1],
-      },
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : {
+            duration: 0.6,
+            ease: [0.4, 0, 0.2, 1],
+          },
     },
     hover: {
-      scale: 1.1,
-      rotate: 5,
+      scale: prefersReducedMotion ? 1 : 1.1,
+      rotate: prefersReducedMotion ? 0 : 5,
       transition: {
         duration: 0.2,
       },
@@ -57,15 +79,17 @@ export function Hero() {
   };
 
   const imageVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.95 },
+    hidden: { opacity: 0, scale: prefersReducedMotion ? 1 : 0.95 },
     visible: {
       opacity: 1,
       scale: 1,
-      transition: {
-        duration: 0.8,
-        delay: 0.4,
-        ease: [0.4, 0, 0.2, 1],
-      },
+      transition: prefersReducedMotion
+        ? { duration: 0 }
+        : {
+            duration: 0.8,
+            delay: 0.4,
+            ease: [0.4, 0, 0.2, 1],
+          },
     },
   };
 
@@ -92,7 +116,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative flex flex-col items-center justify-center overflow-hidden bg-linear-to-b from-surface to-background px-6 py-12 text-center md:grid md:grid-cols-2 md:items-center md:gap-12 md:px-8 md:py-20"
+      className="relative md:min-h-[calc(100vh-120px)] flex flex-col items-center justify-center overflow-hidden bg-linear-to-b from-surface to-background px-6 py-12 text-center md:grid md:grid-cols-2 md:items-center md:gap-12 md:px-8 md:py-20"
       aria-label="Hero section"
     >
       {/* Subtle animated background gradient overlay */}
@@ -102,45 +126,69 @@ export function Hero() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           className="absolute top-20 left-4 md:left-10 text-green-500/20 dark:text-green-400/10"
-          animate={{
-            y: [0, -10, 0],
-            rotate: [0, 5, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
+          animate={
+            prefersReducedMotion
+              ? { y: 0, rotate: 0 }
+              : {
+                  y: [0, -10, 0],
+                  rotate: [0, 5, 0],
+                }
+          }
+          transition={
+            prefersReducedMotion
+              ? { duration: 0 }
+              : {
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }
+          }
         >
           <Leaf className="h-8 w-8 md:h-12 md:w-12" aria-hidden="true" />
         </motion.div>
         <motion.div
           className="absolute top-32 right-8 md:right-16 text-green-500/20 dark:text-green-400/10"
-          animate={{
-            y: [0, 10, 0],
-            rotate: [0, -5, 0],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 1,
-          }}
+          animate={
+            prefersReducedMotion
+              ? { y: 0, rotate: 0 }
+              : {
+                  y: [0, 10, 0],
+                  rotate: [0, -5, 0],
+                }
+          }
+          transition={
+            prefersReducedMotion
+              ? { duration: 0 }
+              : {
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: 1,
+                }
+          }
         >
           <Sparkles className="h-6 w-6 md:h-10 md:w-10" aria-hidden="true" />
         </motion.div>
         <motion.div
           className="absolute bottom-32 left-1/4 text-green-500/20 dark:text-green-400/10"
-          animate={{
-            y: [0, -8, 0],
-            rotate: [0, 3, 0],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: 2,
-          }}
+          animate={
+            prefersReducedMotion
+              ? { y: 0, rotate: 0 }
+              : {
+                  y: [0, -8, 0],
+                  rotate: [0, 3, 0],
+                }
+          }
+          transition={
+            prefersReducedMotion
+              ? { duration: 0 }
+              : {
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: 2,
+                }
+          }
         >
           <Clock className="h-7 w-7 md:h-9 md:w-9" aria-hidden="true" />
         </motion.div>
@@ -175,6 +223,7 @@ export function Hero() {
         <motion.div variants={itemVariants}>
           <Link
             href="/#recipes"
+            onClick={handleScrollToRecipes}
             className="group inline-flex items-center justify-center gap-2 rounded-lg bg-green-500 px-8 py-3 text-base font-semibold text-white shadow-sm transition-all duration-200 ease-in-out hover:bg-green-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-green-400 dark:hover:bg-green-500 dark:focus-visible:ring-green-400"
             aria-label={t('cta')}
           >
@@ -182,7 +231,7 @@ export function Hero() {
               variants={iconVariants}
               initial="hidden"
               animate="visible"
-              whileHover="hover"
+              whileHover={prefersReducedMotion ? undefined : 'hover'}
             >
               <Sparkles className="h-4 w-4" aria-hidden="true" />
             </motion.span>
@@ -197,12 +246,12 @@ export function Hero() {
         >
           <div className="flex items-center gap-1.5">
             <Clock className="h-4 w-4" aria-hidden="true" />
-            <span>&lt; 30 min</span>
+            <span>{t('quickPrep')}</span>
           </div>
           <span className="text-border">•</span>
           <div className="flex items-center gap-1.5">
             <Leaf className="h-4 w-4" aria-hidden="true" />
-            <span>Low Calorie</span>
+            <span>{t('lowCalorie')}</span>
           </div>
         </motion.div>
       </motion.div>
@@ -228,7 +277,7 @@ export function Hero() {
 
       {/* Scroll Down Indicator */}
       <motion.div
-        className="relative mx-auto mt-8 flex items-center justify-center pointer-events-none md:absolute md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:z-20"
+        className="hidden relative mx-auto mt-8 md:flex items-center justify-center pointer-events-none md:absolute md:bottom-6 md:left-1/2 md:-translate-x-1/2 md:z-20"
         variants={scrollIndicatorVariants}
         initial="initial"
         animate="animate"
