@@ -4,13 +4,7 @@ export interface NavCategory {
   labelKey: string; // Translation key
 }
 
-export const NAV_CATEGORIES: NavCategory[] = [
-  {
-    id: 'lowCalorie',
-    href: '/mic-dejun',
-    labelKey: 'nav.lowCalorie',
-  },
-];
+export const NAV_CATEGORIES: NavCategory[] = [];
 
 export const LANGUAGES = [
   { code: 'ro', label: 'RO', flag: '🇷🇴' },
