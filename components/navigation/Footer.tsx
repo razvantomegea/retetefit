@@ -1,10 +1,10 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
-import { Facebook, Instagram } from 'lucide-react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa';
 
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { defaultLocale } from '@/i18n/config';
@@ -125,7 +125,7 @@ export default function Footer({ className }: FooterProps) {
                 whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
                 transition={{ duration: 0.2 }}
               >
-                <Instagram className="w-5 h-5" aria-hidden="true" />
+                <FaInstagram className="w-5 h-5" aria-hidden="true" />
               </motion.a>
               <motion.a
                 href="#"
@@ -135,7 +135,7 @@ export default function Footer({ className }: FooterProps) {
                 whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
                 transition={{ duration: 0.2 }}
               >
-                <Facebook className="w-5 h-5" aria-hidden="true" />
+                <FaFacebook className="w-5 h-5" aria-hidden="true" />
               </motion.a>
               <motion.a
                 href="#"
@@ -145,10 +145,7 @@ export default function Footer({ className }: FooterProps) {
                 whileTap={prefersReducedMotion ? undefined : { scale: 0.95 }}
                 transition={{ duration: 0.2 }}
               >
-                {/* Pinterest icon not available in lucide-react, using a generic icon */}
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 0C5.373 0 0 5.372 0 12s5.373 12 12 12c5.302 0 9.917-3.158 11.827-7.69-.053-.102-.115-.204-.19-.31-.625-1.11-1.391-2.314-1.391-4.163 0-3.338 2.498-5.837 5.504-5.837 1.602 0 2.902 1.2 2.902 2.8 0 1.61-.85 2.98-2.1 2.98-.69 0-1.35-.36-1.35-1.09 0-.9.72-1.96 1.71-1.96.58 0 1.04.2 1.21.58.13.32.44 1.38.51 1.71.09.38.51 2.3.6 2.91.18.78-.39 1.4-1.13 1.4-.68 0-1.19-.43-1.45-.85-.31-.52-.62-1.05-.93-1.58-.52-1.1-1.1-2.2-1.68-3.3-.24-.48-.5-1-.82-1.48-.18-.3-.38-.6-.6-.9-.22-.3-.46-.6-.72-.87-.26-.27-.54-.5-.84-.7-.3-.2-.62-.35-.96-.45-.34-.1-.7-.15-1.08-.15-.48 0-.94.08-1.38.24-.44.16-.84.4-1.2.72-.36.32-.66.7-.9 1.14-.24.44-.36.92-.36 1.44 0 .52.12 1 .36 1.44.24.44.54.82.9 1.14.36.32.76.56 1.2.72.44.16.9.24 1.38.24.38 0 .74-.05 1.08-.15.34-.1.66-.25.96-.45.3-.2.58-.43.84-.7.26-.27.5-.57.72-.87.22-.3.42-.6.6-.9.32-.48.58-1 .82-1.48.58-1.1 1.16-2.2 1.68-3.3.31-.53.62-1.06.93-1.58.26-.42.77-.85 1.45-.85.74 0 1.22.62 1.13 1.4-.09.61-.47 2.53-.6 2.91-.17.38-.63.58-1.21.58-.99 0-1.71-1.06-1.71-1.96 0-.73.66-1.09 1.35-1.09 1.25 0 2.1 1.37 2.1 2.98 0 1.6-1.3 2.8-2.9 2.8-3.01 0-5.5-2.5-5.5-5.84 0-1.85.77-3.05 1.39-4.16.08-.11.15-.21.19-.31C21.92 3.16 17.3 0 12 0z" />
-                </svg>
+                <FaPinterest className="w-5 h-5" aria-hidden="true" />
               </motion.a>
             </div>
 
