@@ -15,6 +15,14 @@
   "nav": {
     "lowCalorie": "Low Calorie",
     "theme": "Theme",
+    "categories": {
+      "easy": "Easy",
+      "fast": "Fast",
+      "highProtein": "High Protein",
+      "highFiber": "High Fiber",
+      "vegetarian": "Vegetarian",
+      "vegan": "Vegan"
+    },
     "language": {
       "switchTo": "Switch to {language}",
       "names": {
@@ -58,20 +66,55 @@
     "title": "Healthy Recipes",
     "subtitle": "Explore our collection of nutritious, fitness-focused recipes designed to support your wellness journey.",
     "viewRecipe": "View recipe",
+    "viewAll": "View All",
     "min": "min",
     "kcal": "kcal",
+    "servings": "servings",
+    "cookTime": "Cook time",
+    "difficulty": "Difficulty",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard",
     "lowCalorie": "Low Calorie",
     "categories": {
-      "breakfast": "Breakfast",
-      "lunch": "Lunch",
-      "dinner": "Dinner",
-      "snack": "Snack"
+      "easy": "Easy",
+      "fast": "Fast",
+      "highProtein": "High Protein",
+      "highFiber": "High Fiber",
+      "vegetarian": "Vegetarian",
+      "vegan": "Vegan"
     },
     "nutrition": {
       "protein": "Protein",
       "carbs": "Carbs",
       "fat": "Fat",
-      "calories": "Cal"
-    }
+      "calories": "Cal",
+      "fiber": "Fiber"
+    },
+    "ingredients": "Ingredients",
+    "instructions": "Instructions",
+    "nutritionFacts": "Nutrition Facts",
+    "tips": "Tips & Variations",
+    "relatedRecipes": "Related Recipes",
+    "backToCategories": "Back to Categories",
+    "filterBy": "Filter by",
+    "sortBy": "Sort by",
+    "sortOptions": {
+      "newest": "Newest",
+      "oldest": "Oldest",
+      "quickest": "Quickest",
+      "lowCalories": "Lowest Calories",
+      "highCalories": "Highest Calories",
+      "highProtein": "Highest Protein"
+    },
+    "noRecipesFound": "No recipes found",
+    "allCategories": "All Categories",
+    "recipeCount": "{count} {count, plural, =1 {recipe} other {recipes}}"
+  },
+  "categories": {
+    "title": "Recipe Categories",
+    "subtitle": "Browse recipes by category",
+    "viewRecipes": "View Recipes",
+    "recipes": "{count} {count, plural, =1 {recipe} other {recipes}}"
   }
 }

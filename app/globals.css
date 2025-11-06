@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+@theme {
+  --dark-mode: class;
+}
+
 /* Light Mode (Default) */
 :root {
   /* Primary - Green (Action & Brand) */
@@ -63,6 +67,31 @@
   --cat-dinner: #f3e8ff; /* Purple-100 */
   --cat-snacks: #dcfce7; /* Green-100 */
   --cat-desserts: #fce7f3; /* Pink-100 */
+
+  /* Badge Colors - Category */
+  --badge-category-bg: var(--green-100);
+  --badge-category-text: var(--green-900);
+  --badge-category-border: var(--green-200);
+
+  /* Badge Colors - Difficulty */
+  --badge-easy-bg: var(--green-100);
+  --badge-easy-text: var(--green-900);
+  --badge-easy-border: var(--green-200);
+  --badge-medium-bg: #fef3c7; /* amber-100 */
+  --badge-medium-text: #78350f; /* amber-900 */
+  --badge-medium-border: #fde68a; /* amber-200 */
+  --badge-hard-bg: #fee2e2; /* red-100 */
+  --badge-hard-text: #7f1d1d; /* red-900 */
+  --badge-hard-border: #fecaca; /* red-200 */
+
+  /* Badge Colors - Tags */
+  --badge-tag-bg: var(--green-50);
+  --badge-tag-text: var(--green-900);
+  --badge-tag-border: var(--green-200);
+
+  /* Accent Colors */
+  --accent-primary: var(--green-700);
+  --accent-primary-hover: var(--green-500);
 }
 
 /* Dark Mode */
@@ -108,6 +137,28 @@
   --cat-dinner: rgba(139, 92, 246, 0.1);
   --cat-snacks: rgba(34, 197, 94, 0.1);
   --cat-desserts: rgba(236, 72, 153, 0.1);
+
+  /* Badge Colors - Dark Mode */
+  --badge-category-bg: rgba(34, 197, 94, 0.15);
+  --badge-category-text: #4ade80;
+  --badge-category-border: rgba(34, 197, 94, 0.3);
+
+  --badge-easy-bg: rgba(34, 197, 94, 0.15);
+  --badge-easy-text: #4ade80;
+  --badge-easy-border: rgba(34, 197, 94, 0.3);
+  --badge-medium-bg: rgba(245, 158, 11, 0.15);
+  --badge-medium-text: #fbbf24;
+  --badge-medium-border: rgba(245, 158, 11, 0.3);
+  --badge-hard-bg: rgba(239, 68, 68, 0.15);
+  --badge-hard-text: #f87171;
+  --badge-hard-border: rgba(239, 68, 68, 0.3);
+
+  --badge-tag-bg: rgba(34, 197, 94, 0.1);
+  --badge-tag-text: #4ade80;
+  --badge-tag-border: rgba(34, 197, 94, 0.2);
+
+  --accent-primary: #4ade80;
+  --accent-primary-hover: #22c55e;
 }
 
 /* Animation Utilities for Dialog/Sheet components */
@@ -357,6 +408,28 @@
   --color-border: var(--border);
   --color-border-light: var(--border-light);
   --color-border-strong: var(--border-strong);
+
+  /* Badge Colors */
+  --color-badge-category-bg: var(--badge-category-bg);
+  --color-badge-category-text: var(--badge-category-text);
+  --color-badge-category-border: var(--badge-category-border);
+
+  --color-badge-easy-bg: var(--badge-easy-bg);
+  --color-badge-easy-text: var(--badge-easy-text);
+  --color-badge-easy-border: var(--badge-easy-border);
+  --color-badge-medium-bg: var(--badge-medium-bg);
+  --color-badge-medium-text: var(--badge-medium-text);
+  --color-badge-medium-border: var(--badge-medium-border);
+  --color-badge-hard-bg: var(--badge-hard-bg);
+  --color-badge-hard-text: var(--badge-hard-text);
+  --color-badge-hard-border: var(--badge-hard-border);
+
+  --color-badge-tag-bg: var(--badge-tag-bg);
+  --color-badge-tag-text: var(--badge-tag-text);
+  --color-badge-tag-border: var(--badge-tag-border);
+
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-primary-hover: var(--accent-primary-hover);
 }
 
 /* Smooth transitions for theme changes */

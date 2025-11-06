@@ -15,6 +15,14 @@
   "nav": {
     "lowCalorie": "Puține Calorii",
     "theme": "Temă",
+    "categories": {
+      "easy": "Ușor",
+      "fast": "Rapid",
+      "highProtein": "Bogat în Proteine",
+      "highFiber": "Bogat în Fibre",
+      "vegetarian": "Vegetarian",
+      "vegan": "Vegan"
+    },
     "language": {
       "switchTo": "Schimbă la {language}",
       "names": {
@@ -58,20 +66,55 @@
     "title": "Rețete Sănătoase",
     "subtitle": "Explorează colecția noastră de rețete nutriționale, dedicate fitness-ului, create să îți susțină călătoria către o viață mai sănătoasă.",
     "viewRecipe": "Vezi rețeta",
+    "viewAll": "Vezi Tot",
     "min": "min",
     "kcal": "kcal",
+    "servings": "porții",
+    "cookTime": "Timp de gătit",
+    "difficulty": "Dificultate",
+    "easy": "Ușor",
+    "medium": "Mediu",
+    "hard": "Dificil",
     "lowCalorie": "Puține Calorii",
     "categories": {
-      "breakfast": "Mic Dejun",
-      "lunch": "Prânz",
-      "dinner": "Cină",
-      "snack": "Gustare"
+      "easy": "Ușor",
+      "fast": "Rapid",
+      "highProtein": "Bogat în Proteine",
+      "highFiber": "Bogat în Fibre",
+      "vegetarian": "Vegetarian",
+      "vegan": "Vegan"
     },
     "nutrition": {
       "protein": "Proteine",
       "carbs": "Carbohidrați",
       "fat": "Grăsimi",
-      "calories": "Cal"
-    }
+      "calories": "Cal",
+      "fiber": "Fibre"
+    },
+    "ingredients": "Ingrediente",
+    "instructions": "Instrucțiuni",
+    "nutritionFacts": "Valori Nutriționale",
+    "tips": "Tips & Variații",
+    "relatedRecipes": "Rețete Similare",
+    "backToCategories": "Înapoi la Categorii",
+    "filterBy": "Filtrează după",
+    "sortBy": "Sortează după",
+    "sortOptions": {
+      "newest": "Cele mai noi",
+      "oldest": "Cele mai vechi",
+      "quickest": "Cele mai rapide",
+      "lowCalories": "Cele mai puține calorii",
+      "highCalories": "Cele mai multe calorii",
+      "highProtein": "Cele mai multe proteine"
+    },
+    "noRecipesFound": "Nu am găsit rețete",
+    "allCategories": "Toate Categoriile",
+    "recipeCount": "{count} {count, plural, =1 {rețetă} other {rețete}}"
+  },
+  "categories": {
+    "title": "Categorii de Rețete",
+    "subtitle": "Răsfoiește rețetele pe categorii",
+    "viewRecipes": "Vezi Rețete",
+    "recipes": "{count} {count, plural, =1 {rețetă} other {rețete}}"
   }
 }

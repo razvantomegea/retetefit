@@ -2,9 +2,9 @@
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { AnimatePresence,motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { X } from 'lucide-react';
-import * as React from 'react';
+import { type ComponentPropsWithoutRef, forwardRef, type HTMLAttributes } from 'react';
 
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { cn } from '@/lib/utils';
@@ -29,9 +29,9 @@ const overlayVariants = {
   },
 };
 
-const SheetOverlay = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+const SheetOverlay = forwardRef<
+  React.ComponentRef<typeof DialogPrimitive.Overlay>,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
 >(({ className, ...props }, ref) => {
   const prefersReducedMotion = useReducedMotion();
 
@@ -100,8 +100,8 @@ const sheetSideVariants = {
   },
 };
 
-const SheetContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Content>,
+const SheetContent = forwardRef<
+  React.ComponentRef<typeof DialogPrimitive.Content>,
   SheetContentProps
 >(({ side = 'right', className, children, open, ...props }, ref) => {
   const prefersReducedMotion = useReducedMotion();
@@ -136,11 +136,15 @@ const SheetContent = React.forwardRef<
 });
 SheetContent.displayName = DialogPrimitive.Content.displayName;
 
-const SheetHeader = React.forwardRef<
+const SheetHeader = forwardRef<
   HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement> & { showClose?: boolean }
+  HTMLAttributes<HTMLDivElement> & { showClose?: boolean }
 >(({ className, showClose = false, children, ...props }, ref) => (
-  <div ref={ref} className={cn('flex flex-col space-y-2 text-center sm:text-left', className)} {...props}>
+  <div
+    ref={ref}
+    className={cn('flex flex-col space-y-2 text-center sm:text-left', className)}
+    {...props}
+  >
     {children}
     {showClose && (
       <DialogPrimitive.Close className="rounded-sm opacity-70 transition-all hover:opacity-100 hover:bg-surface-elevated focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:pointer-events-none flex items-center justify-center h-8 w-8 shrink-0">
@@ -158,7 +162,7 @@ const SheetHeader = React.forwardRef<
 ));
 SheetHeader.displayName = 'SheetHeader';
 
-const SheetFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+const SheetFooter = ({ className, ...props }: HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn('flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2', className)}
     {...props}
@@ -166,9 +170,9 @@ const SheetFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElemen
 );
 SheetFooter.displayName = 'SheetFooter';
 
-const SheetTitle = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+const SheetTitle = forwardRef<
+  React.ComponentRef<typeof DialogPrimitive.Title>,
+  ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
@@ -178,8 +182,8 @@ const SheetTitle = React.forwardRef<
 ));
 SheetTitle.displayName = DialogPrimitive.Title.displayName;
 
-const SheetDescription = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Description>,
+const SheetDescription = forwardRef<
+  React.ComponentRef<typeof DialogPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
