@@ -116,5 +116,12 @@
     "subtitle": "Răsfoiește rețetele pe categorii",
     "viewRecipes": "Vezi Rețete",
     "recipes": "{count} {count, plural, =1 {rețetă} other {rețete}}"
+  },
+  "footer": {
+    "tagline": "Rețete sănătoase sub 30 de minute",
+    "categories": "Categorii",
+    "privacy": "Confidențialitate & Cookie-uri",
+    "followUs": "Urmărește-ne",
+    "copyright": "© {year} MainGain. Toate drepturile rezervate."
   }
 }

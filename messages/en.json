@@ -116,5 +116,12 @@
     "subtitle": "Browse recipes by category",
     "viewRecipes": "View Recipes",
     "recipes": "{count} {count, plural, =1 {recipe} other {recipes}}"
+  },
+  "footer": {
+    "tagline": "Healthy recipes under 30 minutes",
+    "categories": "Categories",
+    "privacy": "Privacy & Cookies",
+    "followUs": "Follow Us",
+    "copyright": "© {year} MainGain. All rights reserved."
   }
 }
