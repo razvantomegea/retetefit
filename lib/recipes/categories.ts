@@ -19,4 +19,3 @@ export function getAllCategories(locale: Locale): Category[] {
 export function getCategoryRecipeCount(category: Category, locale: Locale): number {
   return getRecipesByCategory(category, locale).length;
 }
-

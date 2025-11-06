@@ -26,4 +26,3 @@ export function getRecipeBySlug(slug: string, locale: Locale, category?: Categor
 
   return null;
 }
-

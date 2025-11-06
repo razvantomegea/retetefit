@@ -1,8 +1,4 @@
-import {
-  parseIngredients,
-  parseInstructions,
-  parseRecipeContent,
-} from '../parse-schema';
+import { parseIngredients, parseInstructions, parseRecipeContent } from '../parse-schema';
 
 describe('parseIngredients', () => {
   it('should extract list items from Ingredients section', () => {
@@ -169,10 +165,7 @@ describe('parseRecipeContent', () => {
     // This test verifies the function handles the structure
     if (result.optionalIngredients) {
       expect(result.optionalIngredients.title).toBe('Optional Toppings');
-      expect(result.optionalIngredients.items).toEqual([
-        'Optional item 1',
-        'Optional item 2',
-      ]);
+      expect(result.optionalIngredients.items).toEqual(['Optional item 1', 'Optional item 2']);
     }
   });
 
@@ -269,4 +262,3 @@ Add chocolate chips`;
     expect(result.tips).toContain('Add chocolate chips');
   });
 });
-

@@ -1,5 +1,6 @@
+import type { RecipeMetadata } from '@/types';
+
 import { sortRecipes } from '../sort';
-import type { RecipeMetadata, SortOption } from '@/types';
 
 const createMockRecipe = (
   slug: string,
@@ -110,4 +111,3 @@ describe('sortRecipes', () => {
     expect(sorted).not.toBe(recipes);
   });
 });
-

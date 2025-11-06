@@ -21,4 +21,3 @@ export function getAllRecipes(locale: Locale): RecipeMetadata[] {
 
   return recipes;
 }
-

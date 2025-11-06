@@ -8,4 +8,3 @@ export function getFeaturedRecipes(locale: Locale, limit: number = 6): RecipeMet
   const allRecipes = getAllRecipes(locale);
   return allRecipes.filter((recipe) => recipe.featured).slice(0, limit);
 }
-

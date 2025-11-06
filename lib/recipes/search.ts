@@ -27,10 +27,7 @@ export interface PerformSearchParams extends SearchParamsFilters {
  * Performs a complete search operation: search by query (if provided),
  * apply filters, and sort the results.
  */
-export function performSearch(
-  searchParams: PerformSearchParams,
-  locale: Locale
-): RecipeMetadata[] {
+export function performSearch(searchParams: PerformSearchParams, locale: Locale): RecipeMetadata[] {
   // Start with search or filter
   let recipes = searchParams.q
     ? searchRecipes(searchParams.q, locale)
@@ -46,4 +43,3 @@ export function performSearch(
   const sortBy = (searchParams.sort as SortOption) || 'newest';
   return sortRecipes(recipes, sortBy);
 }
-
