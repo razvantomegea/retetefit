@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 
+import Footer from '@/components/navigation/Footer';
 import { Navbar } from '@/components/navigation/Navbar';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { routing } from '@/i18n/routing';
@@ -50,6 +51,7 @@ export default async function LocaleLayout({
           <NextIntlClientProvider messages={messages}>
             <Navbar />
             <main>{children}</main>
+            <Footer />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

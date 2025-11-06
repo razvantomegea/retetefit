@@ -203,7 +203,7 @@ export function Hero() {
       >
         {/* Title */}
         <motion.h1
-          className="text-5xl font-normal leading-tight tracking-tight dark:font-normal md:text-6xl md:font-light"
+          className="text-5xl font-normal leading-tight tracking-tight dark:font-normal md:text-6xl"
           variants={itemVariants}
           style={{ lineHeight: 1.1, color: 'var(--text-primary)' }}
         >
@@ -212,7 +212,7 @@ export function Hero() {
 
         {/* Subtitle */}
         <motion.p
-          className="mx-auto max-w-[650px] text-lg font-light leading-relaxed tracking-wide md:mx-0 md:text-xl"
+          className="mx-auto max-w-[650px] text-lg leading-relaxed tracking-wide md:mx-0 md:text-xl"
           variants={itemVariants}
           style={{ color: 'var(--text-secondary)' }}
         >
