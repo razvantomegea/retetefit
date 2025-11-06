@@ -179,7 +179,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
               ) : (
                 <motion.button
                   onClick={handleDifficultyClick}
-                  aria-label={`Difficulty: ${difficultyLabels[recipe.difficulty]}`}
+                  aria-label={`${t('difficulty')}: ${difficultyLabels[recipe.difficulty]}`}
                   className={cn(
                     'inline-block rounded-md px-2 py-1 text-xs font-semibold transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
                     difficultyColors[recipe.difficulty as keyof typeof difficultyColors]

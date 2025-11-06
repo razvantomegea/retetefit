@@ -9,20 +9,22 @@ interface RecipeSchemaProps {
 export function RecipeSchema({ recipe, baseUrl }: RecipeSchemaProps) {
   // Extract prep time if available (checking both prepTime and prepMinutes for flexibility)
   const prepTime =
-    ('prepTime' in recipe && typeof recipe.prepTime === 'number' ? recipe.prepTime : null) ||
+    ('prepTime' in recipe && typeof recipe.prepTime === 'number' ? recipe.prepTime : null) ??
     ('prepMinutes' in recipe && typeof recipe.prepMinutes === 'number' ? recipe.prepMinutes : null);
+
+  const cookTime = typeof recipe.cookTime === 'number' ? recipe.cookTime : 0;
 
   // Build time fields based on whether prep time exists
   const timeFields =
     prepTime !== null
       ? {
           prepTime: `PT${prepTime}M`,
-          cookTime: `PT${recipe.cookTime}M`,
-          totalTime: `PT${prepTime + recipe.cookTime}M`,
+          cookTime: `PT${cookTime}M`,
+          totalTime: `PT${prepTime + cookTime}M`,
         }
       : {
           // If no separate prep time exists, only output totalTime using cookTime
-          totalTime: `PT${recipe.cookTime}M`,
+          totalTime: `PT${cookTime}M`,
         };
 
   const schema = {
