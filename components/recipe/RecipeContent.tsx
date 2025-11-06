@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
 
 import { IngredientsList } from '@/components/recipe/IngredientsList';
 import { InstructionsList } from '@/components/recipe/InstructionsList';
@@ -55,26 +56,9 @@ export function RecipeContent({ parsedContent, tipsLabel }: RecipeContentProps) 
               whileInView={prefersReducedMotion ? undefined : { opacity: 1 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.4, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
-              dangerouslySetInnerHTML={{
-                __html: parsedContent.tips
-                  .split('\n')
-                  .map((line) => {
-                    const trimmed = line.trim();
-                    if (trimmed.match(/^[-*]\s+(.+)$/)) {
-                      const content = trimmed.replace(/^[-*]\s+/, '');
-                      return `<li>${content}</li>`;
-                    }
-                    if (trimmed.match(/^\*\*(.+?)\*\*:\s*(.+)$/)) {
-                      const match = trimmed.match(/^\*\*(.+?)\*\*:\s*(.+)$/);
-                      if (match) {
-                        return `<p><strong>${match[1]}:</strong> ${match[2]}</p>`;
-                      }
-                    }
-                    return trimmed ? `<p>${trimmed}</p>` : '';
-                  })
-                  .join(''),
-              }}
-            />
+            >
+              <ReactMarkdown>{parsedContent.tips}</ReactMarkdown>
+            </motion.div>
           </motion.div>
         )}
       </div>

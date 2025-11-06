@@ -10,9 +10,12 @@ export function sortRecipes(
 
   switch (sortBy) {
     case 'newest':
-      return sorted.sort(
-        (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-      );
+      return sorted.sort((a, b) => {
+        const timeA = new Date(a.publishedAt).getTime();
+        const timeB = new Date(b.publishedAt).getTime();
+        if (isNaN(timeA) || isNaN(timeB)) return 0;
+        return timeB - timeA;
+      });
     case 'oldest':
       return sorted.sort(
         (a, b) => new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime()
@@ -31,4 +34,3 @@ export function sortRecipes(
       return sorted;
   }
 }
-

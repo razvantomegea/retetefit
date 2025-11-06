@@ -57,11 +57,13 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
 
   const handleTagClick = (tag: string) => {
     // Navigate to search with tag as query
-    router.push(`/search?q=${encodeURIComponent(tag)}`);
+    const searchPath = locale ? `/${locale}/search` : '/search';
+    router.push(`${searchPath}?q=${encodeURIComponent(tag)}`);
   };
 
   const handleDifficultyClick = () => {
-    router.push(`/search?q=${encodeURIComponent(difficultyLabels[recipe.difficulty])}`);
+    const searchPath = locale ? `/${locale}/search` : '/search';
+    router.push(`${searchPath}?q=${encodeURIComponent(difficultyLabels[recipe.difficulty])}`);
   };
 
   return (
@@ -177,13 +179,16 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
               ) : (
                 <motion.button
                   onClick={handleDifficultyClick}
+                  aria-label={`Difficulty: ${difficultyLabels[recipe.difficulty]}`}
                   className={cn(
                     'inline-block rounded-md px-2 py-1 text-xs font-semibold transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
                     difficultyColors[recipe.difficulty as keyof typeof difficultyColors]
                   )}
                   whileHover={badgeHoverAnimation}
                   whileTap={badgeTapAnimation}
-                />
+                >
+                  {difficultyLabels[recipe.difficulty]}
+                </motion.button>
               )}
             </div>
           </div>

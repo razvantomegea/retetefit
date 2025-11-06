@@ -1,5 +1,5 @@
-import type { Recipe } from '@/lib/recipes';
 import { parseIngredients, parseInstructions } from '@/lib/recipes/parse-schema';
+import type { Recipe } from '@/types';
 
 interface RecipeSchemaProps {
   recipe: Recipe;
@@ -7,6 +7,24 @@ interface RecipeSchemaProps {
 }
 
 export function RecipeSchema({ recipe, baseUrl }: RecipeSchemaProps) {
+  // Extract prep time if available (checking both prepTime and prepMinutes for flexibility)
+  const prepTime =
+    ('prepTime' in recipe && typeof recipe.prepTime === 'number' ? recipe.prepTime : null) ||
+    ('prepMinutes' in recipe && typeof recipe.prepMinutes === 'number' ? recipe.prepMinutes : null);
+
+  // Build time fields based on whether prep time exists
+  const timeFields =
+    prepTime !== null
+      ? {
+          prepTime: `PT${prepTime}M`,
+          cookTime: `PT${recipe.cookTime}M`,
+          totalTime: `PT${prepTime + recipe.cookTime}M`,
+        }
+      : {
+          // If no separate prep time exists, only output totalTime using cookTime
+          totalTime: `PT${recipe.cookTime}M`,
+        };
+
   const schema = {
     '@context': 'https://schema.org/',
     '@type': 'Recipe',
@@ -19,9 +37,7 @@ export function RecipeSchema({ recipe, baseUrl }: RecipeSchemaProps) {
     },
     datePublished: recipe.publishedAt,
     dateModified: recipe.updatedAt,
-    prepTime: `PT${recipe.cookTime}M`,
-    cookTime: `PT${recipe.cookTime}M`,
-    totalTime: `PT${recipe.cookTime}M`,
+    ...timeFields,
     recipeYield: recipe.servings.toString(),
     recipeCategory: recipe.category,
     recipeCuisine: recipe.lang === 'ro' ? 'Romanian' : 'International',

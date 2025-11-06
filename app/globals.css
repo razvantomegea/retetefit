@@ -9,6 +9,7 @@
   /* Primary - Green (Action & Brand) */
   --green-50: #f0fdf4;
   --green-100: #dcfce7;
+  --green-200: #bbf7d0;
   --green-400: #4ade80;
   --green-500: #22c55e; /* Main action color */
   --green-600: #16a34a; /* Hover state */
@@ -32,6 +33,16 @@
   --warning: #f59e0b; /* Amber-500 */
   --error: #ef4444; /* Red-500 */
   --info: #3b82f6; /* Blue-500 */
+
+  /* Amber Colors */
+  --amber-100: #fef3c7;
+  --amber-200: #fde68a;
+  --amber-900: #78350f;
+
+  /* Red Colors */
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-900: #7f1d1d;
 
   /* Surface & Background */
   --background: #ffffff;
@@ -77,12 +88,12 @@
   --badge-easy-bg: var(--green-100);
   --badge-easy-text: var(--green-900);
   --badge-easy-border: var(--green-200);
-  --badge-medium-bg: #fef3c7; /* amber-100 */
-  --badge-medium-text: #78350f; /* amber-900 */
-  --badge-medium-border: #fde68a; /* amber-200 */
-  --badge-hard-bg: #fee2e2; /* red-100 */
-  --badge-hard-text: #7f1d1d; /* red-900 */
-  --badge-hard-border: #fecaca; /* red-200 */
+  --badge-medium-bg: var(--amber-100);
+  --badge-medium-text: var(--amber-900);
+  --badge-medium-border: var(--amber-200);
+  --badge-hard-bg: var(--red-100);
+  --badge-hard-text: var(--red-900);
+  --badge-hard-border: var(--red-200);
 
   /* Badge Colors - Tags */
   --badge-tag-bg: var(--green-50);

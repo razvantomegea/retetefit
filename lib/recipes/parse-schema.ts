@@ -40,7 +40,7 @@ export function parseInstructions(content: string): Array<{ '@type': string; tex
 
   for (const line of lines) {
     const trimmed = line.trim();
-    // Match numbered list items (1. or 1) format)
+    // Match numbered list items (1. or 1) format
     const match = trimmed.match(/^\d+[.)]\s+(.+)$/);
     if (match) {
       instructions.push({

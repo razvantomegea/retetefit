@@ -48,7 +48,6 @@ content/recipes/ro/high-protein/clatite-proteice.md
 **Filename Guidelines:**
 - Use lowercase letters
 - Use hyphens instead of spaces
-- Remove Romanian diacritics (ă → a, â → a, î → i, ș → s, ț → t)
 - Keep it descriptive but concise
 
 ### Step 3: Write Frontmatter
@@ -271,7 +270,7 @@ clatite-proteice.jpg
 
 ## Category Guidelines
 
-### Easy
+### Simple
 Recipes with minimal ingredients (5 or fewer) and straightforward techniques.
 
 ### Fast
