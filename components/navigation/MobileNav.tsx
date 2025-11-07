@@ -42,12 +42,25 @@ export function MobileNav() {
 
   const isDark = resolvedTheme === 'dark';
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const handleThemeToggle = () => {
+    handleClose();
     setTheme(isDark ? 'light' : 'dark');
   };
 
   const handleLanguageToggle = () => {
+    handleClose();
     switchLanguage({ currentLocale, pathname, router });
+  };
+
+  const handleSearchOpenChange = (value: boolean) => {
+    setSearchOpen(value);
+    if (value) {
+      handleClose();
+    }
   };
 
   const currentIndex = LANGUAGES.findIndex((lang) => lang.code === currentLocale);
@@ -108,7 +121,7 @@ export function MobileNav() {
         <div className="flex flex-col gap-6 mt-8">
           {/* Navigation Links */}
           <NavLinks
-            onLinkClick={() => setOpen(false)}
+            onLinkClick={handleClose}
             className="flex-col items-start gap-1"
             linkClassName="w-full justify-start text-lg px-4 py-3"
           />
@@ -118,7 +131,7 @@ export function MobileNav() {
 
           {/* Actions */}
           <div className="flex flex-col items-start gap-1">
-            <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
+            <SearchDialog open={searchOpen} onOpenChange={handleSearchOpenChange} />
             <button
               onClick={handleThemeToggle}
               className={toggleClassName}
