@@ -21,7 +21,7 @@ export function Logo() {
           alt="MainGain logo"
           width={100}
           height={100}
-          sizes="100px"
+          sizes="40px"
           className="h-full w-full object-contain"
           priority
         />
