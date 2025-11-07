@@ -2,7 +2,7 @@
 title: 'Simple Tofu with Broccoli and Steamed Rice'
 slug: 'simple-broccoli-rice-tofu'
 description: 'A simple and delicious vegan recipe packed with fiber and protein.'
-category: 'high-protein'
+category: 'vegetarian'
 lang: 'en'
 cookTime: 20
 servings: 1

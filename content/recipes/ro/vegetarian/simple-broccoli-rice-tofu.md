@@ -2,7 +2,7 @@
 title: 'Tofu simplu cu broccoli și orez la abur'
 slug: 'simple-broccoli-rice-tofu'
 description: 'O rețetă vegană simplă și delicioasă, plină de fibre și proteine.'
-category: 'high-protein'
+category: 'vegetarian'
 lang: 'ro'
 cookTime: 20
 servings: 1
