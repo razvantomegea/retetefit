@@ -9,19 +9,17 @@
     "documentation": "Documentație"
   },
   "Metadata": {
-    "title": "Creează Next App",
-    "description": "Generat cu create next app"
+    "title": "MainGain",
+    "description": "Rețete sănătoase sub 30 de minute"
   },
   "nav": {
     "lowCalorie": "Puține Calorii",
     "theme": "Temă",
     "categories": {
-      "easy": "Ușor",
       "fast": "Rapid",
       "highProtein": "Bogat în Proteine",
       "highFiber": "Bogat în Fibre",
-      "vegetarian": "Vegetarian",
-      "vegan": "Vegan"
+      "vegetarian": "Vegetarian"
     },
     "language": {
       "switchTo": "Schimbă la {language}",
@@ -71,18 +69,12 @@
     "kcal": "kcal",
     "servings": "porții",
     "cookTime": "Timp de gătit",
-    "difficulty": "Dificultate",
-    "easy": "Ușor",
-    "medium": "Mediu",
-    "hard": "Dificil",
     "lowCalorie": "Puține Calorii",
     "categories": {
-      "easy": "Ușor",
       "fast": "Rapid",
       "highProtein": "Bogat în Proteine",
       "highFiber": "Bogat în Fibre",
-      "vegetarian": "Vegetarian",
-      "vegan": "Vegan"
+      "vegetarian": "Vegetarian"
     },
     "nutrition": {
       "protein": "Proteine",

@@ -11,7 +11,6 @@ interface SearchPageProps {
   searchParams: Promise<{
     q?: string;
     category?: string;
-    difficulty?: string;
     maxCookTime?: string;
     minCookTime?: string;
     maxCalories?: string;

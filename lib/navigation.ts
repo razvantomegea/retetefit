@@ -9,12 +9,6 @@ export interface NavCategory {
 
 export const NAV_CATEGORIES: NavCategory[] = [
   {
-    id: 'easy',
-    href: '/easy',
-    labelKey: 'nav.categories.easy',
-    category: 'easy',
-  },
-  {
     id: 'fast',
     href: '/fast',
     labelKey: 'nav.categories.fast',
@@ -37,12 +31,6 @@ export const NAV_CATEGORIES: NavCategory[] = [
     href: '/vegetarian',
     labelKey: 'nav.categories.vegetarian',
     category: 'vegetarian',
-  },
-  {
-    id: 'vegan',
-    href: '/vegan',
-    labelKey: 'nav.categories.vegan',
-    category: 'vegan',
   },
 ];
 

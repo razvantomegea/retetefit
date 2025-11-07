@@ -1,23 +1,13 @@
 import 'server-only';
 
-import { Category, Difficulty, Locale, RecipeFilters, RecipeMetadata } from '@/types';
+import { Category, Locale, RecipeFilters, RecipeMetadata } from '@/types';
 
 import { getAllRecipes } from './get-all';
 
-export const VALID_CATEGORIES: Category[] = [
-  'easy',
-  'fast',
-  'high-protein',
-  'high-fiber',
-  'vegetarian',
-  'vegan',
-];
-
-export const VALID_DIFFICULTIES: Difficulty[] = ['easy', 'medium', 'hard'];
+export const VALID_CATEGORIES: Category[] = ['fast', 'high-protein', 'high-fiber', 'vegetarian'];
 
 export interface SearchParamsFilters {
   category?: string;
-  difficulty?: string;
   maxCookTime?: string;
   minCookTime?: string;
   maxCalories?: string;
@@ -29,13 +19,6 @@ export function buildFilters(searchParams: SearchParamsFilters): RecipeFilters {
 
   if (searchParams.category && VALID_CATEGORIES.includes(searchParams.category as Category)) {
     filters.category = searchParams.category as Category;
-  }
-
-  if (
-    searchParams.difficulty &&
-    VALID_DIFFICULTIES.includes(searchParams.difficulty as Difficulty)
-  ) {
-    filters.difficulty = searchParams.difficulty as Difficulty;
   }
 
   if (searchParams.minCookTime) {
@@ -82,10 +65,6 @@ export function applyFilters(recipes: RecipeMetadata[], filters: RecipeFilters):
 
   if (filters.tags && filters.tags.length > 0) {
     filtered = filtered.filter((r) => filters.tags!.some((tag) => r.tags.includes(tag)));
-  }
-
-  if (filters.difficulty) {
-    filtered = filtered.filter((r) => r.difficulty === filters.difficulty);
   }
 
   if (filters.minCookTime !== undefined) {

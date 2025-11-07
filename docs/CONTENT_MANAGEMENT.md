@@ -24,15 +24,13 @@ content/recipes/
   │   ├── fast/
   │   ├── high-protein/
   │   ├── high-fiber/
-  │   ├── vegetarian/
-  │   └── vegan/
+  │   └── vegetarian/
   └── en/              # English recipes
       ├── simple/
       ├── fast/
       ├── high-protein/
       ├── high-fiber/
-      ├── vegetarian/
-      └── vegan/
+      └── vegetarian/
 ```
 
 ### Step 2: Create Recipe File
@@ -69,7 +67,6 @@ protein: 35
 carbs: 45
 fat: 12
 fiber: 8
-difficulty: 'easy'
 tags: ['high-protein', 'quick', 'breakfast']
 featured: false
 publishedAt: '2025-01-15'
@@ -93,7 +90,7 @@ After the frontmatter, write your recipe content in Markdown format (see [Markdo
 | `title`       | string  | Recipe title (max 60 chars)                                                   | "Protein Pancakes with Banana"                        |
 | `slug`        | string  | URL-friendly identifier (must match filename)                                 | "protein-pancakes"                                    |
 | `description` | string  | Brief description (max 150 chars for SEO)                                     | "Delicious protein-rich pancakes ready in 15 minutes" |
-| `category`    | string  | One of: `simple`, `fast`, `high-protein`, `high-fiber`, `vegetarian`, `vegan` | "high-protein"                                        |
+| `category`    | string  | One of: `fast`, `high-protein`, `high-fiber`, `vegetarian`                    | "high-protein"                                        |
 | `lang`        | string  | Language code: `"en"` or `"ro"`                                               | "en"                                                  |
 | `cookTime`    | number  | Cooking time in minutes                                                       | 25                                                    |
 | `servings`    | number  | Number of servings                                                            | 2                                                     |
@@ -102,7 +99,6 @@ After the frontmatter, write your recipe content in Markdown format (see [Markdo
 | `carbs`       | number  | Carbohydrates in grams per serving                                            | 45                                                    |
 | `fat`         | number  | Fat in grams per serving                                                      | 12                                                    |
 | `fiber`       | number  | Fiber in grams per serving                                                    | 8                                                     |
-| `difficulty`  | string  | One of: `"easy"`, `"medium"`, `"hard"`                                        | "easy"                                                |
 | `tags`        | array   | Array of tag strings                                                          | `["high-protein", "quick"]`                           |
 | `featured`    | boolean | Whether to show on homepage                                                   | `true`                                                |
 | `publishedAt` | string  | ISO date string (YYYY-MM-DD)                                                  | "2025-01-15"                                          |
@@ -142,7 +138,7 @@ After the frontmatter, write your recipe content in Markdown format (see [Markdo
 **Tags:**
 
 - Use 3-6 relevant tags
-- Common tags: `high-protein`, `low-carb`, `vegetarian`, `vegan`, `quick`, `easy`, `meal-prep`, `gluten-free`, `dairy-free`
+- Common tags: `high-protein`, `low-carb`, `vegetarian`, `quick`, `meal-prep`, `gluten-free`, `dairy-free`
 - Be consistent with tag names
 
 **Dates:**
@@ -227,8 +223,6 @@ Every recipe must include these sections in order:
 
 - **No protein powder?** Use 4-5 egg whites instead.
 
-- **Vegan?** Try with almond butter and chickpea flour.
-
 - **Meal prep friendly:** Prepare mixture the night before.
 ```
 
@@ -308,10 +302,6 @@ Recipes with at least 8g fiber per serving.
 ### Vegetarian
 
 Recipes containing no meat or fish, but may include eggs and dairy.
-
-### Vegan
-
-Recipes containing no animal products (no meat, fish, eggs, dairy, or honey).
 
 **Note:** A recipe can fit multiple categories. Choose the primary category that best represents the recipe's main characteristic.
 

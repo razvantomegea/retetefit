@@ -20,14 +20,7 @@ describe('getRecipeFilePath', () => {
   });
 
   it('should handle different categories', () => {
-    const categories: Category[] = [
-      'easy',
-      'fast',
-      'high-protein',
-      'high-fiber',
-      'vegetarian',
-      'vegan',
-    ];
+    const categories: Category[] = ['fast', 'high-protein', 'high-fiber', 'vegetarian'];
 
     categories.forEach((category) => {
       const path = getRecipeFilePath('en', category, 'test-recipe');
@@ -36,7 +29,7 @@ describe('getRecipeFilePath', () => {
   });
 
   it('should append .md extension to slug', () => {
-    const path = getRecipeFilePath('en', 'easy', 'simple-recipe');
+    const path = getRecipeFilePath('en', 'fast', 'simple-recipe');
     expect(path).toMatch(/\.md$/);
   });
 });

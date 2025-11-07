@@ -55,19 +55,19 @@ export default function Footer({ className }: FooterProps) {
         className
       )}
     >
-      <div className="container mx-auto">
-        {/* Main Footer Content - 3 columns on desktop, single column on mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8">
+      <div className="container mx-auto max-w-7xl">
+        {/* Main Footer Content - 3 columns on desktop, 2 columns on mobile with About spanning full width */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-8 mb-8">
           {/* About Section */}
           <motion.section
             initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
             whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-            className="space-y-4"
+            className="space-y-4 w-full col-span-2 md:col-span-1"
           >
             <Logo />
-            <p className="text-sm text-text-secondary max-w-xs">{t('footer.tagline')}</p>
+            <p className="text-sm text-text-secondary md:max-w-xs">{t('footer.tagline')}</p>
           </motion.section>
 
           {/* Categories Section */}
@@ -76,8 +76,9 @@ export default function Footer({ className }: FooterProps) {
             whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1, ease: [0.4, 0, 0.2, 1] }}
+            className="w-full col-span-1"
           >
-            <h2 className="text-base font-semibold text-text-primary mb-3">
+            <h2 className="text-base font-semibold text-text-primary mb-4">
               {t('footer.categories')}
             </h2>
             <nav aria-label="Footer navigation">
@@ -111,12 +112,13 @@ export default function Footer({ className }: FooterProps) {
             whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+            className="w-full col-span-1"
           >
-            <h2 className="text-base font-semibold text-text-primary mb-3">
+            <h2 className="text-base font-semibold text-text-primary mb-4">
               {t('footer.followUs')}
             </h2>
             {/* Social Media Links */}
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex items-center gap-4 mb-6">
               <motion.a
                 href="#"
                 aria-label="Instagram"

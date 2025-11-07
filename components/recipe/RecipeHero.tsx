@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ChefHat, Clock, Droplet, Dumbbell, Flame, Leaf, Users, Wheat } from 'lucide-react';
+import { Clock, Droplet, Dumbbell, Flame, Leaf, Users, Wheat } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
@@ -24,19 +24,6 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
   const router = useRouter();
   const params = useParams();
   const locale = (params?.locale as string) || defaultLocale;
-
-  const difficultyLabels = {
-    easy: t('easy'),
-    medium: t('medium'),
-    hard: t('hard'),
-  };
-
-  // Separated for clarity - light first, dark second
-  const difficultyColors = {
-    easy: 'bg-badge-easy-bg text-badge-easy-text border border-badge-easy-border',
-    medium: 'bg-badge-medium-bg text-badge-medium-text border border-badge-medium-border',
-    hard: 'bg-badge-hard-bg text-badge-hard-text border border-badge-hard-border',
-  };
 
   // Reusable badge animations
   const badgeHoverAnimation = prefersReducedMotion
@@ -61,13 +48,8 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
     router.push(`${searchPath}?q=${encodeURIComponent(tag)}`);
   };
 
-  const handleDifficultyClick = () => {
-    const searchPath = locale ? `/${locale}/search` : '/search';
-    router.push(`${searchPath}?q=${encodeURIComponent(difficultyLabels[recipe.difficulty])}`);
-  };
-
   return (
-    <div className={cn('grid gap-8 md:grid-cols-2 md:gap-12', className)}>
+    <div className={cn('grid gap-8 lg:grid-cols-2 lg:gap-12', className)}>
       {/* Image */}
       <motion.div
         className="relative aspect-4/3 w-full overflow-hidden rounded-2xl bg-zinc-200 shadow-lg dark:bg-zinc-800"
@@ -156,40 +138,6 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <div>
               <div className="text-xs text-text-secondary">{t('servings')}</div>
               <div className="font-semibold text-text-primary">{recipe.servings}</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <ChefHat className="h-5 w-5 text-text-secondary" aria-hidden="true" />
-            <div>
-              <div className="text-xs text-text-secondary">{t('difficulty')}</div>
-              {recipe.difficulty === 'easy' ? (
-                <Link href={`/${locale}/easy`}>
-                  <motion.span
-                    className={cn(
-                      'inline-block rounded-md px-2 py-1 text-xs font-semibold transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
-                      difficultyColors[recipe.difficulty as keyof typeof difficultyColors]
-                    )}
-                    whileHover={badgeHoverAnimation}
-                    whileTap={badgeTapAnimation}
-                  >
-                    {difficultyLabels[recipe.difficulty]}
-                  </motion.span>
-                </Link>
-              ) : (
-                <motion.button
-                  onClick={handleDifficultyClick}
-                  aria-label={`${t('difficulty')}: ${difficultyLabels[recipe.difficulty]}`}
-                  className={cn(
-                    'inline-block rounded-md px-2 py-1 text-xs font-semibold transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
-                    difficultyColors[recipe.difficulty as keyof typeof difficultyColors]
-                  )}
-                  whileHover={badgeHoverAnimation}
-                  whileTap={badgeTapAnimation}
-                >
-                  {difficultyLabels[recipe.difficulty]}
-                </motion.button>
-              )}
             </div>
           </div>
 

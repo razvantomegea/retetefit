@@ -84,17 +84,6 @@
   --badge-category-text: var(--green-900);
   --badge-category-border: var(--green-200);
 
-  /* Badge Colors - Difficulty */
-  --badge-easy-bg: var(--green-100);
-  --badge-easy-text: var(--green-900);
-  --badge-easy-border: var(--green-200);
-  --badge-medium-bg: var(--amber-100);
-  --badge-medium-text: var(--amber-900);
-  --badge-medium-border: var(--amber-200);
-  --badge-hard-bg: var(--red-100);
-  --badge-hard-text: var(--red-900);
-  --badge-hard-border: var(--red-200);
-
   /* Badge Colors - Tags */
   --badge-tag-bg: var(--green-50);
   --badge-tag-text: var(--green-900);
@@ -153,16 +142,6 @@
   --badge-category-bg: rgba(34, 197, 94, 0.15);
   --badge-category-text: #4ade80;
   --badge-category-border: rgba(34, 197, 94, 0.3);
-
-  --badge-easy-bg: rgba(34, 197, 94, 0.15);
-  --badge-easy-text: #4ade80;
-  --badge-easy-border: rgba(34, 197, 94, 0.3);
-  --badge-medium-bg: rgba(245, 158, 11, 0.15);
-  --badge-medium-text: #fbbf24;
-  --badge-medium-border: rgba(245, 158, 11, 0.3);
-  --badge-hard-bg: rgba(239, 68, 68, 0.15);
-  --badge-hard-text: #f87171;
-  --badge-hard-border: rgba(239, 68, 68, 0.3);
 
   --badge-tag-bg: rgba(34, 197, 94, 0.1);
   --badge-tag-text: #4ade80;
@@ -424,16 +403,6 @@
   --color-badge-category-bg: var(--badge-category-bg);
   --color-badge-category-text: var(--badge-category-text);
   --color-badge-category-border: var(--badge-category-border);
-
-  --color-badge-easy-bg: var(--badge-easy-bg);
-  --color-badge-easy-text: var(--badge-easy-text);
-  --color-badge-easy-border: var(--badge-easy-border);
-  --color-badge-medium-bg: var(--badge-medium-bg);
-  --color-badge-medium-text: var(--badge-medium-text);
-  --color-badge-medium-border: var(--badge-medium-border);
-  --color-badge-hard-bg: var(--badge-hard-bg);
-  --color-badge-hard-text: var(--badge-hard-text);
-  --color-badge-hard-border: var(--badge-hard-border);
 
   --color-badge-tag-bg: var(--badge-tag-bg);
   --color-badge-tag-text: var(--badge-tag-text);

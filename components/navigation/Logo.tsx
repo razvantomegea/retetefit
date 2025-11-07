@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
@@ -9,15 +10,23 @@ export function Logo() {
   const locale = params?.locale || 'ro';
 
   return (
-    <Link href={`/${locale}`} className="flex items-center gap-2 group" aria-label="MainGain Home">
+    <Link href={`/${locale}`} className="flex items-center gap-3 group" aria-label="MainGain Home">
       <motion.div
-        className="w-10 h-10 bg-green-500 dark:bg-green-400 rounded-lg flex items-center justify-center transition-transform"
+        className="relative h-10 w-10 overflow-hidden rounded-lg transition-transform"
         whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.2 }}
       >
-        <span className="text-white dark:text-zinc-900 font-bold text-xl">M</span>
+        <Image
+          src="/logo.png"
+          alt="MainGain logo"
+          width={100}
+          height={100}
+          sizes="100px"
+          className="h-full w-full object-contain"
+          priority
+        />
       </motion.div>
-      <span className="font-bold text-xl text-text-primary hidden sm:block">MainGain</span>
+      <span className="font-bold text-xl text-text-primary">MainGain</span>
     </Link>
   );
 }

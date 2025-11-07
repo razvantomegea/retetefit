@@ -1,5 +1,4 @@
-export type Category = 'easy' | 'fast' | 'high-protein' | 'high-fiber' | 'vegetarian' | 'vegan';
-export type Difficulty = 'easy' | 'medium' | 'hard';
+export type Category = 'fast' | 'high-protein' | 'high-fiber' | 'vegetarian';
 export type Locale = 'ro' | 'en';
 
 export interface RecipeFrontmatter {
@@ -15,7 +14,6 @@ export interface RecipeFrontmatter {
   carbs: number;
   fat: number;
   fiber: number;
-  difficulty: Difficulty;
   tags: string[];
   featured: boolean;
   publishedAt: string;
@@ -37,7 +35,6 @@ export interface RecipeMetadata extends RecipeFrontmatter {
 export interface RecipeFilters {
   category?: Category;
   tags?: string[];
-  difficulty?: Difficulty;
   maxCookTime?: number;
   minCookTime?: number;
   maxCalories?: number;

@@ -1,6 +1,6 @@
-import type { Category, Difficulty, RecipeMetadata } from '@/types';
+import type { Category, RecipeMetadata } from '@/types';
 
-import { applyFilters, buildFilters, VALID_CATEGORIES, VALID_DIFFICULTIES } from '../filter';
+import { applyFilters, buildFilters, VALID_CATEGORIES } from '../filter';
 
 describe('buildFilters', () => {
   it('should return empty object for no params', () => {
@@ -18,18 +18,6 @@ describe('buildFilters', () => {
   it('should ignore invalid category values', () => {
     const filters = buildFilters({ category: 'invalid-category' });
     expect(filters.category).toBeUndefined();
-  });
-
-  it('should validate and include valid difficulties', () => {
-    VALID_DIFFICULTIES.forEach((difficulty) => {
-      const filters = buildFilters({ difficulty });
-      expect(filters.difficulty).toBe(difficulty);
-    });
-  });
-
-  it('should ignore invalid difficulty values', () => {
-    const filters = buildFilters({ difficulty: 'invalid-difficulty' });
-    expect(filters.difficulty).toBeUndefined();
   });
 
   it('should parse numeric filters for cookTime', () => {
@@ -66,7 +54,6 @@ describe('buildFilters', () => {
   it('should handle all filters together', () => {
     const filters = buildFilters({
       category: 'high-protein',
-      difficulty: 'easy',
       minCookTime: '15',
       maxCookTime: '45',
       minCalories: '200',
@@ -75,7 +62,6 @@ describe('buildFilters', () => {
 
     expect(filters).toEqual({
       category: 'high-protein',
-      difficulty: 'easy',
       minCookTime: 15,
       maxCookTime: 45,
       minCalories: 200,
@@ -91,7 +77,6 @@ describe('buildFilters', () => {
 
     expect(filters.category).toBe('vegetarian');
     expect(filters.minCookTime).toBe(20);
-    expect(filters.difficulty).toBeUndefined();
     expect(filters.maxCookTime).toBeUndefined();
   });
 });
@@ -100,7 +85,6 @@ describe('applyFilters', () => {
   const createMockRecipe = (
     slug: string,
     category: Category,
-    difficulty: Difficulty,
     cookTime: number,
     calories: number,
     tags: string[] = []
@@ -117,7 +101,6 @@ describe('applyFilters', () => {
     carbs: 20,
     fat: 10,
     fiber: 5,
-    difficulty,
     tags,
     featured: false,
     publishedAt: '2024-01-01',
@@ -129,10 +112,10 @@ describe('applyFilters', () => {
   });
 
   const mockRecipes: RecipeMetadata[] = [
-    createMockRecipe('recipe-1', 'high-protein', 'easy', 15, 200, ['breakfast', 'quick']),
-    createMockRecipe('recipe-2', 'vegetarian', 'medium', 30, 300, ['lunch', 'healthy']),
-    createMockRecipe('recipe-3', 'high-protein', 'hard', 45, 400, ['dinner', 'protein']),
-    createMockRecipe('recipe-4', 'vegan', 'easy', 20, 250, ['breakfast', 'vegan']),
+    createMockRecipe('recipe-1', 'high-protein', 15, 200, ['breakfast', 'quick']),
+    createMockRecipe('recipe-2', 'vegetarian', 30, 300, ['lunch', 'healthy']),
+    createMockRecipe('recipe-3', 'high-protein', 45, 400, ['dinner', 'protein']),
+    createMockRecipe('recipe-4', 'high-fiber', 20, 250, ['breakfast', 'fiber']),
   ];
 
   it('should return all recipes when no filters applied', () => {
@@ -145,12 +128,6 @@ describe('applyFilters', () => {
     const filtered = applyFilters(mockRecipes, { category: 'high-protein' });
     expect(filtered).toHaveLength(2);
     expect(filtered.every((r) => r.category === 'high-protein')).toBe(true);
-  });
-
-  it('should filter by difficulty', () => {
-    const filtered = applyFilters(mockRecipes, { difficulty: 'easy' });
-    expect(filtered).toHaveLength(2);
-    expect(filtered.every((r) => r.difficulty === 'easy')).toBe(true);
   });
 
   it('should filter by tags', () => {
@@ -206,7 +183,6 @@ describe('applyFilters', () => {
   it('should apply multiple filters together', () => {
     const filtered = applyFilters(mockRecipes, {
       category: 'high-protein',
-      difficulty: 'easy',
       minCookTime: 10,
       maxCookTime: 20,
       minCalories: 150,
@@ -219,7 +195,6 @@ describe('applyFilters', () => {
   it('should return empty array when no recipes match filters', () => {
     const filtered = applyFilters(mockRecipes, {
       category: 'high-protein',
-      difficulty: 'hard',
       minCookTime: 60,
     });
     expect(filtered).toHaveLength(0);
