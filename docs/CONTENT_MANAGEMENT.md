@@ -89,34 +89,34 @@ After the frontmatter, write your recipe content in Markdown format (see [Markdo
 
 ### Required Fields
 
-| Field         | Type    | Description                                                                   | Example                                               |
-| ------------- | ------- | ----------------------------------------------------------------------------- | ----------------------------------------------------- |
-| `title`       | string  | Recipe title (max 60 chars)                                                   | "Protein Pancakes with Banana"                        |
-| `slug`        | string  | URL-friendly identifier (must match filename)                                 | "protein-pancakes"                                    |
-| `description` | string  | Brief description (max 150 chars for SEO)                                     | "Delicious protein-rich pancakes ready in 15 minutes" |
-| `category`    | string  | One of: `fast`, `high-protein`, `high-fiber`, `vegetarian`                    | "high-protein"                                        |
-| `lang`        | string  | Language code: `"en"` or `"ro"`                                               | "en"                                                  |
-| `cookTime`    | number  | Cooking time in minutes                                                       | 25                                                    |
-| `servings`    | number  | Number of servings                                                            | 2                                                     |
-| `calories`    | number  | Calories per serving                                                          | 450                                                   |
-| `protein`     | number  | Protein in grams per serving                                                  | 35                                                    |
-| `carbs`       | number  | Carbohydrates in grams per serving                                            | 45                                                    |
-| `fat`         | number  | Fat in grams per serving                                                      | 12                                                    |
-| `fiber`       | number  | Fiber in grams per serving                                                    | 8                                                     |
-| `tags`        | array   | Array of tag strings                                                          | `["high-protein", "quick"]`                           |
-| `featured`    | boolean | Whether to show on homepage                                                   | `true`                                                |
-| `publishedAt` | string  | ISO date string (YYYY-MM-DD)                                                  | "2025-01-15"                                          |
-| `updatedAt`   | string  | ISO date string (YYYY-MM-DD)                                                  | "2025-01-15"                                          |
-| `image`       | string  | Path to hero image (starts with `/`)                                          | "/images/recipes/pancakes.jpg"                        |
-| `imageAlt`    | string  | Descriptive alt text for image                                                | "Stack of protein pancakes with banana slices"        |
-| `author`      | string  | Author name                                                                   | "Maingain Team"                                       |
+| Field         | Type    | Description                                                | Example                                               |
+| ------------- | ------- | ---------------------------------------------------------- | ----------------------------------------------------- |
+| `title`       | string  | Recipe title (max 60 chars)                                | "Protein Pancakes with Banana"                        |
+| `slug`        | string  | URL-friendly identifier (must match filename)              | "protein-pancakes"                                    |
+| `description` | string  | Brief description (max 150 chars for SEO)                  | "Delicious protein-rich pancakes ready in 15 minutes" |
+| `category`    | string  | One of: `fast`, `high-protein`, `high-fiber`, `vegetarian` | "high-protein"                                        |
+| `lang`        | string  | Language code: `"en"` or `"ro"`                            | "en"                                                  |
+| `cookTime`    | number  | Cooking time in minutes                                    | 25                                                    |
+| `servings`    | number  | Number of servings                                         | 2                                                     |
+| `calories`    | number  | Calories per serving                                       | 450                                                   |
+| `protein`     | number  | Protein in grams per serving                               | 35                                                    |
+| `carbs`       | number  | Carbohydrates in grams per serving                         | 45                                                    |
+| `fat`         | number  | Fat in grams per serving                                   | 12                                                    |
+| `fiber`       | number  | Fiber in grams per serving                                 | 8                                                     |
+| `tags`        | array   | Array of tag strings                                       | `["high-protein", "quick"]`                           |
+| `featured`    | boolean | Whether to show on homepage                                | `true`                                                |
+| `publishedAt` | string  | ISO date string (YYYY-MM-DD)                               | "2025-01-15"                                          |
+| `updatedAt`   | string  | ISO date string (YYYY-MM-DD)                               | "2025-01-15"                                          |
+| `image`       | string  | Path to hero image (starts with `/`)                       | "/images/recipes/pancakes.jpg"                        |
+| `imageAlt`    | string  | Descriptive alt text for image                             | "Stack of protein pancakes with banana slices"        |
+| `author`      | string  | Author name                                                | "Maingain Team"                                       |
 
 ### Optional Fields
 
-| Field             | Type     | Description                                                                                     | Example                                                       |
-| ----------------- | -------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| `imageBrightness` | string   | Background brightness of the hero image (`'light'` or `'dark'`); controls badge contrast. Defaults to `'light'`. | `'dark'` |
-| `galleryImages`   | string[] | Additional images to display in the recipe photo gallery.                                       | `['/images/recipes/pancakes-mix.jpg', '/images/recipes/pancakes-stack.jpg']` |
+| Field             | Type     | Description                                                                                                      | Example                                                                      |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `imageBrightness` | string   | Background brightness of the hero image (`'light'` or `'dark'`); controls badge contrast. Defaults to `'light'`. | `'dark'`                                                                     |
+| `galleryImages`   | string[] | Additional images to display in the recipe photo gallery.                                                        | `['/images/recipes/pancakes-mix.jpg', '/images/recipes/pancakes-stack.jpg']` |
 
 ### Field Guidelines
 
