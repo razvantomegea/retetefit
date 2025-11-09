@@ -18,9 +18,6 @@ publishedAt: '2025-11-07'
 updatedAt: '2025-11-07'
 image: '/simple-broccoli-rice-tofu/simple-broccoli-rice-tofu.png'
 imageAlt: 'Tofu simplu cu broccoli și orez la abur'
-galleryImages:
-    - '/hero.png'
-    - '/logo.png'
 author: 'Maingain Team'
 ---
 
