@@ -63,6 +63,7 @@
   "recipes": {
     "title": "Healthy Recipes",
     "subtitle": "Explore our collection of nutritious, fitness-focused recipes designed to support your wellness journey.",
+    "price": "Price",
     "viewRecipe": "View recipe",
     "viewAll": "View All",
     "min": "min",

@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Clock, Droplet, Dumbbell, Flame, Leaf, Users, Wheat } from 'lucide-react';
+import { Clock, DollarSign, Droplet, Dumbbell, Flame, Leaf, Users, Wheat } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
@@ -180,6 +180,16 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <div>
               <div className="text-xs text-text-secondary">{t('nutrition.fiber')}</div>
               <div className="font-semibold text-text-primary">{recipe.fiber} g</div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <DollarSign className="h-5 w-5 text-text-secondary" aria-hidden="true" />
+            <div>
+              <div className="text-xs text-text-secondary">{t('price')}</div>
+              <div className="font-semibold text-text-primary">
+                {locale === 'ro' ? `${recipe.price} RON` : `$${recipe.price}`}
+              </div>
             </div>
           </div>
         </motion.div>

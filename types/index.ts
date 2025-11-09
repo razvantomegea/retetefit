@@ -14,6 +14,7 @@ export interface RecipeFrontmatter {
   carbs: number;
   fat: number;
   fiber: number;
+  price: number;
   tags: string[];
   featured: boolean;
   publishedAt: string;
