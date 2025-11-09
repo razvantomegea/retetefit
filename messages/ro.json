@@ -84,6 +84,9 @@
       "calories": "Cal",
       "fiber": "Fibre"
     },
+    "tags": {
+      "cheap": "Ieftin"
+    },
     "ingredients": "Ingrediente",
     "instructions": "Instrucțiuni",
     "nutritionFacts": "Valori Nutriționale",

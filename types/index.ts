@@ -21,6 +21,7 @@ export interface RecipeFrontmatter {
   updatedAt: string;
   image: string;
   imageAlt: string;
+  galleryImages?: string[];
   author: string;
 }
 

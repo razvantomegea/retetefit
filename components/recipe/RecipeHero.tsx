@@ -2,13 +2,13 @@
 
 import { motion } from 'framer-motion';
 import { Clock, DollarSign, Droplet, Dumbbell, Flame, Leaf, Users, Wheat } from 'lucide-react';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { defaultLocale } from '@/i18n/config';
+import { Gallery } from '@/components/recipe/Gallery';
 import { getCategorySlug } from '@/lib/navigation';
 import { cn } from '@/lib/utils';
 import type { Recipe } from '@/types';
@@ -50,20 +50,16 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
 
   return (
     <div className={cn('grid gap-8 lg:grid-cols-2 lg:gap-12', className)}>
-      {/* Image */}
+      {/* Gallery */}
       <motion.div
-        className="relative aspect-4/3 w-full overflow-hidden rounded-2xl bg-zinc-200 shadow-lg dark:bg-zinc-800"
         initial={prefersReducedMotion ? undefined : { opacity: 0, scale: 0.95 }}
         animate={prefersReducedMotion ? undefined : { opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
-        <Image
-          src={recipe.image}
-          alt={recipe.imageAlt}
-          fill
-          className="object-cover"
-          priority
-          sizes="(max-width: 768px) 100vw, 50vw"
+        <Gallery
+          mainImage={recipe.image}
+          mainImageAlt={recipe.imageAlt}
+          galleryImages={recipe.galleryImages}
         />
       </motion.div>
 

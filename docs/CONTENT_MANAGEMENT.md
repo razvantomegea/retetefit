@@ -73,6 +73,9 @@ publishedAt: '2025-01-15'
 updatedAt: '2025-01-15'
 image: '/images/recipes/recipe-slug.jpg'
 imageAlt: 'Descriptive alt text for accessibility'
+galleryImages:
+  - '/images/recipes/recipe-slug-step-1.jpg'
+  - '/images/recipes/recipe-slug-step-2.jpg'
 author: 'Maingain Team'
 ---
 ```
@@ -106,6 +109,12 @@ After the frontmatter, write your recipe content in Markdown format (see [Markdo
 | `image`       | string  | Path to hero image (starts with `/`)                                          | "/images/recipes/pancakes.jpg"                        |
 | `imageAlt`    | string  | Descriptive alt text for image                                                | "Stack of protein pancakes with banana slices"        |
 | `author`      | string  | Author name                                                                   | "Maingain Team"                                       |
+
+### Optional Fields
+
+| Field            | Type     | Description                                               | Example                                                       |
+| ---------------- | -------- | --------------------------------------------------------- | ------------------------------------------------------------- |
+| `galleryImages`  | string[] | Additional images to display in the recipe photo gallery. | `['/images/recipes/pancakes-mix.jpg', '/images/recipes/pancakes-stack.jpg']` |
 
 ### Field Guidelines
 
@@ -151,7 +160,7 @@ After the frontmatter, write your recipe content in Markdown format (see [Markdo
 - Store in `public/images/recipes/`
 - Use descriptive filenames matching the slug
 - Recommended: WebP format with JPG fallback
-- Size: Max 1200px width for hero images
+- Size: Max 1200px width for hero images (same applies to gallery images)
 - See [Image Management](#image-management) for details
 
 ## Markdown Content Structure

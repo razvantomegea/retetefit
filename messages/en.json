@@ -84,6 +84,9 @@
       "calories": "Cal",
       "fiber": "Fiber"
     },
+    "tags": {
+      "cheap": "Cheap"
+    },
     "ingredients": "Ingredients",
     "instructions": "Instructions",
     "nutritionFacts": "Nutrition Facts",
