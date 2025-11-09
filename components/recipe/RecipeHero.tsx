@@ -6,9 +6,9 @@ import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
+import { Gallery } from '@/components/recipe/Gallery';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { defaultLocale } from '@/i18n/config';
-import { Gallery } from '@/components/recipe/Gallery';
 import { getCategorySlug } from '@/lib/navigation';
 import { cn } from '@/lib/utils';
 import type { Recipe } from '@/types';
@@ -24,6 +24,18 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
   const router = useRouter();
   const params = useParams();
   const locale = (params?.locale as string) || defaultLocale;
+  const tagsDictionary = (t.raw('tags') as Record<string, string> | undefined) ?? {};
+
+  const translateTag = (tag: string) => {
+    const normalizedTag = tag.trim().toLowerCase();
+    const camelCasedTag = normalizedTag.replace(/[-_\s]+([a-z0-9])/g, (_: string, letter: string) =>
+      letter.toUpperCase()
+    );
+
+    return (
+      tagsDictionary[normalizedTag] ?? tagsDictionary[camelCasedTag] ?? tagsDictionary[tag] ?? tag
+    );
+  };
 
   // Reusable badge animations
   const badgeHoverAnimation = prefersReducedMotion
@@ -106,7 +118,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
                 whileHover={badgeHoverAnimation}
                 whileTap={badgeTapAnimation}
               >
-                {tag}
+                {translateTag(tag)}
               </motion.button>
             ))}
           </div>

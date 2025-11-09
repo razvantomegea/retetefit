@@ -10,7 +10,7 @@
   },
   "Metadata": {
     "title": "MainGain",
-    "description": "Healthy recipes under 30 minutes"
+    "description": "Healthy recipes under 60 minutes"
   },
   "nav": {
     "lowCalorie": "Low Calorie",
@@ -38,8 +38,8 @@
   "search": {
     "title": "Search",
     "placeholder": "Search recipes...",
-    "noResults": "No recipes found.",
     "recipes": "Recipes",
+    "for": "for",
     "comingSoon": "Search functionality coming soon!",
     "pressEnter": "Press",
     "toSearch": "to search",
@@ -53,11 +53,11 @@
   },
   "switchTo": "Switch to {lang}",
   "hero": {
-    "title": "Healthy Recipes Under 30 Minutes",
+    "title": "Healthy Recipes Under 60 Minutes",
     "subtitle": "Discover delicious, low-calorie meals that fuel your fitness goals. Quick prep, maximum flavor, zero compromise.",
     "cta": "Discover Recipes",
     "scrollButton": "Scroll to recipes",
-    "quickPrep": "< 30 min",
+    "quickPrep": "< 60 min",
     "lowCalorie": "Low Calorie"
   },
   "recipes": {
@@ -85,7 +85,8 @@
       "fiber": "Fiber"
     },
     "tags": {
-      "cheap": "Cheap"
+      "cheap": "Cheap",
+      "low-carb": "Low Carb"
     },
     "ingredients": "Ingredients",
     "instructions": "Instructions",
@@ -104,6 +105,7 @@
       "highProtein": "Highest Protein"
     },
     "noRecipesFound": "No recipes found",
+    "goHomeButton": "Go home",
     "allCategories": "All Categories",
     "recipeCount": "{count} {count, plural, =1 {recipe} other {recipes}}"
   },
@@ -114,7 +116,7 @@
     "recipes": "{count} {count, plural, =1 {recipe} other {recipes}}"
   },
   "footer": {
-    "tagline": "Healthy recipes under 30 minutes",
+    "tagline": "Healthy recipes under 60 minutes",
     "categories": "Categories",
     "privacy": "Privacy & Cookies",
     "followUs": "Follow Us",

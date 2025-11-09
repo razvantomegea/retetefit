@@ -21,6 +21,11 @@ export function RecipeCard({ recipe, className }: RecipeCardProps) {
   const locale = (params?.locale as string) || 'ro';
   const t = useTranslations('recipes');
   const categorySlug = getCategorySlug(recipe.category);
+  const imageBrightness = recipe.imageBrightness ?? 'light';
+  const badgeClasses =
+    imageBrightness === 'light'
+      ? 'bg-zinc-900/85 text-zinc-100 border-zinc-100/40'
+      : 'bg-white/90 text-slate-900 border-slate-400/35';
 
   // Content reveal animations with stagger
   const contentVariants = {
@@ -97,7 +102,10 @@ export function RecipeCard({ recipe, className }: RecipeCardProps) {
           </div>
           {/* Category Badge */}
           <motion.div
-            className="absolute left-3 top-3 rounded-md bg-badge-category-bg text-badge-category-text border border-badge-category-border px-3 py-1 text-xs font-semibold backdrop-blur-sm"
+            className={cn(
+              'absolute left-3 top-3 rounded-md border px-3 py-1 text-xs font-semibold backdrop-blur-sm transition-colors',
+              badgeClasses
+            )}
             initial={{ opacity: 0, scale: 0.8, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] as const, delay: 0.3 }}

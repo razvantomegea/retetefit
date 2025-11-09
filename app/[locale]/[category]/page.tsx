@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getTranslations } from 'next-intl/server';
 
+import { NotFound } from '@/components/common/NotFound';
 import { RecipeCard } from '@/components/recipe/RecipeCard';
 import { getCategoryFromSlug } from '@/lib/navigation';
 import { getRecipesByCategory, sortRecipes } from '@/lib/recipes';
@@ -73,9 +74,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
 
         {/* Recipes Grid */}
         {recipes.length === 0 ? (
-          <div className="py-12 text-center">
-            <p className="text-lg text-text-secondary">{t('noRecipesFound')}</p>
-          </div>
+          <NotFound homeHref={`/${locale}`} />
         ) : (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {recipes.map((recipe) => (

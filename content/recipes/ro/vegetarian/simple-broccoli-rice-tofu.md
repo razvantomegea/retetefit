@@ -1,5 +1,5 @@
 ---
-title: 'Tofu simplu cu broccoli și orez la abur'
+title: 'Tofu simplu cu broccoli și orez'
 slug: 'simple-broccoli-rice-tofu'
 description: 'O rețetă vegană simplă și delicioasă, plină de fibre și proteine.'
 category: 'vegetarian'
@@ -11,13 +11,14 @@ protein: 25
 carbs: 55
 fat: 10
 fiber: 7
-price: 20
+price: 12
 tags: ['cheap']
 featured: true
 publishedAt: '2025-11-07'
 updatedAt: '2025-11-07'
 image: '/simple-broccoli-rice-tofu/simple-broccoli-rice-tofu.png'
-imageAlt: 'Tofu simplu cu broccoli și orez la abur'
+imageAlt: 'Tofu simplu cu broccoli și orez'
+imageBrightness: 'light'
 author: 'Maingain Team'
 ---
 

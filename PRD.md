@@ -1,4 +1,4 @@
-# PRD: Maingain: Healthy Low Calories Recipes under 30 minutes - Design System & Best Practices
+# PRD: Maingain: Healthy Low Calories Recipes under 60 minutes - Design System & Best Practices
 
 ## Color Palette
 

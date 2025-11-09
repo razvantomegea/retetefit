@@ -21,6 +21,7 @@ export interface RecipeFrontmatter {
   updatedAt: string;
   image: string;
   imageAlt: string;
+  imageBrightness?: 'light' | 'dark';
   galleryImages?: string[];
   author: string;
 }

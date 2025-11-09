@@ -10,7 +10,7 @@
   },
   "Metadata": {
     "title": "MainGain",
-    "description": "Rețete sănătoase sub 30 de minute"
+    "description": "Rețete sănătoase sub 60 de minute"
   },
   "nav": {
     "lowCalorie": "Puține Calorii",
@@ -38,8 +38,8 @@
   "search": {
     "title": "Căutare",
     "placeholder": "Caută rețete...",
-    "noResults": "Nu am găsit rețete.",
     "recipes": "Rețete",
+    "for": "pentru",
     "comingSoon": "Funcționalitatea de căutare vine în curând!",
     "pressEnter": "Apasă",
     "toSearch": "pentru a căuta",
@@ -53,11 +53,11 @@
   },
   "switchTo": "Schimbă la {lang}",
   "hero": {
-    "title": "Rețete Sănătoase Sub 30 de Minute",
+    "title": "Rețete Sănătoase Sub 60 de Minute",
     "subtitle": "Descoperă mese delicioase și cu puține calorii care îți susțin obiectivele de fitness. Pregătire rapidă, gust maxim, zero compromisuri.",
     "cta": "Descoperă Rețetele",
     "scrollButton": "Vezi rețetele",
-    "quickPrep": "< 30 min",
+    "quickPrep": "< 60 min",
     "lowCalorie": "Puține Calorii"
   },
   "recipes": {
@@ -85,7 +85,8 @@
       "fiber": "Fibre"
     },
     "tags": {
-      "cheap": "Ieftin"
+      "cheap": "Ieftin",
+      "low-carb": "Puțini Carbo"
     },
     "ingredients": "Ingrediente",
     "instructions": "Instrucțiuni",
@@ -104,6 +105,7 @@
       "highProtein": "Cele mai multe proteine"
     },
     "noRecipesFound": "Nu am găsit rețete",
+    "goHomeButton": "Mergi la pagina principală",
     "allCategories": "Toate Categoriile",
     "recipeCount": "{count} {count, plural, =1 {rețetă} other {rețete}}"
   },
@@ -114,7 +116,7 @@
     "recipes": "{count} {count, plural, =1 {rețetă} other {rețete}}"
   },
   "footer": {
-    "tagline": "Rețete sănătoase sub 30 de minute",
+    "tagline": "Rețete sănătoase sub 60 de minute",
     "categories": "Categorii",
     "privacy": "Confidențialitate & Cookie-uri",
     "followUs": "Urmărește-ne",

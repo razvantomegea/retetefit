@@ -73,6 +73,7 @@ publishedAt: '2025-01-15'
 updatedAt: '2025-01-15'
 image: '/images/recipes/recipe-slug.jpg'
 imageAlt: 'Descriptive alt text for accessibility'
+imageBrightness: 'light'
 galleryImages:
   - '/images/recipes/recipe-slug-step-1.jpg'
   - '/images/recipes/recipe-slug-step-2.jpg'
@@ -112,9 +113,10 @@ After the frontmatter, write your recipe content in Markdown format (see [Markdo
 
 ### Optional Fields
 
-| Field            | Type     | Description                                               | Example                                                       |
-| ---------------- | -------- | --------------------------------------------------------- | ------------------------------------------------------------- |
-| `galleryImages`  | string[] | Additional images to display in the recipe photo gallery. | `['/images/recipes/pancakes-mix.jpg', '/images/recipes/pancakes-stack.jpg']` |
+| Field             | Type     | Description                                                                                     | Example                                                       |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| `imageBrightness` | string   | Background brightness of the hero image (`'light'` or `'dark'`); controls badge contrast. Defaults to `'light'`. | `'dark'` |
+| `galleryImages`   | string[] | Additional images to display in the recipe photo gallery.                                       | `['/images/recipes/pancakes-mix.jpg', '/images/recipes/pancakes-stack.jpg']` |
 
 ### Field Guidelines
 
@@ -162,6 +164,7 @@ After the frontmatter, write your recipe content in Markdown format (see [Markdo
 - Recommended: WebP format with JPG fallback
 - Size: Max 1200px width for hero images (same applies to gallery images)
 - See [Image Management](#image-management) for details
+- Set `imageBrightness` to `'dark'` when the hero photo has a predominantly dark background; otherwise keep the default `'light'`.
 
 ## Markdown Content Structure
 

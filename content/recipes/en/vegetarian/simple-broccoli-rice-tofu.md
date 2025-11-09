@@ -1,5 +1,5 @@
 ---
-title: 'Simple Tofu with Broccoli and Steamed Rice'
+title: 'Simple Tofu with Broccoli and Rice'
 slug: 'simple-broccoli-rice-tofu'
 description: 'A simple and delicious vegan recipe packed with fiber and protein.'
 category: 'vegetarian'
@@ -11,13 +11,14 @@ protein: 25
 carbs: 55
 fat: 10
 fiber: 7
-price: 5
+price: 2.5
 tags: ['cheap']
 featured: true
 publishedAt: '2025-11-07'
 updatedAt: '2025-11-07'
 image: '/simple-broccoli-rice-tofu/simple-broccoli-rice-tofu.png'
-imageAlt: 'Simple Tofu with Broccoli and Steamed Rice'
+imageAlt: 'Simple Tofu with Broccoli and Rice'
+imageBrightness: 'light'
 author: 'Maingain Team'
 ---
 
