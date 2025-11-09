@@ -1,6 +1,5 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -40,18 +39,6 @@ export function NavLinks({ onLinkClick, className, linkClassName }: NavLinksProp
             )}
           >
             {t(category.labelKey)}
-            <AnimatePresence>
-              {isActive && (
-                <motion.span
-                  layoutId="activeIndicator"
-                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-green-500 dark:bg-green-400 rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: '50%' }}
-                  exit={{ width: 0 }}
-                  transition={{ duration: 0.2 }}
-                />
-              )}
-            </AnimatePresence>
           </Link>
         );
       })}
