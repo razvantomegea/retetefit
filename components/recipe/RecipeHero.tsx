@@ -2,7 +2,6 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import {
-  CircleHelp,
   Clock,
   DollarSign,
   Droplet,
@@ -168,7 +167,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
                 <div className="relative">
                   <motion.button
                     type="button"
-                    aria-label={t('perServingInfo')}
+                    aria-label={t('nutritionInfoLabel')}
                     aria-describedby={isInfoVisible ? infoTooltipId : undefined}
                     aria-pressed={isInfoPinned}
                     className="flex h-6 w-6 items-center justify-center rounded-full bg-background text-text-secondary transition-colors hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-primary"
