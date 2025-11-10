@@ -11,8 +11,8 @@ protein: 36
 carbs: 17
 fat: 17
 fiber: 2
-price: 67
-tags: ['low-carb']
+price: 1.9
+tags: ['low-carb', 'cheap']
 featured: true
 publishedAt: '2025-11-09'
 updatedAt: '2025-11-09'

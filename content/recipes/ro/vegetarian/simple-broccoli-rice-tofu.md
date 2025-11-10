@@ -12,7 +12,7 @@ carbs: 55
 fat: 10
 fiber: 7
 price: 12
-tags: ['cheap']
+tags: ['cheap', 'simple']
 featured: true
 publishedAt: '2025-11-07'
 updatedAt: '2025-11-07'

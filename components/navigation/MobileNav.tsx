@@ -112,7 +112,7 @@ export function MobileNav() {
       </SheetTrigger>
       <SheetContent side="right" className={sheetClassName} open={open}>
         <SheetHeader className="flex-row items-center justify-between" showClose>
-          <SheetTitle className="text-left">
+          <SheetTitle onClick={handleClose} className="text-left">
             <Logo />
           </SheetTitle>
           <SheetDescription className="sr-only">{t('nav.mobileMenu')}</SheetDescription>

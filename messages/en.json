@@ -37,7 +37,7 @@
   },
   "search": {
     "title": "Search",
-    "placeholder": "Search recipes...",
+    "placeholder": "Search recipes... (e.g. 'cheap', 'simple')",
     "recipes": "Recipes",
     "for": "for",
     "comingSoon": "Search functionality coming soon!",
@@ -86,7 +86,8 @@
     },
     "tags": {
       "cheap": "Cheap",
-      "low-carb": "Low Carb"
+      "low-carb": "Low Carb",
+      "simple": "Simple"
     },
     "ingredients": "Ingredients",
     "instructions": "Instructions",

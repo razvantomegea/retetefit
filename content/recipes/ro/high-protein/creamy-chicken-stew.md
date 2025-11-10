@@ -1,5 +1,5 @@
 ---
-title: 'Tocăniță cremoasă de pui cu ciuperci'
+title: 'Tocăniță Cremoasă de Pui cu Ciuperci'
 slug: 'creamy-chicken-stew'
 description: 'Pulpe fragede de pui în sos cremos cu ciuperci, ardei și verdețuri, ideale pentru o masă bogată în proteine'
 category: 'high-protein'
@@ -11,20 +11,20 @@ protein: 36
 carbs: 17
 fat: 17
 fiber: 2
-price: 67
-tags: ['low-carb']
+price: 8.3
+tags: ['low-carb', 'cheap']
 featured: true
 publishedAt: '2025-11-09'
 updatedAt: '2025-11-09'
 image: '/creamy-chicken-stew/creamy-chicken-stew.png'
-imageAlt: 'Tocanita Cremoasa de Pui cu Ciuperci'
+imageAlt: 'Tocăniță Cremoasă de Pui cu Ciuperci'
 imageBrightness: 'light'
-author: 'Maingain Team'
+author: 'Echipa Maingain'
 ---
 
 Aceasta este o variantă mai sănătoasă a tradiționalului pui cu smântână, dar am folosit iaurt grecesc cu 10% grăsime pentru mai puține calorii. Am ales și pulpe dezosate de pui pentru că nu sunt atât de fibroase și sunt și mai ieftine. Puteți folosi piept de pui sau curcan, însă va ieși mai scump.
 
-Îmi place că o pregătesc în 30 de minute cu ajutorul oalei sub presiune (eu folosesc One Pot Tefal). Recomand tuturor să își achiziționeze o oală sub presiune inteligentă, pentru că îți ușurează foarte mult viața în bucătărie. La această oală am pus toate ingredientele (în afară de făină, iaurt și dafin) deodată și am setat programul de Tocăniță cu meniu de pește (Stew, Fish Menu), care durează 20 de minute. Apoi, la final, am adăugat și restul ingredientelor și am mai lăsat acoperit 5 minute.
+Îmi place că o pregătesc în 30 de minute cu ajutorul oalei sub presiune (eu folosesc One Pot Tefal). Recomand tuturor să își achiziționeze o oală sub presiune inteligentă, pentru că îți ușurează foarte mult viața în bucătărie. În această oală am pus toate ingredientele (în afară de făină, iaurt și dafin) deodată și am setat programul de Tocăniță cu meniu de pește (Stew, Fish Menu), care durează 20 de minute. Apoi, la final, am adăugat și restul ingredientelor și am mai lăsat acoperit 5 minute.
 
 ## Ingrediente
 
@@ -44,9 +44,9 @@ Aceasta este o variantă mai sănătoasă a tradiționalului pui cu smântână,
 
 1. Taie puiul în bucăți mici și pune-l la fiert aprox. 20 de minute cu aprox. 500 ml apă (oala acoperită). Dacă este carne mai tare (de la țară sau de curcan), va trebui să o lași 30-40 de minute.
 
-2. Taie legumele mărunt (ceapa, ardeii și verdeața) și pune-le la fiert 10 minute, după ce a fiert puiul, împreună cu ciupercile (oala acoperită).
+2. Taie legumele mărunt (ceapa, ardeii și verdeața) și pune-le la fiert 10 minute împreună cu ciupercile, în aceeași oală cu puiul fiert (oala acoperită).
 
-3. Amestecă iaurtul cu făina și cu un pic de apă clocotită de la fiert până când obții o compoziție omogenă (eu am folosit blenderul de mână) și toarnă peste celelalte ingrediente, lăsând la fiert încă 1 minut.
+3. Într-un recipient separat, amestecă iaurtul cu făina și cu un pic de apă clocotită de la fiert până când obții o compoziție omogenă (eu am folosit blenderul de mână). Toarnă apoi compoziția obținută peste celelalte ingrediente și lasă să mai dea un clocot câteva secunde.
 
 4. Adaugă dafinul, Vegeta și piperul.
 

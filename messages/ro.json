@@ -37,7 +37,8 @@
   },
   "search": {
     "title": "Căutare",
-    "placeholder": "Caută rețete...",
+    "placeholder": "Caută rețete... (ex. 'ieftin', 'simplu')",
+    "subtitle": "Caută rețete sănătoase",
     "recipes": "Rețete",
     "for": "pentru",
     "comingSoon": "Funcționalitatea de căutare vine în curând!",
@@ -86,7 +87,8 @@
     },
     "tags": {
       "cheap": "Ieftin",
-      "low-carb": "Puțini Carbo"
+      "low-carb": "Puțini Carbo",
+      "simple": "Simplu"
     },
     "ingredients": "Ingrediente",
     "instructions": "Instrucțiuni",
