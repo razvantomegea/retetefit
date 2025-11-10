@@ -1,10 +1,22 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Clock, DollarSign, Droplet, Dumbbell, Flame, Leaf, Users, Wheat } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import {
+  CircleHelp,
+  Clock,
+  DollarSign,
+  Droplet,
+  Dumbbell,
+  Flame,
+  InfoIcon,
+  Leaf,
+  Users,
+  Wheat,
+} from 'lucide-react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { useId, useState } from 'react';
 
 import { Gallery } from '@/components/recipe/Gallery';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
@@ -25,6 +37,10 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
   const params = useParams();
   const locale = (params?.locale as string) || defaultLocale;
   const tagsDictionary = (t.raw('tags') as Record<string, string> | undefined) ?? {};
+  const infoTooltipId = useId();
+  const [isInfoPinned, setIsInfoPinned] = useState(false);
+  const [isInfoHovered, setIsInfoHovered] = useState(false);
+  const [isInfoFocused, setIsInfoFocused] = useState(false);
 
   const translateTag = (tag: string) => {
     const normalizedTag = tag.trim().toLowerCase();
@@ -36,6 +52,8 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
       tagsDictionary[normalizedTag] ?? tagsDictionary[camelCasedTag] ?? tagsDictionary[tag] ?? tag
     );
   };
+
+  const isInfoVisible = isInfoPinned || isInfoHovered || isInfoFocused;
 
   // Reusable badge animations
   const badgeHoverAnimation = prefersReducedMotion
@@ -77,13 +95,13 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
 
       {/* Info */}
       <motion.div
-        className="flex flex-col"
+        className="flex flex-col gap-4"
         initial={prefersReducedMotion ? undefined : { opacity: 0, x: 20 }}
         animate={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
       >
         {/* Category Badge */}
-        <div className="mb-4">
+        <div>
           <Link href={`/${locale}/${getCategorySlug(recipe.category)}`}>
             <motion.span
               className="inline-block rounded-md bg-badge-category-bg text-badge-category-text border border-badge-category-border px-3 py-1 text-sm font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer"
@@ -98,16 +116,16 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
         </div>
 
         {/* Title */}
-        <h1 className="mb-4 text-3xl font-bold leading-tight text-text-primary md:text-4xl">
+        <h1 className="text-3xl font-bold leading-tight text-text-primary md:text-4xl">
           {recipe.title}
         </h1>
 
         {/* Description */}
-        <p className="mb-6 text-lg leading-relaxed text-text-secondary">{recipe.description}</p>
+        <p className="mb-2 text-lg leading-relaxed text-text-secondary">{recipe.description}</p>
 
         {/* Tags */}
         {recipe.tags.length > 0 && (
-          <div className="mb-6 flex flex-wrap gap-2">
+          <div className="mb-2 flex flex-wrap gap-2">
             {recipe.tags.map((tag: string) => (
               <motion.button
                 key={tag}
@@ -145,7 +163,56 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <Users className="h-5 w-5 text-text-secondary" aria-hidden="true" />
             <div>
               <div className="text-xs text-text-secondary">{t('servings')}</div>
-              <div className="font-semibold text-text-primary">{recipe.servings}</div>
+              <div className="flex items-center gap-1">
+                <div className="font-semibold text-text-primary">{recipe.servings}</div>
+                <div className="relative">
+                  <motion.button
+                    type="button"
+                    aria-label={t('perServingInfo')}
+                    aria-describedby={isInfoVisible ? infoTooltipId : undefined}
+                    aria-pressed={isInfoPinned}
+                    className="flex h-6 w-6 items-center justify-center rounded-full bg-background text-text-secondary transition-colors hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-primary"
+                    onClick={() => setIsInfoPinned((prev) => !prev)}
+                    onMouseEnter={() => setIsInfoHovered(true)}
+                    onMouseLeave={() => setIsInfoHovered(false)}
+                    onFocus={() => setIsInfoFocused(true)}
+                    onBlur={() => {
+                      setIsInfoFocused(false);
+                      setIsInfoPinned(false);
+                    }}
+                    whileHover={
+                      prefersReducedMotion
+                        ? undefined
+                        : { scale: 1.05, transition: { duration: 0.15 } }
+                    }
+                    whileTap={
+                      prefersReducedMotion
+                        ? undefined
+                        : { scale: 0.95, transition: { duration: 0.1 } }
+                    }
+                  >
+                    <InfoIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                  </motion.button>
+                  <AnimatePresence>
+                    {isInfoVisible && (
+                      <motion.div
+                        key="per-serving-info"
+                        id={infoTooltipId}
+                        role="tooltip"
+                        initial={
+                          prefersReducedMotion ? undefined : { opacity: 0, y: 4, scale: 0.98 }
+                        }
+                        animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+                        exit={prefersReducedMotion ? undefined : { opacity: 0, y: 4, scale: 0.98 }}
+                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+                        className="absolute left-1/2 z-20 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-background px-3 py-2 text-left text-xs leading-relaxed text-text-secondary shadow-lg"
+                      >
+                        {t('perServingInfo')}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
             </div>
           </div>
 

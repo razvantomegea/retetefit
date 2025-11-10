@@ -98,6 +98,8 @@
     "backToCategories": "Înapoi la Categorii",
     "filterBy": "Filtrează după",
     "sortBy": "Sortează după",
+    "perServingInfo": "Informațiile privind macronutrienții, caloriile și prețul sunt calculate per porție.",
+    "nutritionInfoLabel": "Informații despre valori nutriționale",
     "sortOptions": {
       "newest": "Cele mai noi",
       "oldest": "Cele mai vechi",

@@ -97,6 +97,8 @@
     "backToCategories": "Back to Categories",
     "filterBy": "Filter by",
     "sortBy": "Sort by",
+    "perServingInfo": "Macronutrients, calories, and price are calculated per serving.",
+    "nutritionInfoLabel": "Nutrition information details",
     "sortOptions": {
       "newest": "Newest",
       "oldest": "Oldest",
