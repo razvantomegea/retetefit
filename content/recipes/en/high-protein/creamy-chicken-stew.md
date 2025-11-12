@@ -19,7 +19,7 @@ updatedAt: '2025-11-09'
 image: '/creamy-chicken-stew/creamy-chicken-stew.png'
 imageAlt: 'Creamy Chicken Stew with Mushrooms'
 imageBrightness: 'light'
-author: 'Maingain Team'
+author: 'Maingain'
 ---
 
 This is a healthier version of the traditional chicken with sour cream, but I used 10% fat Greek yogurt for fewer calories. I also chose boneless chicken thighs because they are less fibrous and more affordable. You can use chicken breast or turkey, but it will end up costing more.

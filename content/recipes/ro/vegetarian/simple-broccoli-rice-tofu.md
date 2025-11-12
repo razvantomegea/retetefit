@@ -19,7 +19,7 @@ updatedAt: '2025-11-07'
 image: '/simple-broccoli-rice-tofu/simple-broccoli-rice-tofu.png'
 imageAlt: 'Tofu simplu cu broccoli și orez'
 imageBrightness: 'light'
-author: 'Maingain Team'
+author: 'Maingain'
 ---
 
 Acest tofu bogat în proteine este perfect pentru a-ți începe ziua! Combinația de tofu, broccoli și orez oferă o textură plăcută și sățioasă, ideală pentru a-ți oferi energia de care ai nevoie dimineața.

@@ -77,7 +77,7 @@ imageBrightness: 'light'
 galleryImages:
   - '/images/recipes/recipe-slug-step-1.jpg'
   - '/images/recipes/recipe-slug-step-2.jpg'
-author: 'Maingain Team'
+author: 'Maingain'
 ---
 ```
 
@@ -109,7 +109,7 @@ After the frontmatter, write your recipe content in Markdown format (see [Markdo
 | `updatedAt`   | string  | ISO date string (YYYY-MM-DD)                               | "2025-01-15"                                          |
 | `image`       | string  | Path to hero image (starts with `/`)                       | "/images/recipes/pancakes.jpg"                        |
 | `imageAlt`    | string  | Descriptive alt text for image                             | "Stack of protein pancakes with banana slices"        |
-| `author`      | string  | Author name                                                | "Maingain Team"                                       |
+| `author`      | string  | Author name                                                | "Maingain"                                       |
 
 ### Optional Fields
 

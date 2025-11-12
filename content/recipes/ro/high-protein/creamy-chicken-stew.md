@@ -19,7 +19,7 @@ updatedAt: '2025-11-09'
 image: '/creamy-chicken-stew/creamy-chicken-stew.png'
 imageAlt: 'Tocăniță Cremoasă de Pui cu Ciuperci'
 imageBrightness: 'light'
-author: 'Echipa Maingain'
+author: 'Maingain'
 ---
 
 Aceasta este o variantă mai sănătoasă a tradiționalului pui cu smântână, dar am folosit iaurt grecesc cu 10% grăsime pentru mai puține calorii. Am ales și pulpe dezosate de pui pentru că nu sunt atât de fibroase și sunt și mai ieftine. Puteți folosi piept de pui sau curcan, însă va ieși mai scump.

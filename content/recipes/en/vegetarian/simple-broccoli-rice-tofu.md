@@ -19,7 +19,7 @@ updatedAt: '2025-11-07'
 image: '/simple-broccoli-rice-tofu/simple-broccoli-rice-tofu.png'
 imageAlt: 'Simple Tofu with Broccoli and Rice'
 imageBrightness: 'light'
-author: 'Echipa Maingain'
+author: 'Maingain'
 ---
 
 This protein-rich tofu is perfect to start your day! The combination of tofu, broccoli, and rice offers a pleasant and satisfying texture, ideal for giving you the energy you need in the morning.
