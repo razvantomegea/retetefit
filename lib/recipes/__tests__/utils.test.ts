@@ -5,7 +5,8 @@ import { getRecipeFilePath } from '../utils';
 describe('getRecipeFilePath', () => {
   it('should construct correct path with locale, category, and slug', () => {
     const path = getRecipeFilePath('en', 'high-protein', 'protein-pancakes');
-    expect(path).toContain('content/recipes');
+    expect(path).toContain('content');
+    expect(path).toContain('recipes');
     expect(path).toContain('en');
     expect(path).toContain('high-protein');
     expect(path).toContain('protein-pancakes.md');

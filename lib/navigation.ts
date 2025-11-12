@@ -7,6 +7,12 @@ export interface NavCategory {
   category: Category;
 }
 
+export interface NavLink {
+  id: string;
+  href: string;
+  labelKey: string;
+}
+
 export const NAV_CATEGORIES: NavCategory[] = [
   {
     id: 'fast',
@@ -31,6 +37,14 @@ export const NAV_CATEGORIES: NavCategory[] = [
     href: '/vegetarian',
     labelKey: 'nav.categories.vegetarian',
     category: 'vegetarian',
+  },
+];
+
+export const NAV_LINKS: NavLink[] = [
+  {
+    id: 'educational',
+    href: '/educational/why-we-get-fat',
+    labelKey: 'nav.educational',
   },
 ];
 

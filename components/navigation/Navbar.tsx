@@ -22,25 +22,25 @@ export function Navbar() {
           : 'bg-transparent'
       )}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between gap-4">
           {/* Logo */}
           <Logo />
 
           {/* Desktop Navigation Links - Hidden on mobile */}
-          <div className="hidden md:flex flex-1 justify-center">
+          <div className="hidden lg:flex flex-1 justify-center">
             <NavLinks />
           </div>
 
           {/* Right Side Actions */}
           <div className="flex items-center gap-2">
             {/* Search Icon */}
-            <div className="hidden md:block">
+            <div className="hidden lg:block">
               <SearchDialog />
             </div>
 
             {/* Desktop Only: Language & Theme */}
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-2">
               <LanguageSwitcher />
               <ThemeToggle />
             </div>

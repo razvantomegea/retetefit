@@ -15,6 +15,7 @@
   "nav": {
     "lowCalorie": "Puține Calorii",
     "theme": "Temă",
+    "educational": "De Ce Ne Îngrășăm?",
     "categories": {
       "fast": "Rapid",
       "highProtein": "Bogat în Proteine",
@@ -118,6 +119,11 @@
     "subtitle": "Răsfoiește rețetele pe categorii",
     "viewRecipes": "Vezi Rețete",
     "recipes": "{count} {count, plural, =1 {rețetă} other {rețete}}"
+  },
+  "educational": {
+    "readingTime": "{minutes} min citire",
+    "publishedOn": "Publicat la",
+    "author": "Autor"
   },
   "footer": {
     "tagline": "Rețete sănătoase sub 60 de minute",

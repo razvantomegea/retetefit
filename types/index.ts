@@ -64,3 +64,23 @@ export interface ParsedRecipeContent {
   nutrition?: string;
   tips?: string;
 }
+
+export interface EducationalArticleFrontmatter {
+  title: string;
+  slug: string;
+  description: string;
+  publishedAt: string;
+  updatedAt: string;
+  image: string;
+  imageAlt: string;
+  author: string;
+}
+
+export interface EducationalArticle extends EducationalArticleFrontmatter {
+  content: string;
+  readingTime: number;
+}
+
+export interface ParsedEducationalContent {
+  content: string;
+}
