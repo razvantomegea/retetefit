@@ -148,7 +148,7 @@ export function Gallery({ mainImage, mainImageAlt, galleryImages, className }: G
   return (
     <div className={cn('flex flex-col gap-4', className)}>
       <motion.div
-        className="relative aspect-4/3 w-full overflow-hidden rounded-2xl bg-zinc-200 shadow-lg dark:bg-zinc-800"
+        className="relative aspect-video lg:aspect-4/3 w-full overflow-hidden rounded-2xl bg-zinc-200 shadow-lg dark:bg-zinc-800"
         {...motionProps}
       >
         <motion.button
@@ -204,13 +204,13 @@ export function Gallery({ mainImage, mainImageAlt, galleryImages, className }: G
       </motion.div>
 
       {images.length > 1 && (
-        <div className="flex gap-3 overflow-x-auto pb-2">
+        <div className="w-full max-w-[90vw] lg:max-w-full flex gap-2 lg:gap-3 overflow-x-auto pb-2">
           {images.map((image, index) => (
             <button
               type="button"
               key={image}
               className={cn(
-                'relative aspect-square w-20 min-w-20 overflow-hidden rounded-xl border bg-zinc-200 transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:bg-zinc-800',
+                'relative aspect-square w-16 min-w-16 lg:w-20 lg:min-w-20 overflow-hidden rounded-xl border bg-zinc-200 transition focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:bg-zinc-800',
                 index === activeIndex
                   ? 'border-primary shadow-lg'
                   : 'border-zinc-200 dark:border-zinc-700'
@@ -229,7 +229,7 @@ export function Gallery({ mainImage, mainImageAlt, galleryImages, className }: G
           <AnimatePresence>
             {isFullscreen && (
               <motion.div
-                className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-0 md:p-4"
+                className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-0 lg:p-4"
                 initial={prefersReducedMotion ? undefined : 'initial'}
                 animate={prefersReducedMotion ? undefined : 'animate'}
                 exit={prefersReducedMotion ? undefined : 'exit'}
@@ -238,7 +238,7 @@ export function Gallery({ mainImage, mainImageAlt, galleryImages, className }: G
                 aria-modal="true"
               >
                 <motion.div
-                  className="relative flex h-full w-full items-center justify-center md:max-h-[90vh] md:max-w-5xl"
+                  className="relative flex h-full w-full items-center justify-center lg:max-h-[90vh] lg:max-w-5xl"
                   initial={prefersReducedMotion ? undefined : 'initial'}
                   animate={prefersReducedMotion ? undefined : 'animate'}
                   exit={prefersReducedMotion ? undefined : 'exit'}
