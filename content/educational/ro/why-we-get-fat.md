@@ -33,7 +33,9 @@ Desigur, să ne mișcăm este și asta dificil, dar lipsa exercițiilor nu este 
 
 ### Răspunsul la întrebarea „Cum să pierdem grăsime (ușor)?”
 
-Aceasta este întrebarea la care răspunde acest blog: să facă pierderea de grăsime corporală ușoară prin rețete rapide, simple și (nu chiar atât de) delicioase, pe care oricine le poate pregăti acasă. Să nu uităm: cu cât mâncarea este mai delicioasă, cu atât ne este mai greu să ne oprim din mâncat și să nu o abuzăm.
+Aceasta este întrebarea la care răspunde acest blog: să facă pierderea de grăsime corporală ușoară prin rețete rapide, simple și delicioase, pe care oricine le poate pregăti acasă.
+
+Știu că am spus mai devreme că mâncarea prea gustoasă poate crea dependență, dar aceste rețete sunt greu de mâncat în exces. Au puține calorii și sunt bogate în proteine și fibre (au volum mare), așa că te ajută să te simți sătul și mulțumit cu porții mici.
 
 Toate rețetele de pe blog folosesc ingrediente comune și accesibile, care se găsesc în hipermarketurile obișnuite. Eu locuiesc în România și îmi fac toate cumpărăturile la Lidl (nu este un mesaj sponsorizat).
 

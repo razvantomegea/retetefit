@@ -33,7 +33,9 @@ In the end, diet is still the most important aspect when trying to manage our bo
 
 ### The Answer to “How to Lose Fat (Easily)?”
 
-That is the question this blog will answer: make fat loss easy through fast, simple, and (not too) delicious recipes that can be made at home by anyone. Let's not forget: the tastier a food is, the harder it is to stop eating and avoid overdoing it.
+That is the question this blog will answer: make fat loss easy through fast, simple, and  delicious recipes that can be made at home by anyone.
+
+I know I said earlier that food that's too delicious can be addictive, but these recipes are hard to overeat. They're low in calories and high in protein and fiber (high volume), so they help you feel full and satisfied with small portions.
 
 All recipes on this blog use common and affordable ingredients that can be found at regular hypermarkets. I live in Romania and do all my shopping at Lidl (not sponsored).
 
