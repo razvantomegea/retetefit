@@ -33,9 +33,6 @@ This protein-rich tofu is perfect to start your day! The combination of tofu, br
 ## Instructions
 
 1. Prepare the rice by boiling it with 300ml water (or as instructed on the bag)
-
 2. Boil the broccoli for 6 minutes (or as instructed on the bag) in water with salt
-
 3. Cut the tofu in small slices and pour soy sauce over by taste
-
 4. Enjoy!

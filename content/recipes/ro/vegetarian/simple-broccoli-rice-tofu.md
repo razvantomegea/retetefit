@@ -33,9 +33,6 @@ Acest tofu bogat în proteine este perfect pentru a-ți începe ziua! Combinați
 ## Instrucțiuni
 
 1. Pregătește orezul fierbându-l cu 300 ml apă (sau conform instrucțiunilor de pe ambalaj).
-
 2. Fierbe broccoli timp de 6 minute (sau conform instrucțiunilor de pe ambalaj) în apă cu sare.
-
 3. Taie tofu în felii mici și stropește-l cu sos de soia după gust.
-
 4. Savurează!

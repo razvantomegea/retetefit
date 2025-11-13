@@ -43,11 +43,7 @@ Aceasta este o variantă mai sănătoasă a tradiționalului pui cu smântână,
 ## Instrucțiuni
 
 1. Taie puiul în bucăți mici și pune-l la fiert aprox. 20 de minute cu aprox. 500 ml apă (oala acoperită). Dacă este carne mai tare (de la țară sau de curcan), va trebui să o lași 30-40 de minute.
-
 2. Taie legumele mărunt (ceapa, ardeii și verdeața) și pune-le la fiert 10 minute împreună cu ciupercile, în aceeași oală cu puiul fiert (oala acoperită).
-
 3. Într-un recipient separat, amestecă iaurtul cu făina și cu un pic de apă clocotită de la fiert până când obții o compoziție omogenă (eu am folosit blenderul de mână). Toarnă apoi compoziția obținută peste celelalte ingrediente și lasă să mai dea un clocot câteva secunde.
-
 4. Adaugă dafinul, Vegeta și piperul.
-
 5. Savurează!
