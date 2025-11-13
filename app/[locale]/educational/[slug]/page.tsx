@@ -54,6 +54,24 @@ export async function generateMetadata({ params }: EducationalPageProps): Promis
   return {
     title: `${article.title} | ${t('title')}`,
     description: article.description,
+    keywords: [
+      'nutrition',
+      'health',
+      'weight loss',
+      'educational',
+      'diet',
+      'fitness',
+    ],
+    authors: [{ name: article.author }],
+    creator: article.author,
+    publisher: t('title'),
+    robots: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
     openGraph: {
       title: article.title,
       description: article.description,
@@ -65,21 +83,29 @@ export async function generateMetadata({ params }: EducationalPageProps): Promis
           width: 1200,
           height: 630,
           alt: article.imageAlt,
+          type: 'image/png',
         },
       ],
       locale,
       type: 'article',
       publishedTime: article.publishedAt,
       modifiedTime: article.updatedAt,
+      authors: [article.author],
     },
     twitter: {
       card: 'summary_large_image',
       title: article.title,
       description: article.description,
       images: [imageUrl],
+      creator: '@maingain',
+      site: '@maingain',
     },
     alternates: {
       canonical: url,
+      languages: {
+        'en-US': `${baseUrl}/en/educational/${slug}`,
+        'ro-RO': `${baseUrl}/ro/educational/${slug}`,
+      },
     },
   };
 }
