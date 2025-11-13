@@ -204,7 +204,7 @@ export function Gallery({ mainImage, mainImageAlt, galleryImages, className }: G
       </motion.div>
 
       {images.length > 1 && (
-        <div className="w-full max-w-[90vw] lg:max-w-full flex gap-2 lg:gap-3 overflow-x-auto pb-2">
+        <div className="w-full max-w-[90vw] lg:max-w-full flex gap-2 lg:gap-3 overflow-x-auto pb-2 scrollbar-modern">
           {images.map((image, index) => (
             <button
               type="button"
