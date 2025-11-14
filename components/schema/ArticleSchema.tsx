@@ -4,9 +4,10 @@ interface ArticleSchemaProps {
   article: EducationalArticle;
   baseUrl: string;
   locale: Locale;
+  keywords: string[];
 }
 
-export function ArticleSchema({ article, baseUrl, locale }: ArticleSchemaProps) {
+export function ArticleSchema({ article, baseUrl, locale, keywords }: ArticleSchemaProps) {
   const wordCount = article.content.split(/\s+/).length;
 
   const schema = {
@@ -38,7 +39,7 @@ export function ArticleSchema({ article, baseUrl, locale }: ArticleSchemaProps) 
       '@id': `${baseUrl}/${locale as Locale}/educational/${article.slug}`,
     },
     articleSection: 'Nutrition Education',
-    keywords: 'weight loss, nutrition, calories, fat loss',
+    keywords: keywords.join(', '),
     wordCount,
     timeRequired: `PT${article.readingTime}M`,
   };

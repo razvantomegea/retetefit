@@ -11,7 +11,17 @@ import {
   getEducationalArticleBySlug,
   parseEducationalContent,
 } from '@/lib/educational';
-import type { Locale } from '@/types';
+import type { EducationalArticle, Locale } from '@/types';
+
+// Default keywords fallback for educational articles
+const DEFAULT_ARTICLE_KEYWORDS = [
+  'nutrition',
+  'health',
+  'weight loss',
+  'educational',
+  'diet',
+  'fitness',
+] as const;
 
 interface EducationalPageProps {
   params: Promise<{
@@ -50,10 +60,16 @@ export async function generateMetadata({ params }: EducationalPageProps): Promis
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const url = `${baseUrl}/${locale}/educational/${slug}`;
   const imageUrl = article.image.startsWith('http') ? article.image : `${baseUrl}${article.image}`;
+
+  // Shared keywords source: use article.tags if available, otherwise fallback to defaults
+  const articleKeywords = (article as EducationalArticle & { tags?: string[] }).tags || [
+    ...DEFAULT_ARTICLE_KEYWORDS,
+  ];
+
   return {
     title: `${article.title} | ${t('title')}`,
     description: article.description,
-    keywords: ['nutrition', 'health', 'weight loss', 'educational', 'diet', 'fitness'],
+    keywords: articleKeywords,
     authors: [{ name: article.author }],
     creator: article.author,
     publisher: t('title'),
@@ -115,9 +131,19 @@ export default async function EducationalPage({ params }: EducationalPageProps) 
   const parsedContent = parseEducationalContent(article.content);
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
+  // Shared keywords source: use article.tags if available, otherwise fallback to defaults
+  const articleKeywords = (article as EducationalArticle & { tags?: string[] }).tags || [
+    ...DEFAULT_ARTICLE_KEYWORDS,
+  ];
+
   return (
     <>
-      <ArticleSchema article={article} baseUrl={baseUrl} locale={locale as Locale} />
+      <ArticleSchema
+        article={article}
+        baseUrl={baseUrl}
+        locale={locale as Locale}
+        keywords={articleKeywords}
+      />
       <article className="min-h-screen bg-background">
         <div className="mx-auto max-w-[1280px] px-6 py-12 md:px-8 md:py-16">
           {/* Article Hero */}
