@@ -64,6 +64,24 @@ export async function generateMetadata({ params }: RecipePageProps): Promise<Met
   return {
     title: `${recipe.title} | ${t('title')}`,
     description: recipe.description,
+    keywords: [
+      ...recipe.tags,
+      recipe.category,
+      'recipe',
+      'healthy',
+      'low-calorie',
+      `${recipe.cookTime} minutes`,
+    ],
+    authors: [{ name: recipe.author }],
+    creator: recipe.author,
+    publisher: t('title'),
+    robots: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
     openGraph: {
       title: recipe.title,
       description: recipe.description,
@@ -75,21 +93,29 @@ export async function generateMetadata({ params }: RecipePageProps): Promise<Met
           width: 1200,
           height: 630,
           alt: recipe.imageAlt,
+          type: 'image/png',
         },
       ],
       locale,
       type: 'article',
       publishedTime: recipe.publishedAt,
       modifiedTime: recipe.updatedAt,
+      authors: [recipe.author],
     },
     twitter: {
       card: 'summary_large_image',
       title: recipe.title,
       description: recipe.description,
       images: [imageUrl],
+      creator: '@maingain',
+      site: '@maingain',
     },
     alternates: {
       canonical: url,
+      languages: {
+        'en-US': `${baseUrl}/en/${category}/${slug}`,
+        'ro-RO': `${baseUrl}/ro/${category}/${slug}`,
+      },
     },
   };
 }
