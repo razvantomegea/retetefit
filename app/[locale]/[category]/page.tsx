@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { NotFound } from '@/components/common/NotFound';
 import { RecipeCard } from '@/components/recipe/RecipeCard';
+import { BASE_URL } from '@/lib/constants';
 import { getCategoryFromSlug } from '@/lib/navigation';
 import { getRecipesByCategory, sortRecipes } from '@/lib/recipes';
 import type { Locale, SortOption } from '@/types';
@@ -22,7 +23,6 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   const { locale, category } = await params;
   const t = await getTranslations('recipes');
   const categoryEnum = getCategoryFromSlug(category);
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   if (!categoryEnum) {
     return {
@@ -40,11 +40,11 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
     title: `${categoryName} | Maingain`,
     description: `Browse all ${categoryName.toLowerCase()} recipes`,
     alternates: {
-      canonical: `${baseUrl}/${locale}/${category}`,
+      canonical: `${BASE_URL}/${locale}/${category}`,
       languages: {
-        en: `${baseUrl}/en/${category}`,
-        ro: `${baseUrl}/ro/${category}`,
-        'x-default': `${baseUrl}/en/${category}`,
+        en: `${BASE_URL}/en/${category}`,
+        ro: `${BASE_URL}/ro/${category}`,
+        'x-default': `${BASE_URL}/en/${category}`,
       },
     },
   };

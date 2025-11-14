@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { Hero } from '@/components/home/Hero';
 import { RecipesSection } from '@/components/home/RecipesSection';
+import { BASE_URL } from '@/lib/constants';
 import { getFeaturedRecipes } from '@/lib/recipes';
 import type { Locale } from '@/types';
 
@@ -13,17 +14,16 @@ interface HomePageProps {
 export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations('Metadata');
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   return {
     title: t('title'),
     description: t('description'),
     alternates: {
-      canonical: `${baseUrl}/${locale}`,
+      canonical: `${BASE_URL}/${locale}`,
       languages: {
-        en: `${baseUrl}/en`,
-        ro: `${baseUrl}/ro`,
-        'x-default': `${baseUrl}/en`,
+        en: `${BASE_URL}/en`,
+        ro: `${BASE_URL}/ro`,
+        'x-default': `${BASE_URL}/en`,
       },
     },
   };

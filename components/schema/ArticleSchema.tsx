@@ -1,13 +1,13 @@
+import { BASE_URL } from '@/lib/constants';
 import type { EducationalArticle, Locale } from '@/types';
 
 interface ArticleSchemaProps {
   article: EducationalArticle;
-  baseUrl: string;
   locale: Locale;
   keywords: string[];
 }
 
-export function ArticleSchema({ article, baseUrl, locale, keywords }: ArticleSchemaProps) {
+export function ArticleSchema({ article, locale, keywords }: ArticleSchemaProps) {
   const wordCount = article.content.split(/\s+/).length;
 
   const schema = {
@@ -15,7 +15,7 @@ export function ArticleSchema({ article, baseUrl, locale, keywords }: ArticleSch
     '@type': 'Article',
     headline: article.title,
     description: article.description,
-    image: article.image.startsWith('http') ? article.image : `${baseUrl}${article.image}`,
+    image: article.image.startsWith('http') ? article.image : `${BASE_URL}${article.image}`,
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     author: {
@@ -31,12 +31,12 @@ export function ArticleSchema({ article, baseUrl, locale, keywords }: ArticleSch
       name: 'MainGain',
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/logo.png`,
+        url: `${BASE_URL}/logo.png`,
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${baseUrl}/${locale as Locale}/educational/${article.slug}`,
+      '@id': `${BASE_URL}/${locale as Locale}/educational/${article.slug}`,
     },
     articleSection: 'Nutrition Education',
     keywords: keywords.join(', '),

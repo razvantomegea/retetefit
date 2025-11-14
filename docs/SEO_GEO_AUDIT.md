@@ -99,17 +99,16 @@ export async function generateMetadata({ params }: RecipePageProps): Promise<Met
     return { title: 'Recipe Not Found' };
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const url = `${baseUrl}/${locale}/${category}/${slug}`;
+  const url = `${BASE_URL}/${locale}/${category}/${slug}`;
 
   return {
     // ... existing metadata ...
     alternates: {
       canonical: url,
       languages: {
-        'en': `${baseUrl}/en/${category}/${slug}`,
-        'ro': `${baseUrl}/ro/${category}/${slug}`,
-        'x-default': `${baseUrl}/en/${category}/${slug}`,
+        'en': `${BASE_URL}/en/${category}/${slug}`,
+        'ro': `${BASE_URL}/ro/${category}/${slug}`,
+        'x-default': `${BASE_URL}/en/${category}/${slug}`,
       },
     },
   };
@@ -151,7 +150,7 @@ Excellent implementation:
   '@type': 'Recipe',
   name: recipe.title,
   description: recipe.description,
-  image: `${baseUrl}${recipe.image}`,
+  image: `${BASE_URL}${recipe.image}`,
   author: {
     '@type': 'Person',
     name: recipe.author,
@@ -242,23 +241,23 @@ import type { EducationalArticle } from '@/types';
 
 interface EducationalSchemaProps {
   article: EducationalArticle;
-  baseUrl: string;
+  BASE_URL: string;
 }
 
-export function EducationalSchema({ article, baseUrl }: EducationalSchemaProps) {
+export function EducationalSchema({ article, BASE_URL }: EducationalSchemaProps) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: article.title,
     description: article.description,
-    image: article.image.startsWith('http') ? article.image : `${baseUrl}${article.image}`,
+    image: article.image.startsWith('http') ? article.image : `${BASE_URL}${article.image}`,
     datePublished: article.publishedAt,
     dateModified: article.updatedAt,
     author: {
       '@type': 'Person',
       name: article.author,
       // Add author details for E-E-A-T
-      url: `${baseUrl}/about`,  // Create author page
+      url: `${BASE_URL}/about`,  // Create author page
       jobTitle: 'Nutrition Expert',
       description: 'Expert in fitness nutrition and healthy cooking',
     },
@@ -267,12 +266,12 @@ export function EducationalSchema({ article, baseUrl }: EducationalSchemaProps) 
       name: 'MainGain',
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/logo.png`,
+        url: `${BASE_URL}/logo.png`,
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `${baseUrl}/${article.lang}/educational/${article.slug}`,
+      '@id': `${BASE_URL}/${article.lang}/educational/${article.slug}`,
     },
     articleSection: 'Nutrition Education',
     keywords: 'weight loss, nutrition, calories, fat loss',
@@ -297,11 +296,10 @@ import { EducationalSchema } from '@/components/educational/EducationalSchema';
 export default async function EducationalPage({ params }: EducationalPageProps) {
   const { locale, slug } = await params;
   const article = getEducationalArticleBySlug(slug, locale as Locale);
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   return (
     <>
-      <EducationalSchema article={article} baseUrl={baseUrl} />
+      <EducationalSchema article={article} />
       <article className="min-h-screen bg-background">
         {/* ... existing content ... */}
       </article>
@@ -318,20 +316,18 @@ export default async function EducationalPage({ params }: EducationalPageProps) 
 
 ```typescript
 // components/schema/WebsiteSchema.tsx
-export function WebsiteSchema() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  
+export function WebsiteSchema() {  
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    url: baseUrl,
+    url: BASE_URL,
     name: 'MainGain',
     description: 'Healthy recipes under 60 minutes',
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: `${baseUrl}/en/search?q={search_term_string}`,
+        urlTemplate: `${BASE_URL}/en/search?q={search_term_string}`,
       },
       'query-input': 'required name=search_term_string',
     },
@@ -450,7 +446,7 @@ const schema = {
     '@type': 'VideoObject',
     name: `How to make ${recipe.title}`,
     description: recipe.description,
-    thumbnailUrl: `${baseUrl}${recipe.image}`,
+    thumbnailUrl: `${BASE_URL}${recipe.image}`,
     contentUrl: recipe.videoUrl,
     uploadDate: recipe.publishedAt,
   } : undefined,
@@ -717,7 +713,6 @@ import { BreadcrumbSchema } from '@/components/schema/BreadcrumbSchema';
 export default async function RecipePage({ params }: RecipePageProps) {
   const { locale, category, slug } = await params;
   const recipe = getRecipeBySlug(slug, locale as Locale, categoryEnum);
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   
   const breadcrumbItems = [
     { name: 'Home', href: `/${locale}` },
@@ -727,7 +722,7 @@ export default async function RecipePage({ params }: RecipePageProps) {
   
   const breadcrumbSchemaItems = breadcrumbItems.map((item, index) => ({
     name: item.name,
-    url: item.href ? `${baseUrl}${item.href}` : `${baseUrl}/${locale}/${category}/${slug}`,
+    url: item.href ? `${BASE_URL}${item.href}` : `${BASE_URL}/${locale}/${category}/${slug}`,
   }));
 
   return (
@@ -1057,7 +1052,6 @@ import type { Locale } from '@/types';
 import { getCategorySlug } from '@/lib/navigation';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const currentDate = new Date();
   
   const routes: MetadataRoute.Sitemap = [];
@@ -1065,13 +1059,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Home pages
   locales.forEach((locale) => {
     routes.push({
-      url: `${baseUrl}/${locale}`,
+      url: `${BASE_URL}/${locale}`,
       lastModified: currentDate,
       changeFrequency: 'daily',
       priority: 1.0,
       alternates: {
         languages: Object.fromEntries(
-          locales.map((l) => [l, `${baseUrl}/${l}`])
+          locales.map((l) => [l, `${BASE_URL}/${l}`])
         ),
       },
     });
@@ -1085,7 +1079,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const categorySlug = getCategorySlug(recipe.category);
       
       routes.push({
-        url: `${baseUrl}/${locale}/${categorySlug}/${recipe.slug}`,
+        url: `${BASE_URL}/${locale}/${categorySlug}/${recipe.slug}`,
         lastModified: new Date(recipe.updatedAt),
         changeFrequency: 'weekly',
         priority: 0.8,
@@ -1093,7 +1087,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           languages: Object.fromEntries(
             locales.map((l) => [
               l,
-              `${baseUrl}/${l}/${categorySlug}/${recipe.slug}`,
+              `${BASE_URL}/${l}/${categorySlug}/${recipe.slug}`,
             ])
           ),
         },
@@ -1107,7 +1101,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     
     articles.forEach((article) => {
       routes.push({
-        url: `${baseUrl}/${locale}/educational/${article.slug}`,
+        url: `${BASE_URL}/${locale}/educational/${article.slug}`,
         lastModified: new Date(article.updatedAt),
         changeFrequency: 'monthly',
         priority: 0.7,
@@ -1115,7 +1109,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           languages: Object.fromEntries(
             locales.map((l) => [
               l,
-              `${baseUrl}/${l}/educational/${article.slug}`,
+              `${BASE_URL}/${l}/educational/${article.slug}`,
             ])
           ),
         },
@@ -1129,13 +1123,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     
     categories.forEach((category) => {
       routes.push({
-        url: `${baseUrl}/${locale}/${category}`,
+        url: `${BASE_URL}/${locale}/${category}`,
         lastModified: currentDate,
         changeFrequency: 'daily',
         priority: 0.9,
         alternates: {
           languages: Object.fromEntries(
-            locales.map((l) => [l, `${baseUrl}/${l}/${category}`])
+            locales.map((l) => [l, `${BASE_URL}/${l}/${category}`])
           ),
         },
       });
@@ -1143,7 +1137,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Categories index
     routes.push({
-      url: `${baseUrl}/${locale}/categories`,
+      url: `${BASE_URL}/${locale}/categories`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
@@ -1151,7 +1145,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Search page
     routes.push({
-      url: `${baseUrl}/${locale}/search`,
+      url: `${BASE_URL}/${locale}/search`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.6,

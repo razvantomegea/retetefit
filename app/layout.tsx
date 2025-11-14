@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 
+import { BASE_URL } from '@/lib/constants';
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+  metadataBase: new URL(BASE_URL),
   icons: {
     icon: '/logo.png',
     shortcut: '/logo.png',

@@ -1,12 +1,12 @@
+import { BASE_URL } from '@/lib/constants';
 import { parseIngredients, parseInstructions } from '@/lib/recipes/parse-schema';
 import type { Recipe } from '@/types';
 
 interface RecipeSchemaProps {
   recipe: Recipe;
-  baseUrl: string;
 }
 
-export function RecipeSchema({ recipe, baseUrl }: RecipeSchemaProps) {
+export function RecipeSchema({ recipe }: RecipeSchemaProps) {
   // Extract prep time if available (checking both prepTime and prepMinutes for flexibility)
   const prepTime =
     ('prepTime' in recipe && typeof recipe.prepTime === 'number' ? recipe.prepTime : null) ??
@@ -32,7 +32,7 @@ export function RecipeSchema({ recipe, baseUrl }: RecipeSchemaProps) {
     '@type': 'Recipe',
     name: recipe.title,
     description: recipe.description,
-    image: `${baseUrl}${recipe.image}`,
+    image: `${BASE_URL}${recipe.image}`,
     author: {
       '@type': 'Person',
       name: recipe.author,

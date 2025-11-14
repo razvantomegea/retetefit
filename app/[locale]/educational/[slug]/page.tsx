@@ -6,6 +6,7 @@ import { EducationalContent } from '@/components/educational/EducationalContent'
 import { EducationalHero } from '@/components/educational/EducationalHero';
 import { ArticleSchema } from '@/components/schema/ArticleSchema';
 import { locales } from '@/i18n/config';
+import { BASE_URL } from '@/lib/constants';
 import {
   getAllEducationalArticles,
   getEducationalArticleBySlug,
@@ -57,9 +58,8 @@ export async function generateMetadata({ params }: EducationalPageProps): Promis
   }
 
   const t = await getTranslations('Metadata');
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const url = `${baseUrl}/${locale}/educational/${slug}`;
-  const imageUrl = article.image.startsWith('http') ? article.image : `${baseUrl}${article.image}`;
+  const url = `${BASE_URL}/${locale}/educational/${slug}`;
+  const imageUrl = article.image.startsWith('http') ? article.image : `${BASE_URL}${article.image}`;
 
   // Shared keywords source: use article.tags if available, otherwise fallback to defaults
   const articleKeywords = (article as EducationalArticle & { tags?: string[] }).tags || [
@@ -111,9 +111,9 @@ export async function generateMetadata({ params }: EducationalPageProps): Promis
     alternates: {
       canonical: url,
       languages: {
-        en: `${baseUrl}/en/educational/${slug}`,
-        ro: `${baseUrl}/ro/educational/${slug}`,
-        'x-default': `${baseUrl}/en/educational/${slug}`,
+        en: `${BASE_URL}/en/educational/${slug}`,
+        ro: `${BASE_URL}/ro/educational/${slug}`,
+        'x-default': `${BASE_URL}/en/educational/${slug}`,
       },
     },
   };
@@ -129,7 +129,6 @@ export default async function EducationalPage({ params }: EducationalPageProps) 
   }
 
   const parsedContent = parseEducationalContent(article.content);
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   // Shared keywords source: use article.tags if available, otherwise fallback to defaults
   const articleKeywords = (article as EducationalArticle & { tags?: string[] }).tags || [
@@ -138,12 +137,7 @@ export default async function EducationalPage({ params }: EducationalPageProps) 
 
   return (
     <>
-      <ArticleSchema
-        article={article}
-        baseUrl={baseUrl}
-        locale={locale as Locale}
-        keywords={articleKeywords}
-      />
+      <ArticleSchema article={article} locale={locale as Locale} keywords={articleKeywords} />
       <article className="min-h-screen bg-background">
         <div className="mx-auto max-w-[1280px] px-6 py-12 md:px-8 md:py-16">
           {/* Article Hero */}

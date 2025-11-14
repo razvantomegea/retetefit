@@ -6,6 +6,7 @@ import { RecipeCard } from '@/components/recipe/RecipeCard';
 import { RecipeContent } from '@/components/recipe/RecipeContent';
 import { RecipeHero } from '@/components/recipe/RecipeHero';
 import { RecipeSchema } from '@/components/recipe/RecipeSchema';
+import { BASE_URL } from '@/lib/constants';
 import { getCategoryFromSlug, getCategorySlug } from '@/lib/navigation';
 import {
   getAllRecipes,
@@ -57,9 +58,8 @@ export async function generateMetadata({ params }: RecipePageProps): Promise<Met
   }
 
   const t = await getTranslations('Metadata');
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const url = `${baseUrl}/${locale}/${category}/${slug}`;
-  const imageUrl = `${baseUrl}${recipe.image}`;
+  const url = `${BASE_URL}/${locale}/${category}/${slug}`;
+  const imageUrl = `${BASE_URL}${recipe.image}`;
 
   return {
     title: `${recipe.title} | ${t('title')}`,
@@ -113,9 +113,9 @@ export async function generateMetadata({ params }: RecipePageProps): Promise<Met
     alternates: {
       canonical: url,
       languages: {
-        en: `${baseUrl}/en/${category}/${slug}`,
-        ro: `${baseUrl}/ro/${category}/${slug}`,
-        'x-default': `${baseUrl}/en/${category}/${slug}`,
+        en: `${BASE_URL}/en/${category}/${slug}`,
+        ro: `${BASE_URL}/ro/${category}/${slug}`,
+        'x-default': `${BASE_URL}/en/${category}/${slug}`,
       },
     },
   };
@@ -137,12 +137,11 @@ export default async function RecipePage({ params }: RecipePageProps) {
 
   const parsedContent = parseRecipeContent(recipe.content);
   const relatedRecipes = getRelatedRecipes(recipe, locale as Locale, 4);
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const t = await getTranslations('recipes');
 
   return (
     <>
-      <RecipeSchema recipe={recipe} baseUrl={baseUrl} />
+      <RecipeSchema recipe={recipe} />
       <article className="min-h-screen bg-background">
         <div className="mx-auto max-w-[1280px] px-6 py-12 md:px-8 md:py-16">
           {/* Recipe Hero */}

@@ -1,12 +1,12 @@
-export function OrganizationSchema() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+import { BASE_URL } from '@/lib/constants';
 
+export function OrganizationSchema() {
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'MainGain',
-    url: baseUrl,
-    logo: `${baseUrl}/logo.png`,
+    url: BASE_URL,
+    logo: `${BASE_URL}/logo.png`,
     description: 'Healthy recipes under 60 minutes',
     sameAs: [
       // Add your social media URLs here

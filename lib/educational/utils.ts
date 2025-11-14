@@ -5,7 +5,8 @@ import matter from 'gray-matter';
 import path from 'path';
 import readingTime from 'reading-time';
 
-import type { EducationalArticle, EducationalArticleFrontmatter, Locale } from '@/types';
+import type { EducationalArticle, Locale } from '@/types';
+
 import { isString, isValidISODate } from './validation';
 
 const contentDirectory = path.join(process.cwd(), 'content', 'educational');
@@ -62,7 +63,7 @@ export function parseEducationalFile(filePath: string): EducationalArticle | nul
       console.error(`Invalid or missing imageAlt in ${filePath}`);
       return null;
     }
-    
+
     // Validate date fields
     if (!isValidISODate(data.publishedAt)) {
       console.error(`Invalid or missing publishedAt date in ${filePath}`);
@@ -79,6 +80,7 @@ export function parseEducationalFile(filePath: string): EducationalArticle | nul
     const article: EducationalArticle = {
       slug: data.slug,
       title: data.title,
+      lang: data.lang,
       description: data.description,
       author: data.author,
       image: data.image,
@@ -101,4 +103,3 @@ export function parseEducationalContent(content: string): { content: string } {
     content: content.trim(),
   };
 }
-
