@@ -1,3 +1,4 @@
+import { type Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 
 import { Hero } from '@/components/home/Hero';
@@ -9,12 +10,22 @@ interface HomePageProps {
   params: Promise<{ locale: string }>;
 }
 
-export async function generateMetadata() {
+export async function generateMetadata({ params }: HomePageProps): Promise<Metadata> {
+  const { locale } = await params;
   const t = await getTranslations('Metadata');
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   return {
     title: t('title'),
     description: t('description'),
+    alternates: {
+      canonical: `${baseUrl}/${locale}`,
+      languages: {
+        en: `${baseUrl}/en`,
+        ro: `${baseUrl}/ro`,
+        'x-default': `${baseUrl}/en`,
+      },
+    },
   };
 }
 

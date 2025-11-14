@@ -1,0 +1,52 @@
+import type { EducationalArticle, Locale } from '@/types';
+
+interface ArticleSchemaProps {
+  article: EducationalArticle;
+  baseUrl: string;
+  locale: Locale;
+}
+
+export function ArticleSchema({ article, baseUrl, locale }: ArticleSchemaProps) {
+  const wordCount = article.content.split(/\s+/).length;
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.description,
+    image: article.image.startsWith('http') ? article.image : `${baseUrl}${article.image}`,
+    datePublished: article.publishedAt,
+    dateModified: article.updatedAt,
+    author: {
+      '@type': 'Person',
+      name: article.author,
+      // Add author details for E-E-A-T
+      url: 'https://razvantomegea.com', // Create author page
+      jobTitle: 'Software Engineer',
+      description: 'Software Engineer at MainGain',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'MainGain',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/logo.png`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${baseUrl}/${locale as Locale}/educational/${article.slug}`,
+    },
+    articleSection: 'Nutrition Education',
+    keywords: 'weight loss, nutrition, calories, fat loss',
+    wordCount,
+    timeRequired: `PT${article.readingTime}M`,
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema, null, 2) }}
+    />
+  );
+}

@@ -19,9 +19,10 @@ interface CategoryPageProps {
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
-  const { category } = await params;
+  const { locale, category } = await params;
   const t = await getTranslations('recipes');
   const categoryEnum = getCategoryFromSlug(category);
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   if (!categoryEnum) {
     return {
@@ -38,6 +39,14 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   return {
     title: `${categoryName} | Maingain`,
     description: `Browse all ${categoryName.toLowerCase()} recipes`,
+    alternates: {
+      canonical: `${baseUrl}/${locale}/${category}`,
+      languages: {
+        en: `${baseUrl}/en/${category}`,
+        ro: `${baseUrl}/ro/${category}`,
+        'x-default': `${baseUrl}/en/${category}`,
+      },
+    },
   };
 }
 

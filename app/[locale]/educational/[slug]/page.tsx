@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server';
 
 import { EducationalContent } from '@/components/educational/EducationalContent';
 import { EducationalHero } from '@/components/educational/EducationalHero';
+import { ArticleSchema } from '@/components/schema/ArticleSchema';
 import { locales } from '@/i18n/config';
 import {
   getAllEducationalArticles,
@@ -48,20 +49,11 @@ export async function generateMetadata({ params }: EducationalPageProps): Promis
   const t = await getTranslations('Metadata');
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const url = `${baseUrl}/${locale}/educational/${slug}`;
-  const imageUrl = article.image.startsWith('http')
-    ? article.image
-    : `${baseUrl}${article.image}`;
+  const imageUrl = article.image.startsWith('http') ? article.image : `${baseUrl}${article.image}`;
   return {
     title: `${article.title} | ${t('title')}`,
     description: article.description,
-    keywords: [
-      'nutrition',
-      'health',
-      'weight loss',
-      'educational',
-      'diet',
-      'fitness',
-    ],
+    keywords: ['nutrition', 'health', 'weight loss', 'educational', 'diet', 'fitness'],
     authors: [{ name: article.author }],
     creator: article.author,
     publisher: t('title'),
@@ -103,8 +95,9 @@ export async function generateMetadata({ params }: EducationalPageProps): Promis
     alternates: {
       canonical: url,
       languages: {
-        'en-US': `${baseUrl}/en/educational/${slug}`,
-        'ro-RO': `${baseUrl}/ro/educational/${slug}`,
+        en: `${baseUrl}/en/educational/${slug}`,
+        ro: `${baseUrl}/ro/educational/${slug}`,
+        'x-default': `${baseUrl}/en/educational/${slug}`,
       },
     },
   };
@@ -120,19 +113,22 @@ export default async function EducationalPage({ params }: EducationalPageProps) 
   }
 
   const parsedContent = parseEducationalContent(article.content);
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
   return (
-    <article className="min-h-screen bg-background">
-      <div className="mx-auto max-w-[1280px] px-6 py-12 md:px-8 md:py-16">
-        {/* Article Hero */}
-        <EducationalHero article={article} className="mb-12" />
+    <>
+      <ArticleSchema article={article} baseUrl={baseUrl} locale={locale as Locale} />
+      <article className="min-h-screen bg-background">
+        <div className="mx-auto max-w-[1280px] px-6 py-12 md:px-8 md:py-16">
+          {/* Article Hero */}
+          <EducationalHero article={article} className="mb-12" />
 
-        {/* Article Content */}
-        <div className="mt-12">
-          <EducationalContent content={parsedContent.content} />
+          {/* Article Content */}
+          <div className="mt-12">
+            <EducationalContent content={parsedContent.content} />
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </>
   );
 }
-

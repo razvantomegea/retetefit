@@ -8,6 +8,7 @@ import { getMessages } from 'next-intl/server';
 import Footer from '@/components/navigation/Footer';
 import { Navbar } from '@/components/navigation/Navbar';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { OrganizationSchema } from '@/components/schema/OrganizationSchema';
 import { routing } from '@/i18n/routing';
 
 const inter = Inter({
@@ -41,6 +42,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${inter.variable} antialiased`}>
+        <OrganizationSchema />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

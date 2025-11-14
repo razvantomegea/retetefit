@@ -74,6 +74,7 @@ export interface EducationalArticleFrontmatter {
   image: string;
   imageAlt: string;
   author: string;
+  lang: Locale;
 }
 
 export interface EducationalArticle extends EducationalArticleFrontmatter {

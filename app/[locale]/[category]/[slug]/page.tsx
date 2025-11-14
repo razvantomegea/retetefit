@@ -113,8 +113,9 @@ export async function generateMetadata({ params }: RecipePageProps): Promise<Met
     alternates: {
       canonical: url,
       languages: {
-        'en-US': `${baseUrl}/en/${category}/${slug}`,
-        'ro-RO': `${baseUrl}/ro/${category}/${slug}`,
+        en: `${baseUrl}/en/${category}/${slug}`,
+        ro: `${baseUrl}/ro/${category}/${slug}`,
+        'x-default': `${baseUrl}/en/${category}/${slug}`,
       },
     },
   };
