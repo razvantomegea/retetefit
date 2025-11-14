@@ -1,6 +1,7 @@
 ---
 title: 'De ce ne îngrășăm?'
 slug: 'why-we-get-fat'
+lang: 'ro'
 description: 'Un ghid simplu despre de ce ne îngrășăm și cum putem inversa acest proces.'
 publishedAt: '2025-11-07'
 updatedAt: '2025-11-07'

@@ -1,6 +1,7 @@
 ---
 title: 'Why We Get Fat?'
 slug: 'why-we-get-fat'
+lang: 'en'
 description: 'A simple guide on why we get fat and how to reverse it.'
 publishedAt: '2025-11-07'
 updatedAt: '2025-11-07'
