@@ -12,7 +12,7 @@ carbs: 55
 fat: 10
 fiber: 7
 price: 2.5
-tags: ['cheap', 'simple']
+tags: ['cheap', 'simple', 'vegan']
 featured: true
 publishedAt: '2025-11-07'
 updatedAt: '2025-11-07'

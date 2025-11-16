@@ -4,24 +4,24 @@ import { getRecipeFilePath } from '../utils';
 
 describe('getRecipeFilePath', () => {
   it('should construct correct path with locale, category, and slug', () => {
-    const path = getRecipeFilePath('en', 'high-protein', 'protein-pancakes');
+    const path = getRecipeFilePath('en', 'main', 'protein-pancakes');
     expect(path).toContain('content');
     expect(path).toContain('recipes');
     expect(path).toContain('en');
-    expect(path).toContain('high-protein');
+    expect(path).toContain('main');
     expect(path).toContain('protein-pancakes.md');
   });
 
   it('should handle different locales', () => {
-    const enPath = getRecipeFilePath('en', 'fast', 'quick-meal');
-    const roPath = getRecipeFilePath('ro', 'fast', 'masa-rapida');
+    const enPath = getRecipeFilePath('en', 'main', 'quick-meal');
+    const roPath = getRecipeFilePath('ro', 'main', 'masa-rapida');
 
     expect(enPath).toContain('en');
     expect(roPath).toContain('ro');
   });
 
   it('should handle different categories', () => {
-    const categories: Category[] = ['fast', 'high-protein', 'high-fiber', 'vegetarian'];
+    const categories: Category[] = ['main', 'vegetarian', 'desserts', 'brunch'];
 
     categories.forEach((category) => {
       const path = getRecipeFilePath('en', category, 'test-recipe');
@@ -30,7 +30,7 @@ describe('getRecipeFilePath', () => {
   });
 
   it('should append .md extension to slug', () => {
-    const path = getRecipeFilePath('en', 'fast', 'simple-recipe');
+    const path = getRecipeFilePath('en', 'main', 'simple-recipe');
     expect(path).toMatch(/\.md$/);
   });
 });

@@ -53,7 +53,7 @@ describe('buildFilters', () => {
 
   it('should handle all filters together', () => {
     const filters = buildFilters({
-      category: 'high-protein',
+      category: 'main',
       minCookTime: '15',
       maxCookTime: '45',
       minCalories: '200',
@@ -61,7 +61,7 @@ describe('buildFilters', () => {
     });
 
     expect(filters).toEqual({
-      category: 'high-protein',
+      category: 'main',
       minCookTime: 15,
       maxCookTime: 45,
       minCalories: 200,
@@ -102,6 +102,7 @@ describe('applyFilters', () => {
     fat: 10,
     fiber: 5,
     tags,
+    price: 10,
     featured: false,
     publishedAt: '2024-01-01',
     updatedAt: '2024-01-01',
@@ -112,10 +113,10 @@ describe('applyFilters', () => {
   });
 
   const mockRecipes: RecipeMetadata[] = [
-    createMockRecipe('recipe-1', 'high-protein', 15, 200, ['breakfast', 'quick']),
+    createMockRecipe('recipe-1', 'main', 15, 200, ['breakfast', 'quick']),
     createMockRecipe('recipe-2', 'vegetarian', 30, 300, ['lunch', 'healthy']),
-    createMockRecipe('recipe-3', 'high-protein', 45, 400, ['dinner', 'protein']),
-    createMockRecipe('recipe-4', 'high-fiber', 20, 250, ['breakfast', 'fiber']),
+    createMockRecipe('recipe-3', 'main', 45, 400, ['dinner', 'protein']),
+    createMockRecipe('recipe-4', 'vegetarian', 20, 250, ['breakfast', 'fiber']),
   ];
 
   it('should return all recipes when no filters applied', () => {
@@ -125,9 +126,9 @@ describe('applyFilters', () => {
   });
 
   it('should filter by category', () => {
-    const filtered = applyFilters(mockRecipes, { category: 'high-protein' });
+    const filtered = applyFilters(mockRecipes, { category: 'main' });
     expect(filtered).toHaveLength(2);
-    expect(filtered.every((r) => r.category === 'high-protein')).toBe(true);
+    expect(filtered.every((r) => r.category === 'main')).toBe(true);
   });
 
   it('should filter by tags', () => {
@@ -182,7 +183,7 @@ describe('applyFilters', () => {
 
   it('should apply multiple filters together', () => {
     const filtered = applyFilters(mockRecipes, {
-      category: 'high-protein',
+      category: 'main',
       minCookTime: 10,
       maxCookTime: 20,
       minCalories: 150,
@@ -194,7 +195,7 @@ describe('applyFilters', () => {
 
   it('should return empty array when no recipes match filters', () => {
     const filtered = applyFilters(mockRecipes, {
-      category: 'high-protein',
+      category: 'main',
       minCookTime: 60,
     });
     expect(filtered).toHaveLength(0);
@@ -202,17 +203,17 @@ describe('applyFilters', () => {
 
   it('should not mutate original array', () => {
     const original = [...mockRecipes];
-    applyFilters(mockRecipes, { category: 'high-protein' });
+    applyFilters(mockRecipes, { category: 'main' });
     expect(mockRecipes).toEqual(original);
   });
 
   it('should return new array instance', () => {
-    const filtered = applyFilters(mockRecipes, { category: 'high-protein' });
+    const filtered = applyFilters(mockRecipes, { category: 'main' });
     expect(filtered).not.toBe(mockRecipes);
   });
 
   it('should handle empty recipes array', () => {
-    const filtered = applyFilters([], { category: 'high-protein' });
+    const filtered = applyFilters([], { category: 'main' });
     expect(filtered).toEqual([]);
   });
 

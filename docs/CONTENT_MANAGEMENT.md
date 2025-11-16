@@ -67,7 +67,7 @@ protein: 35
 carbs: 45
 fat: 12
 fiber: 8
-tags: ['high-protein', 'quick', 'breakfast']
+tags: ['quick', 'breakfast']
 featured: false
 publishedAt: '2025-01-15'
 updatedAt: '2025-01-15'
