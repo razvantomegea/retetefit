@@ -46,10 +46,10 @@ This recipe serves the whole family and beats most store-bought sweets. If you f
 
 ## Instructions
 
-- Mix the oats with the protein, salt, 50g sweetener, and the milk.
-- Simmer for a few minutes until thickened (I used the “Oatmeal” program on a pressure cooker, 3 minutes).
-- Wash the apples, cut them into small pieces, and mix with cinnamon and the remaining sweetener.
-- Line a pan with parchment paper and add the apples.
-- Preheat the oven to 100°C and bake for 17 minutes (I used the “Vegetables” program in the pressure cooker).
-- Let everything cool, then spoon the apples over the oatmeal.
-- Enjoy!
+1. Mix the oats with the protein, salt, 50g sweetener, and the milk.
+2. Simmer for a few minutes until thickened (I used the “Oatmeal” program on a pressure cooker, 3 minutes).
+3. Wash the apples, cut them into small pieces, and mix with cinnamon and the remaining sweetener.
+4. Line a pan with parchment paper and add the apples.
+5. Preheat the oven to 100°C and bake for 17 minutes (I used the “Vegetables” program in the pressure cooker).
+6. Let everything cool, then spoon the apples over the oatmeal.
+7. Enjoy!

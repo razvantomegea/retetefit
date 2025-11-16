@@ -46,10 +46,10 @@ Rețeta este suficientă pentru toată familia și întrece majoritatea desertur
 
 ## Instrucțiuni
 
-- Amestecă fulgii de ovăz cu proteina, sarea, 50 g îndulcitor și laptele.
-- Lasă la foc mic câteva minute până se îngroașă (eu am folosit programul „Oatmeal” la oala sub presiune, 3 minute).
-- Spală merele, taie-le cubulețe și amestecă-le cu scorțișoara și îndulcitorul rămas.
-- Tapetează o tavă cu hârtie de copt și adaugă merele.
-- Preîncălzește cuptorul la 100°C și coace-le 17 minute (eu am folosit programul „Vegetables” la oala sub presiune).
-- Lasă totul să se răcească, apoi pune merele peste terci.
-- Savurează!
+1. Amestecă fulgii de ovăz cu proteina, sarea, 50 g îndulcitor și laptele.
+2. Lasă la foc mic câteva minute până se îngroașă (eu am folosit programul „Oatmeal” la oala sub presiune, 3 minute).
+3. Spală merele, taie-le cubulețe și amestecă-le cu scorțișoara și îndulcitorul rămas.
+4. Tapetează o tavă cu hârtie de copt și adaugă merele.
+5. Preîncălzește cuptorul la 100°C și coace-le 17 minute (eu am folosit programul „Vegetables” la oala sub presiune).
+6. Lasă totul să se răcească, apoi pune merele peste terci.
+7. Savurează!
