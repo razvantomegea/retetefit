@@ -15,28 +15,28 @@ export interface NavLink {
 
 export const NAV_CATEGORIES: NavCategory[] = [
   {
-    id: 'fast',
-    href: '/fast',
-    labelKey: 'nav.categories.fast',
-    category: 'fast',
-  },
-  {
-    id: 'high-protein',
-    href: '/high-protein',
-    labelKey: 'nav.categories.highProtein',
-    category: 'high-protein',
-  },
-  {
-    id: 'high-fiber',
-    href: '/high-fiber',
-    labelKey: 'nav.categories.highFiber',
-    category: 'high-fiber',
-  },
-  {
     id: 'vegetarian',
     href: '/vegetarian',
     labelKey: 'nav.categories.vegetarian',
     category: 'vegetarian',
+  },
+  {
+    id: 'desserts',
+    href: '/desserts',
+    labelKey: 'nav.categories.desserts',
+    category: 'desserts',
+  },
+  {
+    id: 'brunch',
+    href: '/brunch',
+    labelKey: 'nav.categories.brunch',
+    category: 'brunch',
+  },
+  {
+    id: 'main',
+    href: '/main',
+    labelKey: 'nav.categories.main',
+    category: 'main',
   },
 ];
 

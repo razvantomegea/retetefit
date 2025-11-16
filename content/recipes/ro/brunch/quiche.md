@@ -2,7 +2,7 @@
 title: 'Quiche'
 slug: 'quiche'
 description: 'Quiche bogat în proteine și legume, perfect pentru micul dejun sau brunch.'
-category: 'fast'
+category: 'brunch'
 lang: 'ro'
 cookTime: 20
 servings: 2

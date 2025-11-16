@@ -1,4 +1,4 @@
-export type Category = 'fast' | 'high-protein' | 'high-fiber' | 'vegetarian';
+export type Category = 'vegetarian' | 'desserts' | 'brunch' | 'main';
 export type Locale = 'ro' | 'en';
 
 export interface RecipeFrontmatter {

@@ -17,10 +17,10 @@
     "theme": "Temă",
     "educational": "De Ce Ne Îngrășăm?",
     "categories": {
-      "fast": "Rapid",
-      "highProtein": "Bogat în Proteine",
-      "highFiber": "Bogat în Fibre",
-      "vegetarian": "Vegetarian"
+      "vegetarian": "Vegetarian",
+      "desserts": "Deserturi",
+      "brunch": "Brunch",
+      "main": "Fel Principal"
     },
     "language": {
       "switchTo": "Schimbă la {language}",
@@ -74,10 +74,10 @@
     "cookTime": "Timp de gătit",
     "lowCalorie": "Puține Calorii",
     "categories": {
-      "fast": "Rapid",
-      "highProtein": "Bogat în Proteine",
-      "highFiber": "Bogat în Fibre",
-      "vegetarian": "Vegetarian"
+      "vegetarian": "Vegetarian",
+      "desserts": "Deserturi",
+      "brunch": "Brunch",
+      "main": "Fel Principal"
     },
     "nutrition": {
       "protein": "Proteine",

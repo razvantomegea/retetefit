@@ -2,7 +2,7 @@
 title: 'Quiche'
 slug: 'quiche'
 description: 'High protein quiche loaded with veggies, perfect for breakfast or brunch.'
-category: 'fast'
+category: 'brunch'
 lang: 'en'
 cookTime: 20
 servings: 2

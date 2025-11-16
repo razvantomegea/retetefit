@@ -4,7 +4,7 @@ import { Category, Locale, RecipeFilters, RecipeMetadata } from '@/types';
 
 import { getAllRecipes } from './get-all';
 
-export const VALID_CATEGORIES: Category[] = ['fast', 'high-protein', 'high-fiber', 'vegetarian'];
+export const VALID_CATEGORIES: Category[] = ['vegetarian', 'desserts', 'brunch', 'main'];
 
 export interface SearchParamsFilters {
   category?: string;

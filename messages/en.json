@@ -17,10 +17,10 @@
     "theme": "Theme",
     "educational": "Why We Get Fat?",
     "categories": {
-      "fast": "Fast",
-      "highProtein": "High Protein",
-      "highFiber": "High Fiber",
-      "vegetarian": "Vegetarian"
+      "vegetarian": "Vegetarian",
+      "desserts": "Desserts",
+      "brunch": "Brunch",
+      "main": "Main"
     },
     "language": {
       "switchTo": "Switch to {language}",
@@ -73,10 +73,10 @@
     "cookTime": "Cook time",
     "lowCalorie": "Low Calorie",
     "categories": {
-      "fast": "Fast",
-      "highProtein": "High Protein",
-      "highFiber": "High Fiber",
-      "vegetarian": "Vegetarian"
+      "vegetarian": "Vegetarian",
+      "desserts": "Desserts",
+      "brunch": "Brunch",
+      "main": "Main"
     },
     "nutrition": {
       "protein": "Protein",
