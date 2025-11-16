@@ -70,7 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Category pages
   locales.forEach((locale) => {
-    const categories = ['fast', 'high-fiber', 'vegetarian'];
+    const categories = ['main', 'vegetarian', 'desserts', 'brunch'];
 
     categories.forEach((category) => {
       routes.push({
