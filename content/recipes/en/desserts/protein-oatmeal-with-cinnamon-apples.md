@@ -35,6 +35,7 @@ If you want a filling, healthy, and delicious dessert with autumn and winter vib
 This recipe serves the whole family and beats most store-bought sweets. If you find it too sweet—or not sweet enough—adjust the sweetener to taste.
 
 ## Ingredients
+
 - 100g oats
 - 50g vanilla protein powder (whey or soy)
 - 1 L unsweetened skim milk (dairy or plant-based)
@@ -44,6 +45,7 @@ This recipe serves the whole family and beats most store-bought sweets. If you f
 - 2g salt
 
 ## Instructions
+
 - Mix the oats with the protein, salt, 50g sweetener, and the milk.
 - Simmer for a few minutes until thickened (I used the “Oatmeal” program on a pressure cooker, 3 minutes).
 - Wash the apples, cut them into small pieces, and mix with cinnamon and the remaining sweetener.

@@ -35,6 +35,7 @@ Dacă vrei un desert sățios, sănătos și delicios, cu arome de toamnă și i
 Rețeta este suficientă pentru toată familia și întrece majoritatea deserturilor din magazin. Dacă ți se pare prea dulce — sau nu suficient de dulce — ajustează îndulcitorul după gust.
 
 ## Ingrediente
+
 - 100 g fulgi de ovăz
 - 50 g pudră proteică cu aromă de vanilie (zer sau soia)
 - 1 L lapte degresat neîndulcit (animal sau vegetal)
@@ -44,6 +45,7 @@ Rețeta este suficientă pentru toată familia și întrece majoritatea desertur
 - 2 g sare
 
 ## Instrucțiuni
+
 - Amestecă fulgii de ovăz cu proteina, sarea, 50 g îndulcitor și laptele.
 - Lasă la foc mic câteva minute până se îngroașă (eu am folosit programul „Oatmeal” la oala sub presiune, 3 minute).
 - Spală merele, taie-le cubulețe și amestecă-le cu scorțișoara și îndulcitorul rămas.
