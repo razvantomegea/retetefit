@@ -12,7 +12,7 @@ carbs: 46
 fat: 6
 fiber: 8
 price: 6
-tags: ['high-protein', 'cheap', 'simple']
+tags: ['low-fat', 'high-protein', 'cheap', 'simple']
 featured: true
 publishedAt: '2025-11-16'
 updatedAt: '2025-11-16'
@@ -26,9 +26,6 @@ galleryImages:
     - '/protein-oatmeal-with-cinnamon-apples/5.HEIC'
     - '/protein-oatmeal-with-cinnamon-apples/6.HEIC'
     - '/protein-oatmeal-with-cinnamon-apples/7.HEIC'
-    - '/protein-oatmeal-with-cinnamon-apples/8.HEIC'
-    - '/protein-oatmeal-with-cinnamon-apples/9.HEIC'
-    - '/protein-oatmeal-with-cinnamon-apples/10.HEIC'
 imageBrightness: 'light'
 author: 'Maingain'
 ---

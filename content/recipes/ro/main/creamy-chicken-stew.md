@@ -2,7 +2,7 @@
 title: 'Tocăniță Cremoasă de Pui cu Ciuperci'
 slug: 'creamy-chicken-stew'
 description: 'Pulpe fragede de pui în sos cremos cu ciuperci, ardei și verdețuri, ideale pentru o masă bogată în proteine'
-category: 'high-protein'
+category: 'main'
 lang: 'ro'
 cookTime: 40
 servings: 8
@@ -12,7 +12,7 @@ carbs: 17
 fat: 17
 fiber: 2
 price: 8.3
-tags: ['low-carb', 'cheap']
+tags: ['high-protein', 'low-carb', 'cheap']
 featured: true
 publishedAt: '2025-11-09'
 updatedAt: '2025-11-09'

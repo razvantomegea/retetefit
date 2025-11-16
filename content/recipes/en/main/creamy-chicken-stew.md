@@ -2,7 +2,7 @@
 title: 'Creamy Chicken Stew with Mushrooms'
 slug: 'creamy-chicken-stew'
 description: 'Comforting creamy chicken thighs simmered with mushrooms, peppers, and herbs for a high-protein family meal'
-category: 'high-protein'
+category: 'main'
 lang: 'en'
 cookTime: 40
 servings: 8
@@ -12,7 +12,7 @@ carbs: 17
 fat: 17
 fiber: 2
 price: 1.9
-tags: ['low-carb', 'cheap']
+tags: ['high-protein', 'low-carb', 'cheap']
 featured: true
 publishedAt: '2025-11-09'
 updatedAt: '2025-11-09'

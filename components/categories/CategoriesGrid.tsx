@@ -76,7 +76,6 @@ export function CategoriesGrid({ categories }: CategoriesGridProps) {
       >
         {categories.map((category) => {
           const categorySlug = getCategorySlug(category.category);
-          // Map category enum to translation key format (high-protein -> highProtein)
           const categoryKey = category.category.replace(/-([a-z])/g, (_, letter) =>
             letter.toUpperCase()
           );
