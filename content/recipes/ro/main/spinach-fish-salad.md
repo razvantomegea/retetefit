@@ -19,6 +19,12 @@ updatedAt: '2025-11-18'
 image: '/spinach-fish-salad/hero.png'
 imageAlt: 'Salată de Spanac cu Pește'
 imageBrightness: 'light'
+galleryImages:
+    - '/spinach-fish-salad/1.png'
+    - '/spinach-fish-salad/2.png'
+    - '/spinach-fish-salad/3.png'
+    - '/spinach-fish-salad/4.png'
+    - '/spinach-fish-salad/5.png'
 author: 'Maingain'
 ---
 
@@ -32,10 +38,11 @@ Cred că aceasta este cea mai rapidă rețetă de fel principal. O mănânc de d
 - 150g porumb dulce
 - 200g (2 conserve scurse) file de pește (hering, sardine, macrou, somon sălbatic)
 - 100g telemea sau feta
-- 250g roșii (pe lângă sau amestecate)
 - 20ml ulei de măsline
 - oțet după gust
 - sare după gust
+- 250g roșii (lângă)
+- 250g castraveți (lângă)
 
 ## Instrucțiuni
 
@@ -46,5 +53,5 @@ Cred că aceasta este cea mai rapidă rețetă de fel principal. O mănânc de d
 5. Taie telemeaua în bucăți mici și pune-o în bol
 6. Scurge lichidul din conserva de pește și pune peștele în bol
 7. Adaugă uleiul, oțetul și sarea și amestecă totul
-8. Servește cu roșiile pe lângă sau pune-le și ele în bol
+8. Servește cu roșiile și castraveții lângă sau pune-le și pe ele în bol
 9. Bucură-te!

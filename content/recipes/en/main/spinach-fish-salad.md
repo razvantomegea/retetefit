@@ -19,6 +19,12 @@ updatedAt: '2025-11-18'
 image: '/spinach-fish-salad/hero.png'
 imageAlt: 'Spinach Fish Salad'
 imageBrightness: 'light'
+galleryImages:
+    - '/spinach-fish-salad/1.png'
+    - '/spinach-fish-salad/2.png'
+    - '/spinach-fish-salad/3.png'
+    - '/spinach-fish-salad/4.png'
+    - '/spinach-fish-salad/5.png'
 author: 'Maingain'
 ---
 
@@ -33,10 +39,11 @@ I know salads give the impression of no taste and starvation, but this one is ve
 - 150g sweet corn
 - 200g (2 cans drained) of fish fillet (herring, sardines, mackerel, wild salmon)
 - 100g telemea or feta
-- 250g tomatoes (on the side or mixed)
 - 20ml olive oil
 - vinegar to taste
 - salt to taste
+- 250g tomatoes (on the side)
+- 250g cucumbers (on the side)
 
 ## Instructions
 
@@ -47,5 +54,5 @@ I know salads give the impression of no taste and starvation, but this one is ve
 5. Cut the telemea into small pieces and put it in the pot
 6. Drain the liquid from the fish can and put the fish in the pot
 7. Add the oil, vinegar, and salt and mix everything
-8. Serve with the tomatoes on the side or put them in the pot as well
+8. Serve with the tomatoes and cucumbers on the side or put them in the pot as well
 9. Enjoy!
