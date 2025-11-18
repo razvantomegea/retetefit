@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import { IngredientsList } from '@/components/recipe/IngredientsList';
 import { InstructionsList } from '@/components/recipe/InstructionsList';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { enhanceAnchorProps } from '@/lib/external-links';
 import type { ParsedRecipeContent } from '@/types';
 
 interface RecipeContentProps {
@@ -40,9 +41,24 @@ export function RecipeContent({ parsedContent, tipsLabel }: RecipeContentProps) 
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
             >
-              <p className="text-lg leading-relaxed text-text-secondary">
+              <ReactMarkdown
+                components={{
+                  p: ({ ...props }) => (
+                    <p className="text-lg leading-relaxed text-text-secondary" {...props} />
+                  ),
+                  a: ({ ...props }) => {
+                    const enhancedProps = enhanceAnchorProps(props);
+                    return (
+                      <a
+                        className="text-green-600 dark:text-green-400 hover:underline font-medium"
+                        {...enhancedProps}
+                      />
+                    );
+                  },
+                }}
+              >
                 {parsedContent.introduction}
-              </p>
+              </ReactMarkdown>
             </motion.div>
           )}
 
@@ -68,7 +84,21 @@ export function RecipeContent({ parsedContent, tipsLabel }: RecipeContentProps) 
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.4, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
               >
-                <ReactMarkdown>{parsedContent.tips}</ReactMarkdown>
+                <ReactMarkdown
+                  components={{
+                    a: ({ ...props }) => {
+                      const enhancedProps = enhanceAnchorProps(props);
+                      return (
+                        <a
+                          className="text-green-600 dark:text-green-400 hover:underline font-medium"
+                          {...enhancedProps}
+                        />
+                      );
+                    },
+                  }}
+                >
+                  {parsedContent.tips}
+                </ReactMarkdown>
               </motion.div>
             </motion.div>
           )}

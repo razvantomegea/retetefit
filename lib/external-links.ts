@@ -44,10 +44,7 @@ export function enhanceAnchorProps(
 
   enhanced.rel = mergeRelAttribute(props.rel);
   enhanced['data-external'] = 'true';
-
-  if (props.target === '_blank') {
-    enhanced.target = props.target;
-  }
+  enhanced.target = '_blank';
 
   if (!props.title) {
     enhanced.title = EXTERNAL_WARNING_TITLE;
