@@ -6,10 +6,10 @@ category: 'main'
 lang: 'ro'
 cookTime: 10
 servings: 2
-calories: 636
-protein: 44
-carbs: 23
-fat: 17
+calories: 550
+protein: 42
+carbs: 32
+fat: 33
 fiber: 10
 price: 14
 tags: ['low-carb', 'fast', 'high-fiber']
