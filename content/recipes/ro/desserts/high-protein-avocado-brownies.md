@@ -37,7 +37,7 @@ author: 'Maingain'
 
 Am citit online că poți face această rețetă din doar trei ingrediente (banane, cacao și unt de arahide), dar aveam un avocado copt și am vrut să îl folosesc. Poate voi încerca și cu unt de arahide, dar avocado-ul este mai sănătos și are mai mult volum (mai puține calorii) decât untul de arahide.
 
-Dacă ești fan ciocolată, negresă, fudge sau prăjituri, această rețetă este cu siguranță pentru tine. Am făcut multe variații de negresă în trecut, dar aceasta este cea mai bună versiune de negresă pe care am făcut-o vreodată. Am folosit doar o furculiță pentru a face amestecul și friteuza cu aer cald pentru a coace. Poți folosi cuptorul, dar durează mai mult să se încălzească și consumă mai mult curent electrica. Nu știu dacă funcționează la cuptorul cu microunde.
+Dacă ești fan ciocolată, negresă, fudge sau prăjituri, această rețetă este cu siguranță pentru tine. Am făcut multe variații de negresă în trecut, dar aceasta este cea mai bună versiune de negresă pe care am făcut-o vreodată. Am folosit doar o furculiță pentru a face amestecul și friteuza cu aer cald pentru a coace. Poți folosi cuptorul, dar durează mai mult să se încălzească și consumă mai mult curent electric. Nu știu dacă funcționează la cuptorul cu microunde.
 
 Oricum, este o delicatesă cu puține calorii, bogat în fibre și în proteine. Folosesc sucraloză ca îndulcitor, dar poți folosi stevia, eritritol, xilitol sau orice alt îndulcitor fără calorii. La fel și pentru pudra proteică, folosește orice pudră proteică vrei, atât timp cât are aromă de ciocolată.
 
