@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
+import remarkBreaks from 'remark-breaks';
 
 import { IngredientsList } from '@/components/recipe/IngredientsList';
 import { InstructionsList } from '@/components/recipe/InstructionsList';
@@ -42,6 +43,7 @@ export function RecipeContent({ parsedContent, tipsLabel }: RecipeContentProps) 
               transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
             >
               <ReactMarkdown
+                remarkPlugins={[remarkBreaks]}
                 components={{
                   p: ({ ...props }) => (
                     <p className="text-lg leading-relaxed text-text-secondary" {...props} />
@@ -85,6 +87,7 @@ export function RecipeContent({ parsedContent, tipsLabel }: RecipeContentProps) 
                 transition={{ duration: 0.4, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
               >
                 <ReactMarkdown
+                  remarkPlugins={[remarkBreaks]}
                   components={{
                     a: ({ ...props }) => {
                       const enhancedProps = enhanceAnchorProps(props);
