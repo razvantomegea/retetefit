@@ -66,6 +66,8 @@
     "title": "Rețete Sănătoase",
     "subtitle": "Explorează colecția noastră de rețete nutriționale, dedicate fitness-ului, create să îți susțină călătoria către o viață mai sănătoasă.",
     "price": "Preț",
+    "weight": "Greutate",
+    "weightInfo": "Greutate per porție în grame",
     "viewRecipe": "Vezi rețeta",
     "viewAll": "Vezi Tot",
     "min": "min",

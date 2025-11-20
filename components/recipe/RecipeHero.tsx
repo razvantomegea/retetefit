@@ -9,6 +9,7 @@ import {
   Flame,
   InfoIcon,
   Leaf,
+  Scale,
   Users,
   Wheat,
 } from 'lucide-react';
@@ -37,9 +38,13 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
   const locale = (params?.locale as string) || defaultLocale;
   const tagsDictionary = (t.raw('tags') as Record<string, string> | undefined) ?? {};
   const infoTooltipId = useId();
+  const weightTooltipId = useId();
   const [isInfoPinned, setIsInfoPinned] = useState(false);
   const [isInfoHovered, setIsInfoHovered] = useState(false);
   const [isInfoFocused, setIsInfoFocused] = useState(false);
+  const [isWeightInfoPinned, setIsWeightInfoPinned] = useState(false);
+  const [isWeightInfoHovered, setIsWeightInfoHovered] = useState(false);
+  const [isWeightInfoFocused, setIsWeightInfoFocused] = useState(false);
 
   const translateTag = (tag: string) => {
     const normalizedTag = tag.trim().toLowerCase();
@@ -53,6 +58,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
   };
 
   const isInfoVisible = isInfoPinned || isInfoHovered || isInfoFocused;
+  const isWeightInfoVisible = isWeightInfoPinned || isWeightInfoHovered || isWeightInfoFocused;
 
   // Reusable badge animations
   const badgeHoverAnimation = prefersReducedMotion
@@ -263,6 +269,63 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
               <div className="text-xs text-text-secondary">{t('price')}</div>
               <div className="font-semibold text-text-primary">
                 {locale === 'ro' ? `${recipe.price} RON` : `$${recipe.price}`}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Scale className="h-5 w-5 text-text-secondary" aria-hidden="true" />
+            <div>
+              <div className="text-xs text-text-secondary">{t('weight')}</div>
+              <div className="flex items-center gap-1">
+                <div className="font-semibold text-text-primary">{recipe.weight} g</div>
+                <div className="relative">
+                  <motion.button
+                    type="button"
+                    aria-label={t('weightInfo')}
+                    aria-describedby={isWeightInfoVisible ? weightTooltipId : undefined}
+                    aria-pressed={isWeightInfoPinned}
+                    className="flex h-6 w-6 items-center justify-center rounded-full bg-background text-text-secondary transition-colors hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-primary"
+                    onClick={() => setIsWeightInfoPinned((prev) => !prev)}
+                    onMouseEnter={() => setIsWeightInfoHovered(true)}
+                    onMouseLeave={() => setIsWeightInfoHovered(false)}
+                    onFocus={() => setIsWeightInfoFocused(true)}
+                    onBlur={() => {
+                      setIsWeightInfoFocused(false);
+                      setIsWeightInfoPinned(false);
+                    }}
+                    whileHover={
+                      prefersReducedMotion
+                        ? undefined
+                        : { scale: 1.05, transition: { duration: 0.15 } }
+                    }
+                    whileTap={
+                      prefersReducedMotion
+                        ? undefined
+                        : { scale: 0.95, transition: { duration: 0.1 } }
+                    }
+                  >
+                    <InfoIcon className="h-3.5 w-3.5" aria-hidden="true" />
+                  </motion.button>
+                  <AnimatePresence>
+                    {isWeightInfoVisible && (
+                      <motion.div
+                        key="weight-info"
+                        id={weightTooltipId}
+                        role="tooltip"
+                        initial={
+                          prefersReducedMotion ? undefined : { opacity: 0, y: 4, scale: 0.98 }
+                        }
+                        animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
+                        exit={prefersReducedMotion ? undefined : { opacity: 0, y: 4, scale: 0.98 }}
+                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+                        className="absolute left-1/2 z-20 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-background px-3 py-2 text-left text-xs leading-relaxed text-text-secondary shadow-lg"
+                      >
+                        {t('weightInfo')}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </div>
             </div>
           </div>

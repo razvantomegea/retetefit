@@ -11,6 +11,7 @@ protein: 25
 carbs: 55
 fat: 10
 fiber: 7
+weight: 1050
 price: 2.5
 tags: ['cheap', 'simple', 'vegan']
 featured: true
@@ -29,6 +30,7 @@ This protein-rich tofu is perfect to start your day! The combination of tofu, br
 - 1 tofu (approx. 200g)
 - 1 bag of frozen broccoli (aprox. 500g)
 - 50g basmati rice (or any rice you have)
+- 300ml water
 
 ## Instructions
 

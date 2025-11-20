@@ -11,6 +11,7 @@ protein: 36
 carbs: 17
 fat: 17
 fiber: 2
+weight: 378
 price: 8.3
 tags: ['low-carb', 'cheap']
 featured: true
@@ -34,6 +35,7 @@ Aceasta este o variantă mai sănătoasă a tradiționalului pui cu smântână,
 - 2 ardei kapia (aprox. 300 g)
 - 2 cepe (aprox. 300 g)
 - 100 g făină
+- aprox. 500ml apă
 - 2 legături mărar proaspăt
 - 1 legătură de pătrunjel proaspăt
 - 1 lingură de Vegeta (aprox. 15 g)

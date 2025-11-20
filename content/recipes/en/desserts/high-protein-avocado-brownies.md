@@ -11,6 +11,7 @@ protein: 3
 carbs: 5
 fat: 2
 fiber: 2
+weight: 32
 price: 0.15
 tags: ['cheap', 'simple', 'fast', 'vegan']
 featured: true
