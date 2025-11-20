@@ -55,8 +55,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
       carbs: Math.round(recipe.carbs * factor),
       fat: Math.round(recipe.fat * factor),
       fiber: Math.round(recipe.fiber * factor),
-      price:
-        Math.round(((recipe.price / weightPerPortion) * 100 + Number.EPSILON) * 100) / 100,
+      price: Math.round(((recipe.price / weightPerPortion) * 100 + Number.EPSILON) * 100) / 100,
       totalWeight,
     };
   };
@@ -178,10 +177,10 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
               type="button"
               onClick={() => handleNutritionViewChange('per-portion')}
               className={cn(
-                'px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer',
+                'px-3 py-1.5 text-sm rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer',
                 nutritionView === 'per-portion'
-                  ? 'bg-primary text-primary-foreground'
-                  : 'text-text-secondary hover:text-text-primary dark:hover:bg-muted/50'
+                  ? 'bg-primary text-primary-foreground font-bold'
+                  : 'text-text-secondary hover:text-text-primary dark:hover:bg-muted/50 font-medium'
               )}
               aria-pressed={nutritionView === 'per-portion'}
             >
@@ -191,10 +190,10 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
               type="button"
               onClick={() => handleNutritionViewChange('per-100g')}
               className={cn(
-                'px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer',
+                'px-3 py-1.5 text-sm rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer',
                 nutritionView === 'per-100g'
-                  ? 'bg-primary text-primary-foreground'
-                  : 'text-text-secondary hover:text-text-primary dark:hover:bg-muted/50'
+                  ? 'bg-primary text-primary-foreground font-bold'
+                  : 'text-text-secondary hover:text-text-primary dark:hover:bg-muted/50 font-medium'
               )}
               aria-pressed={nutritionView === 'per-100g'}
             >
@@ -231,7 +230,9 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
                 {nutritionView === 'per-portion' ? t('servings') : t('totalWeight')}
               </div>
               <div className="font-semibold text-text-primary">
-                {nutritionView === 'per-portion' ? recipe.servings : `${per100gValues.totalWeight} g`}
+                {nutritionView === 'per-portion'
+                  ? recipe.servings
+                  : `${per100gValues.totalWeight} g`}
               </div>
             </div>
           </div>
