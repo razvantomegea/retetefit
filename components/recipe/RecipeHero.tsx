@@ -1,13 +1,12 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   Clock,
   DollarSign,
   Droplet,
   Dumbbell,
   Flame,
-  InfoIcon,
   Leaf,
   Scale,
   Users,
@@ -16,7 +15,7 @@ import {
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { useId, useState } from 'react';
+import { useState } from 'react';
 
 import { Gallery } from '@/components/recipe/Gallery';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
@@ -37,39 +36,12 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
   const params = useParams();
   const locale = (params?.locale as string) || defaultLocale;
   const tagsDictionary = (t.raw('tags') as Record<string, string> | undefined) ?? {};
-  const infoTooltipId = useId();
-  const weightTooltipId = useId();
 
   type NutritionView = 'per-portion' | 'per-100g';
-  type TooltipState = { pinned: boolean; hovered: boolean; focused: boolean };
-
-  const [uiState, setUiState] = useState<{
-    nutritionView: NutritionView;
-    infoTooltip: TooltipState;
-    weightTooltip: TooltipState;
-  }>({
-    nutritionView: 'per-portion',
-    infoTooltip: { pinned: false, hovered: false, focused: false },
-    weightTooltip: { pinned: false, hovered: false, focused: false },
-  });
-
-  const { nutritionView, infoTooltip, weightTooltip } = uiState;
-
-  const updateTooltipState = (
-    key: 'infoTooltip' | 'weightTooltip',
-    partial: Partial<TooltipState>
-  ) => {
-    setUiState((prev) => ({
-      ...prev,
-      [key]: { ...prev[key], ...partial },
-    }));
-  };
+  const [nutritionView, setNutritionView] = useState<NutritionView>('per-portion');
 
   const handleNutritionViewChange = (view: NutritionView) => {
-    setUiState((prev) => ({
-      ...prev,
-      nutritionView: view,
-    }));
+    setNutritionView(view);
   };
 
   const calculatePer100g = () => {
@@ -101,10 +73,6 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
       tagsDictionary[normalizedTag] ?? tagsDictionary[camelCasedTag] ?? tagsDictionary[tag] ?? tag
     );
   };
-
-  const isInfoVisible = infoTooltip.pinned || infoTooltip.hovered || infoTooltip.focused;
-  const isWeightInfoVisible =
-    weightTooltip.pinned || weightTooltip.hovered || weightTooltip.focused;
 
   // Reusable badge animations
   const badgeHoverAnimation = prefersReducedMotion
@@ -262,58 +230,8 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
               <div className="text-xs text-text-secondary">
                 {nutritionView === 'per-portion' ? t('servings') : t('totalWeight')}
               </div>
-              <div className="flex items-center gap-1">
-                <div className="font-semibold text-text-primary">
-                  {nutritionView === 'per-portion' ? recipe.servings : `${per100gValues.totalWeight} g`}
-                </div>
-                <div className="relative">
-                  <motion.button
-                    type="button"
-                    aria-label={t('nutritionInfoLabel')}
-                    aria-describedby={isInfoVisible ? infoTooltipId : undefined}
-                    aria-pressed={infoTooltip.pinned}
-                    className="flex h-6 w-6 items-center justify-center rounded-full bg-background text-text-secondary transition-colors hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-primary"
-                    onClick={() =>
-                      updateTooltipState('infoTooltip', { pinned: !infoTooltip.pinned })
-                    }
-                    onMouseEnter={() => updateTooltipState('infoTooltip', { hovered: true })}
-                    onMouseLeave={() => updateTooltipState('infoTooltip', { hovered: false })}
-                    onFocus={() => updateTooltipState('infoTooltip', { focused: true })}
-                    onBlur={() =>
-                      updateTooltipState('infoTooltip', { focused: false, pinned: false })
-                    }
-                    whileHover={
-                      prefersReducedMotion
-                        ? undefined
-                        : { scale: 1.05, transition: { duration: 0.15 } }
-                    }
-                    whileTap={
-                      prefersReducedMotion
-                        ? undefined
-                        : { scale: 0.95, transition: { duration: 0.1 } }
-                    }
-                  >
-                    <InfoIcon className="h-3.5 w-3.5" aria-hidden="true" />
-                  </motion.button>
-                  <AnimatePresence>
-                    {isInfoVisible && (
-                      <motion.div
-                        key="per-serving-info"
-                        id={infoTooltipId}
-                        role="tooltip"
-                        initial={
-                          prefersReducedMotion ? undefined : { opacity: 0, y: 4, scale: 0.98 }
-                        }
-                        animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
-                        exit={prefersReducedMotion ? undefined : { opacity: 0, y: 4, scale: 0.98 }}
-                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                        className="absolute left-1/2 z-20 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-background px-3 py-2 text-left text-xs leading-relaxed text-text-secondary shadow-lg"
-                      >
-                        {nutritionView === 'per-portion' ? t('perServingInfo') : t('per100gInfo')}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+              <div className="font-semibold text-text-primary">
+                {nutritionView === 'per-portion' ? recipe.servings : `${per100gValues.totalWeight} g`}
               </div>
             </div>
           </div>
@@ -390,63 +308,9 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
               <Scale className="h-5 w-5 text-text-secondary" aria-hidden="true" />
               <div>
                 <div className="text-xs text-text-secondary">{t('weight')}</div>
-                <div className="flex items-center gap-1">
-                  <div className="font-semibold text-text-primary">{recipe.weight} g</div>
-                  <div className="relative">
-                    <motion.button
-                      type="button"
-                      aria-label={t('weightInfo')}
-                      aria-describedby={isWeightInfoVisible ? weightTooltipId : undefined}
-                      aria-pressed={weightTooltip.pinned}
-                      className="flex h-6 w-6 items-center justify-center rounded-full bg-background text-text-secondary transition-colors hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-primary"
-                      onClick={() =>
-                        updateTooltipState('weightTooltip', { pinned: !weightTooltip.pinned })
-                      }
-                      onMouseEnter={() => updateTooltipState('weightTooltip', { hovered: true })}
-                      onMouseLeave={() => updateTooltipState('weightTooltip', { hovered: false })}
-                      onFocus={() => updateTooltipState('weightTooltip', { focused: true })}
-                      onBlur={() =>
-                        updateTooltipState('weightTooltip', { focused: false, pinned: false })
-                      }
-                      whileHover={
-                        prefersReducedMotion
-                          ? undefined
-                          : { scale: 1.05, transition: { duration: 0.15 } }
-                      }
-                      whileTap={
-                        prefersReducedMotion
-                          ? undefined
-                          : { scale: 0.95, transition: { duration: 0.1 } }
-                      }
-                    >
-                      <InfoIcon className="h-3.5 w-3.5" aria-hidden="true" />
-                    </motion.button>
-                    <AnimatePresence>
-                      {isWeightInfoVisible && (
-                        <motion.div
-                          key="weight-info"
-                          id={weightTooltipId}
-                          role="tooltip"
-                          initial={
-                            prefersReducedMotion ? undefined : { opacity: 0, y: 4, scale: 0.98 }
-                          }
-                          animate={
-                            prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }
-                          }
-                          exit={
-                            prefersReducedMotion ? undefined : { opacity: 0, y: 4, scale: 0.98 }
-                          }
-                          transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                          className="absolute left-1/2 z-20 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-background px-3 py-2 text-left text-xs leading-relaxed text-text-secondary shadow-lg"
-                        >
-                          {t('weightInfo')}
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
+                <div className="font-semibold text-text-primary">{recipe.weight} g</div>
               </div>
             </div>
-          </div>
           )}
         </motion.div>
       </motion.div>
