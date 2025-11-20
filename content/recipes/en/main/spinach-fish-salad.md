@@ -11,6 +11,7 @@ protein: 42
 carbs: 32
 fat: 33
 fiber: 10
+weight: 716
 price: 3
 tags: ['low-carb', 'fast', 'high-fiber']
 featured: true

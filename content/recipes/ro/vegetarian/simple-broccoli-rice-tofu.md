@@ -11,6 +11,7 @@ protein: 25
 carbs: 55
 fat: 10
 fiber: 7
+weight: 1050
 price: 12
 tags: ['cheap', 'simple', 'vegan']
 featured: true
@@ -29,6 +30,7 @@ Acest tofu bogat în proteine este perfect pentru a-ți începe ziua! Combinați
 - 1 bucată de tofu (aprox. 200 g)
 - 1 pungă de broccoli congelat (aprox. 500 g)
 - 50 g orez basmati (sau orice tip de orez ai)
+- 300ml apă
 
 ## Instrucțiuni
 

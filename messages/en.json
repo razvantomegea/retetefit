@@ -65,6 +65,8 @@
     "title": "Healthy Recipes",
     "subtitle": "Explore our collection of nutritious, fitness-focused recipes designed to support your wellness journey.",
     "price": "Price",
+    "weight": "Weight",
+    "weightInfo": "Weight per portion in grams",
     "viewRecipe": "View recipe",
     "viewAll": "View All",
     "min": "min",
@@ -82,7 +84,7 @@
       "protein": "Protein",
       "carbs": "Carbs",
       "fat": "Fat",
-      "calories": "Cal",
+      "calories": "Calories",
       "fiber": "Fiber"
     },
     "tags": {
@@ -99,7 +101,13 @@
     "filterBy": "Filter by",
     "sortBy": "Sort by",
     "perServingInfo": "Macronutrients, calories, and price are calculated per serving.",
+    "per100gInfo": "Macronutrients, calories, and price are calculated per 100g.",
     "nutritionInfoLabel": "Nutrition information details",
+    "totalWeight": "Total Weight",
+    "nutritionView": {
+      "perPortion": "Per Portion",
+      "per100g": "Per 100g"
+    },
     "sortOptions": {
       "newest": "Newest",
       "oldest": "Oldest",

@@ -11,6 +11,7 @@ protein: 40
 carbs: 32
 fat: 20
 fiber: 5
+weight: 430
 price: 8
 tags: ['cheap', 'simple']
 featured: true

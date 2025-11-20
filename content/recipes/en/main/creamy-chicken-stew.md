@@ -11,6 +11,7 @@ protein: 36
 carbs: 17
 fat: 17
 fiber: 2
+weight: 378
 price: 1.9
 tags: ['low-carb', 'cheap']
 featured: true
@@ -34,6 +35,7 @@ I like that I prepare it in 30 minutes with the help of the pressure cooker (I u
 - 2 red bell peppers (about 300 g)
 - 2 onions (about 300 g)
 - 100 g flour
+- aprox. 500ml water
 - 2 bunches fresh dill
 - 1 bunch fresh parsley
 - 1 tablespoon Vegeta seasoning (about 15 g)

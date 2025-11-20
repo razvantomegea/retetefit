@@ -11,6 +11,7 @@ protein: 24
 carbs: 46
 fat: 6
 fiber: 8
+weight: 559
 price: 1.1
 tags: ['low-fat', 'cheap', 'simple', 'vegan']
 featured: true

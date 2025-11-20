@@ -1,21 +1,21 @@
 'use client';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   Clock,
   DollarSign,
   Droplet,
   Dumbbell,
   Flame,
-  InfoIcon,
   Leaf,
+  Scale,
   Users,
   Wheat,
 } from 'lucide-react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { useId, useState } from 'react';
+import { useState } from 'react';
 
 import { Gallery } from '@/components/recipe/Gallery';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
@@ -36,10 +36,32 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
   const params = useParams();
   const locale = (params?.locale as string) || defaultLocale;
   const tagsDictionary = (t.raw('tags') as Record<string, string> | undefined) ?? {};
-  const infoTooltipId = useId();
-  const [isInfoPinned, setIsInfoPinned] = useState(false);
-  const [isInfoHovered, setIsInfoHovered] = useState(false);
-  const [isInfoFocused, setIsInfoFocused] = useState(false);
+
+  type NutritionView = 'per-portion' | 'per-100g';
+  const [nutritionView, setNutritionView] = useState<NutritionView>('per-portion');
+
+  const handleNutritionViewChange = (view: NutritionView) => {
+    setNutritionView(view);
+  };
+
+  const calculatePer100g = () => {
+    const weightPerPortion = Math.max(recipe.weight, 1);
+    const totalWeight = weightPerPortion * recipe.servings;
+    const factor = 100 / weightPerPortion;
+
+    return {
+      calories: Math.round(recipe.calories * factor),
+      protein: Math.round(recipe.protein * factor),
+      carbs: Math.round(recipe.carbs * factor),
+      fat: Math.round(recipe.fat * factor),
+      fiber: Math.round(recipe.fiber * factor),
+      price:
+        Math.round(((recipe.price / weightPerPortion) * 100 + Number.EPSILON) * 100) / 100,
+      totalWeight,
+    };
+  };
+
+  const per100gValues = calculatePer100g();
 
   const translateTag = (tag: string) => {
     const normalizedTag = tag.trim().toLowerCase();
@@ -51,8 +73,6 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
       tagsDictionary[normalizedTag] ?? tagsDictionary[camelCasedTag] ?? tagsDictionary[tag] ?? tag
     );
   };
-
-  const isInfoVisible = isInfoPinned || isInfoHovered || isInfoFocused;
 
   // Reusable badge animations
   const badgeHoverAnimation = prefersReducedMotion
@@ -141,6 +161,48 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
           </div>
         )}
 
+        {/* Nutrition View Toggle */}
+        <motion.div
+          className="flex items-center justify-between mb-4"
+          initial={prefersReducedMotion ? undefined : { opacity: 0, y: 10 }}
+          animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
+        >
+          <h2 className="text-lg font-semibold text-text-primary">{t('nutritionFacts')}</h2>
+          <div
+            className="flex bg-secondary rounded-full p-1 gap-0.5 dark:ring-1 dark:ring-border/50 dark:bg-muted/30"
+            role="group"
+            aria-label={t('nutritionInfoLabel')}
+          >
+            <button
+              type="button"
+              onClick={() => handleNutritionViewChange('per-portion')}
+              className={cn(
+                'px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer',
+                nutritionView === 'per-portion'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'text-text-secondary hover:text-text-primary dark:hover:bg-muted/50'
+              )}
+              aria-pressed={nutritionView === 'per-portion'}
+            >
+              {t('nutritionView.perPortion')}
+            </button>
+            <button
+              type="button"
+              onClick={() => handleNutritionViewChange('per-100g')}
+              className={cn(
+                'px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer',
+                nutritionView === 'per-100g'
+                  ? 'bg-primary text-primary-foreground'
+                  : 'text-text-secondary hover:text-text-primary dark:hover:bg-muted/50'
+              )}
+              aria-pressed={nutritionView === 'per-100g'}
+            >
+              {t('nutritionView.per100g')}
+            </button>
+          </div>
+        </motion.div>
+
         {/* Meta Grid */}
         <motion.div
           className="grid grid-cols-3 gap-4"
@@ -159,58 +221,17 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
           </div>
 
           <div className="flex items-center gap-2">
-            <Users className="h-5 w-5 text-text-secondary" aria-hidden="true" />
+            {nutritionView === 'per-portion' ? (
+              <Users className="h-5 w-5 text-text-secondary" aria-hidden="true" />
+            ) : (
+              <Scale className="h-5 w-5 text-text-secondary" aria-hidden="true" />
+            )}
             <div>
-              <div className="text-xs text-text-secondary">{t('servings')}</div>
-              <div className="flex items-center gap-1">
-                <div className="font-semibold text-text-primary">{recipe.servings}</div>
-                <div className="relative">
-                  <motion.button
-                    type="button"
-                    aria-label={t('nutritionInfoLabel')}
-                    aria-describedby={isInfoVisible ? infoTooltipId : undefined}
-                    aria-pressed={isInfoPinned}
-                    className="flex h-6 w-6 items-center justify-center rounded-full bg-background text-text-secondary transition-colors hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-primary"
-                    onClick={() => setIsInfoPinned((prev) => !prev)}
-                    onMouseEnter={() => setIsInfoHovered(true)}
-                    onMouseLeave={() => setIsInfoHovered(false)}
-                    onFocus={() => setIsInfoFocused(true)}
-                    onBlur={() => {
-                      setIsInfoFocused(false);
-                      setIsInfoPinned(false);
-                    }}
-                    whileHover={
-                      prefersReducedMotion
-                        ? undefined
-                        : { scale: 1.05, transition: { duration: 0.15 } }
-                    }
-                    whileTap={
-                      prefersReducedMotion
-                        ? undefined
-                        : { scale: 0.95, transition: { duration: 0.1 } }
-                    }
-                  >
-                    <InfoIcon className="h-3.5 w-3.5" aria-hidden="true" />
-                  </motion.button>
-                  <AnimatePresence>
-                    {isInfoVisible && (
-                      <motion.div
-                        key="per-serving-info"
-                        id={infoTooltipId}
-                        role="tooltip"
-                        initial={
-                          prefersReducedMotion ? undefined : { opacity: 0, y: 4, scale: 0.98 }
-                        }
-                        animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0, scale: 1 }}
-                        exit={prefersReducedMotion ? undefined : { opacity: 0, y: 4, scale: 0.98 }}
-                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-                        className="absolute left-1/2 z-20 mt-2 w-64 -translate-x-1/2 rounded-md border border-border bg-background px-3 py-2 text-left text-xs leading-relaxed text-text-secondary shadow-lg"
-                      >
-                        {t('perServingInfo')}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
+              <div className="text-xs text-text-secondary">
+                {nutritionView === 'per-portion' ? t('servings') : t('totalWeight')}
+              </div>
+              <div className="font-semibold text-text-primary">
+                {nutritionView === 'per-portion' ? recipe.servings : `${per100gValues.totalWeight} g`}
               </div>
             </div>
           </div>
@@ -220,7 +241,8 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <div>
               <div className="text-xs text-text-secondary">{t('nutrition.calories')}</div>
               <div className="font-semibold text-text-primary">
-                {recipe.calories} {t('kcal')}
+                {nutritionView === 'per-portion' ? recipe.calories : per100gValues.calories}{' '}
+                {t('kcal')}
               </div>
             </div>
           </div>
@@ -229,7 +251,9 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <Dumbbell className="h-5 w-5 text-text-secondary" aria-hidden="true" />
             <div>
               <div className="text-xs text-text-secondary">{t('nutrition.protein')}</div>
-              <div className="font-semibold text-text-primary">{recipe.protein} g</div>
+              <div className="font-semibold text-text-primary">
+                {nutritionView === 'per-portion' ? recipe.protein : per100gValues.protein} g
+              </div>
             </div>
           </div>
 
@@ -237,7 +261,9 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <Wheat className="h-5 w-5 text-text-secondary" aria-hidden="true" />
             <div>
               <div className="text-xs text-text-secondary">{t('nutrition.carbs')}</div>
-              <div className="font-semibold text-text-primary">{recipe.carbs} g</div>
+              <div className="font-semibold text-text-primary">
+                {nutritionView === 'per-portion' ? recipe.carbs : per100gValues.carbs} g
+              </div>
             </div>
           </div>
 
@@ -245,7 +271,9 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <Droplet className="h-5 w-5 text-text-secondary" aria-hidden="true" />
             <div>
               <div className="text-xs text-text-secondary">{t('nutrition.fat')}</div>
-              <div className="font-semibold text-text-primary">{recipe.fat} g</div>
+              <div className="font-semibold text-text-primary">
+                {nutritionView === 'per-portion' ? recipe.fat : per100gValues.fat} g
+              </div>
             </div>
           </div>
 
@@ -253,7 +281,9 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <Leaf className="h-5 w-5 text-text-secondary" aria-hidden="true" />
             <div>
               <div className="text-xs text-text-secondary">{t('nutrition.fiber')}</div>
-              <div className="font-semibold text-text-primary">{recipe.fiber} g</div>
+              <div className="font-semibold text-text-primary">
+                {nutritionView === 'per-portion' ? recipe.fiber : per100gValues.fiber} g
+              </div>
             </div>
           </div>
 
@@ -262,10 +292,26 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <div>
               <div className="text-xs text-text-secondary">{t('price')}</div>
               <div className="font-semibold text-text-primary">
-                {locale === 'ro' ? `${recipe.price} RON` : `$${recipe.price}`}
+                {nutritionView === 'per-portion'
+                  ? locale === 'ro'
+                    ? `${recipe.price} RON`
+                    : `$${recipe.price}`
+                  : locale === 'ro'
+                    ? `${per100gValues.price.toFixed(2)} RON`
+                    : `$${per100gValues.price.toFixed(2)}`}
               </div>
             </div>
           </div>
+
+          {nutritionView === 'per-portion' && (
+            <div className="flex items-center gap-2">
+              <Scale className="h-5 w-5 text-text-secondary" aria-hidden="true" />
+              <div>
+                <div className="text-xs text-text-secondary">{t('weight')}</div>
+                <div className="font-semibold text-text-primary">{recipe.weight} g</div>
+              </div>
+            </div>
+          )}
         </motion.div>
       </motion.div>
     </div>
