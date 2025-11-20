@@ -101,7 +101,13 @@
     "filterBy": "Filter by",
     "sortBy": "Sort by",
     "perServingInfo": "Macronutrients, calories, and price are calculated per serving.",
+    "per100gInfo": "Macronutrients, calories, and price are calculated per 100g.",
     "nutritionInfoLabel": "Nutrition information details",
+    "totalWeight": "Total Weight",
+    "nutritionView": {
+      "perPortion": "Per Portion",
+      "per100g": "Per 100g"
+    },
     "sortOptions": {
       "newest": "Newest",
       "oldest": "Oldest",

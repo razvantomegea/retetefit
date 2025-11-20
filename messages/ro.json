@@ -102,7 +102,13 @@
     "filterBy": "Filtrează după",
     "sortBy": "Sortează după",
     "perServingInfo": "Informațiile privind macronutrienții, caloriile și prețul sunt calculate per porție.",
+    "per100gInfo": "Informațiile privind macronutrienții, caloriile și prețul sunt calculate per 100g.",
     "nutritionInfoLabel": "Informații despre valori nutriționale",
+    "totalWeight": "Greutate Totală",
+    "nutritionView": {
+      "perPortion": "Per Porție",
+      "per100g": "Per 100g"
+    },
     "sortOptions": {
       "newest": "Cele mai noi",
       "oldest": "Cele mai vechi",
