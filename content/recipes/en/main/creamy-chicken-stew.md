@@ -30,7 +30,7 @@ I like that I prepare it in 30 minutes with the help of the pressure cooker (I u
 ## Ingredients
 
 - 1 kg boneless chicken thighs
-- 1 large can of sliced mushrooms or 2 small cans (about 300 g drained)
+- 1 large or 2 small cans of sliced mushrooms (about 300 g drained)
 - 800 g 10% fat Greek yogurt (2 cups)
 - 2 red bell peppers (about 300 g)
 - 2 onions (about 300 g)

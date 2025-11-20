@@ -55,4 +55,4 @@ Cred că aceasta este cea mai rapidă rețetă de fel principal. O mănânc de d
 6. Scurge lichidul din conserva de pește și pune peștele în bol
 7. Adaugă uleiul, oțetul și sarea și amestecă totul
 8. Servește cu roșiile și castraveții lângă sau pune-le și pe ele în bol
-9. Bucură-te!
+9. Savurează!

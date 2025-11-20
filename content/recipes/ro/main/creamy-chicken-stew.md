@@ -30,7 +30,7 @@ Aceasta este o variantă mai sănătoasă a tradiționalului pui cu smântână,
 ## Ingrediente
 
 - 1 kg pulpe dezosate
-- 1 conservă mare de ciuperci feliate sau 2 mici (aprox. 300 g scurse)
+- 1 conservă mare sau 2 mici de ciuperci feliate (aprox. 300 g scurse)
 - 800 g iaurt grecesc cu 10% grăsime (2 pahare)
 - 2 ardei kapia (aprox. 300 g)
 - 2 cepe (aprox. 300 g)
