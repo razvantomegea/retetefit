@@ -82,17 +82,19 @@
     },
     "nutrition": {
       "protein": "Protein",
-      "carbs": "Carbs",
+      "carbs": "Carbohydrates",
       "fat": "Fat",
       "calories": "Calories",
       "fiber": "Fiber"
     },
     "tags": {
       "cheap": "Cheap",
-      "low-carb": "Low Carb",
+      "low-carb": "Low Carbohydrates",
       "simple": "Simple",
       "vegan": "Vegan",
-      "fast": "Fast"
+      "fast": "Fast",
+      "high-fiber": "High Fiber",
+      "high-protein": "High Protein"
     },
     "ingredients": "Ingredients",
     "instructions": "Instructions",

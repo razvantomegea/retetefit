@@ -90,10 +90,12 @@
     },
     "tags": {
       "cheap": "Ieftin",
-      "low-carb": "Puțini Carbo",
+      "low-carb": "Puțini Carbohidrați",
       "simple": "Simplu",
       "vegan": "Vegan",
-      "fast": "Rapid"
+      "fast": "Rapid",
+      "high-fiber": "Multe Fibre",
+      "high-protein": "Multe Proteine"
     },
     "ingredients": "Ingrediente",
     "instructions": "Instrucțiuni",
