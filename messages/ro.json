@@ -91,7 +91,9 @@
     "tags": {
       "cheap": "Ieftin",
       "low-carb": "Puțini Carbo",
-      "simple": "Simplu"
+      "simple": "Simplu",
+      "vegan": "Vegan",
+      "fast": "Rapid"
     },
     "ingredients": "Ingrediente",
     "instructions": "Instrucțiuni",

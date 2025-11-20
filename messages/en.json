@@ -90,7 +90,9 @@
     "tags": {
       "cheap": "Cheap",
       "low-carb": "Low Carb",
-      "simple": "Simple"
+      "simple": "Simple",
+      "vegan": "Vegan",
+      "fast": "Fast"
     },
     "ingredients": "Ingredients",
     "instructions": "Instructions",
