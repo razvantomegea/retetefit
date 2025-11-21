@@ -2,7 +2,7 @@
 title: 'Spinach Fish Salad'
 slug: 'spinach-fish-salad'
 description: 'Very fast, simple, and nutritious salad you can eat at any part of the day.'
-category: 'main'
+category: 'brunch'
 lang: 'en'
 cookTime: 10
 servings: 2

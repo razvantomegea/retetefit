@@ -2,7 +2,7 @@
 title: 'Salată de Spanac cu Pește'
 slug: 'spinach-fish-salad'
 description: 'Salată foarte rapidă, simplă și nutritivă pe care o poți mânca în orice moment al zilei.'
-category: 'main'
+category: 'brunch'
 lang: 'ro'
 cookTime: 10
 servings: 2
