@@ -23,7 +23,6 @@ imageBrightness: 'light'
 galleryImages:
     - '/veggie-omelette/1.png'
     - '/veggie-omelette/2.png'
-    - '/veggie-omelette/3.png'
 author: 'Maingain'
 ---
 

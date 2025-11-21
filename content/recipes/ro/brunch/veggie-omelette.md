@@ -12,7 +12,7 @@ carbs: 23
 fat: 18
 fiber: 5
 weight: 625
-price: 2.66
+price: 12
 tags: ['low-carb', 'fast', 'high-protein']
 featured: true
 publishedAt: '2025-11-21'
@@ -23,7 +23,6 @@ imageBrightness: 'light'
 galleryImages:
     - '/veggie-omelette/1.png'
     - '/veggie-omelette/2.png'
-    - '/veggie-omelette/3.png'
 author: 'Maingain'
 ---
 
