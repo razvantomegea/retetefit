@@ -110,7 +110,7 @@
     "nutritionInfoLabel": "Informații despre valori nutriționale",
     "totalWeight": "Greutate Totală",
     "nutritionView": {
-      "perPortion": "Per Porție",
+      "perServing": "Per Porție",
       "per100g": "Per 100g"
     },
     "sortOptions": {

@@ -66,7 +66,7 @@
     "subtitle": "Explore our collection of nutritious, fitness-focused recipes designed to support your wellness journey.",
     "price": "Price",
     "weight": "Weight",
-    "weightInfo": "Weight per portion in grams",
+    "weightInfo": "Weight per serving in grams",
     "viewRecipe": "View recipe",
     "viewAll": "View All",
     "min": "min",
@@ -109,7 +109,7 @@
     "nutritionInfoLabel": "Nutrition information details",
     "totalWeight": "Total Weight",
     "nutritionView": {
-      "perPortion": "Per Portion",
+      "perServing": "Per Serving",
       "per100g": "Per 100g"
     },
     "sortOptions": {

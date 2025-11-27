@@ -37,17 +37,17 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
   const locale = (params?.locale as string) || defaultLocale;
   const tagsDictionary = (t.raw('tags') as Record<string, string> | undefined) ?? {};
 
-  type NutritionView = 'per-portion' | 'per-100g';
-  const [nutritionView, setNutritionView] = useState<NutritionView>('per-portion');
+  type NutritionView = 'per-serving' | 'per-100g';
+  const [nutritionView, setNutritionView] = useState<NutritionView>('per-serving');
 
   const handleNutritionViewChange = (view: NutritionView) => {
     setNutritionView(view);
   };
 
   const calculatePer100g = () => {
-    const weightPerPortion = Math.max(recipe.weight, 1);
-    const totalWeight = weightPerPortion * recipe.servings;
-    const factor = 100 / weightPerPortion;
+    const weightPerServing = Math.max(recipe.weight, 1);
+    const totalWeight = weightPerServing * recipe.servings;
+    const factor = 100 / weightPerServing;
 
     return {
       calories: Math.round(recipe.calories * factor),
@@ -55,7 +55,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
       carbs: Math.round(recipe.carbs * factor),
       fat: Math.round(recipe.fat * factor),
       fiber: Math.round(recipe.fiber * factor),
-      price: Math.round(((recipe.price / weightPerPortion) * 100 + Number.EPSILON) * 100) / 100,
+      price: Math.round(((recipe.price / weightPerServing) * 100 + Number.EPSILON) * 100) / 100,
       totalWeight,
     };
   };
@@ -175,16 +175,16 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
           >
             <button
               type="button"
-              onClick={() => handleNutritionViewChange('per-portion')}
+              onClick={() => handleNutritionViewChange('per-serving')}
               className={cn(
                 'px-3 py-1.5 text-sm rounded-full transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 cursor-pointer',
-                nutritionView === 'per-portion'
+                nutritionView === 'per-serving'
                   ? 'bg-primary text-primary-foreground font-bold'
                   : 'text-text-secondary hover:text-text-primary dark:hover:bg-muted/50 font-medium'
               )}
-              aria-pressed={nutritionView === 'per-portion'}
+              aria-pressed={nutritionView === 'per-serving'}
             >
-              {t('nutritionView.perPortion')}
+              {t('nutritionView.perServing')}
             </button>
             <button
               type="button"
@@ -220,17 +220,17 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
           </div>
 
           <div className="flex items-center gap-2">
-            {nutritionView === 'per-portion' ? (
+            {nutritionView === 'per-serving' ? (
               <Users className="h-5 w-5 text-text-secondary" aria-hidden="true" />
             ) : (
               <Scale className="h-5 w-5 text-text-secondary" aria-hidden="true" />
             )}
             <div>
               <div className="text-xs text-text-secondary">
-                {nutritionView === 'per-portion' ? t('servings') : t('totalWeight')}
+                {nutritionView === 'per-serving' ? t('servings') : t('totalWeight')}
               </div>
               <div className="font-semibold text-text-primary">
-                {nutritionView === 'per-portion'
+                {nutritionView === 'per-serving'
                   ? recipe.servings
                   : `${per100gValues.totalWeight} g`}
               </div>
@@ -242,7 +242,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <div>
               <div className="text-xs text-text-secondary">{t('nutrition.calories')}</div>
               <div className="font-semibold text-text-primary">
-                {nutritionView === 'per-portion' ? recipe.calories : per100gValues.calories}{' '}
+                {nutritionView === 'per-serving' ? recipe.calories : per100gValues.calories}{' '}
                 {t('kcal')}
               </div>
             </div>
@@ -253,7 +253,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <div>
               <div className="text-xs text-text-secondary">{t('nutrition.protein')}</div>
               <div className="font-semibold text-text-primary">
-                {nutritionView === 'per-portion' ? recipe.protein : per100gValues.protein} g
+                {nutritionView === 'per-serving' ? recipe.protein : per100gValues.protein} g
               </div>
             </div>
           </div>
@@ -263,7 +263,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <div>
               <div className="text-xs text-text-secondary">{t('nutrition.carbs')}</div>
               <div className="font-semibold text-text-primary">
-                {nutritionView === 'per-portion' ? recipe.carbs : per100gValues.carbs} g
+                {nutritionView === 'per-serving' ? recipe.carbs : per100gValues.carbs} g
               </div>
             </div>
           </div>
@@ -273,7 +273,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <div>
               <div className="text-xs text-text-secondary">{t('nutrition.fat')}</div>
               <div className="font-semibold text-text-primary">
-                {nutritionView === 'per-portion' ? recipe.fat : per100gValues.fat} g
+                {nutritionView === 'per-serving' ? recipe.fat : per100gValues.fat} g
               </div>
             </div>
           </div>
@@ -283,7 +283,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <div>
               <div className="text-xs text-text-secondary">{t('nutrition.fiber')}</div>
               <div className="font-semibold text-text-primary">
-                {nutritionView === 'per-portion' ? recipe.fiber : per100gValues.fiber} g
+                {nutritionView === 'per-serving' ? recipe.fiber : per100gValues.fiber} g
               </div>
             </div>
           </div>
@@ -293,7 +293,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             <div>
               <div className="text-xs text-text-secondary">{t('price')}</div>
               <div className="font-semibold text-text-primary">
-                {nutritionView === 'per-portion'
+                {nutritionView === 'per-serving'
                   ? locale === 'ro'
                     ? `${recipe.price} RON`
                     : `$${recipe.price}`
@@ -304,7 +304,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
             </div>
           </div>
 
-          {nutritionView === 'per-portion' && (
+          {nutritionView === 'per-serving' && (
             <div className="flex items-center gap-2">
               <Scale className="h-5 w-5 text-text-secondary" aria-hidden="true" />
               <div>
