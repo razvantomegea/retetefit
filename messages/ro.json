@@ -38,8 +38,8 @@
   },
   "search": {
     "title": "Căutare",
+    "subtitle": "Caută rețete",
     "placeholder": "Caută rețete... (ex. 'ieftin', 'simplu')",
-    "subtitle": "Caută rețete sănătoase",
     "recipes": "Rețete",
     "for": "pentru",
     "comingSoon": "Funcționalitatea de căutare vine în curând!",

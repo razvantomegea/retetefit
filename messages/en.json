@@ -38,6 +38,7 @@
   },
   "search": {
     "title": "Search",
+    "subtitle": "Search for recipes",
     "placeholder": "Search recipes... (e.g. 'cheap', 'simple')",
     "recipes": "Recipes",
     "for": "for",
