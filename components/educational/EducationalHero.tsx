@@ -71,12 +71,13 @@ export function EducationalHero({ article, className }: EducationalHeroProps) {
         className="relative aspect-video w-full overflow-hidden rounded-2xl bg-zinc-200 shadow-xl dark:bg-zinc-800"
         initial={prefersReducedMotion ? undefined : { opacity: 0, scale: 0.95 }}
         animate={prefersReducedMotion ? undefined : { opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, delay: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
       >
         <Image
           src={article.image}
           alt={article.imageAlt}
           fill
+          fetchPriority="high"
           className="object-cover"
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1280px"

@@ -94,9 +94,9 @@ export function Gallery({ mainImage, mainImageAlt, galleryImages, className }: G
   const motionProps = prefersReducedMotion
     ? {}
     : {
-        initial: { opacity: 0, scale: 0.98 },
+        initial: { opacity: 0, scale: 0.985 },
         animate: { opacity: 1, scale: 1 },
-        transition: { duration: 0.4, ease: [0.4, 0, 0.2, 1] as const },
+        transition: { duration: 0.28, ease: [0.4, 0, 0.2, 1] as const },
       };
 
   const mainImageVariants = useMemo(
@@ -194,6 +194,7 @@ export function Gallery({ mainImage, mainImageAlt, galleryImages, className }: G
                 src={activeImage}
                 alt={mainImageAlt}
                 fill
+                fetchPriority={activeIndex === 0 ? 'high' : 'auto'}
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
@@ -288,6 +289,7 @@ export function Gallery({ mainImage, mainImageAlt, galleryImages, className }: G
                         src={activeImage}
                         alt={mainImageAlt}
                         fill
+                        fetchPriority={activeIndex === 0 ? 'high' : 'auto'}
                         className="object-contain"
                         sizes="100vw"
                         priority

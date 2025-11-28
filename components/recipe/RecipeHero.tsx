@@ -100,9 +100,9 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
     <div className={cn('grid gap-8 lg:grid-cols-2 lg:gap-12', className)}>
       {/* Gallery */}
       <motion.div
-        initial={prefersReducedMotion ? undefined : { opacity: 0, scale: 0.95 }}
+        initial={prefersReducedMotion ? undefined : { opacity: 0, scale: 0.98 }}
         animate={prefersReducedMotion ? undefined : { opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
       >
         <Gallery
           mainImage={recipe.image}
@@ -116,7 +116,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
         className="flex flex-col gap-4"
         initial={prefersReducedMotion ? undefined : { opacity: 0, x: 20 }}
         animate={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
-        transition={{ duration: 0.6, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
+        transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
       >
         {/* Category Badge */}
         <div>
@@ -165,7 +165,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
           className="flex items-center justify-between mb-4"
           initial={prefersReducedMotion ? undefined : { opacity: 0, y: 10 }}
           animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
         >
           <h2 className="text-lg font-semibold text-text-primary">{t('nutritionFacts')}</h2>
           <div
@@ -207,7 +207,7 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
           className="grid grid-cols-3 gap-4"
           initial={prefersReducedMotion ? undefined : { opacity: 0, y: 10 }}
           animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
         >
           <div className="flex items-center gap-2">
             <Clock className="h-5 w-5 text-text-secondary" aria-hidden="true" />

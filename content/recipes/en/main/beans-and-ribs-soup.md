@@ -5,14 +5,14 @@ description: 'A healthier version of the traditional Romanian beans and ribs sou
 category: 'main'
 lang: 'en'
 cookTime: 60
-servings: 12
-calories: 566
-protein: 37
-carbs: 63
-fat: 20
-fiber: 15
-weight: 837
-price: 2.7
+servings: 14
+calories: 485
+protein: 32
+carbs: 54
+fat: 17
+fiber: 13
+weight: 717
+price: 2.3
 tags: ['high-protein', 'high-fiber']
 featured: true
 publishedAt: '2025-11-27'

@@ -5,13 +5,13 @@ description: 'O versiune mai sănătoasă a rețetei de ciorbă de fasole cu sc�
 category: 'main'
 lang: 'ro'
 cookTime: 60
-servings: 12
-calories: 566
-protein: 37
-carbs: 63
-fat: 20
-fiber: 15
-weight: 837
+servings: 14
+calories: 485
+protein: 32
+carbs: 54
+fat: 17
+fiber: 13
+weight: 717
 price: 12
 tags: ['high-protein', 'high-fiber']
 featured: true

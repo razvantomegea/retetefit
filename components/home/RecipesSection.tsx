@@ -22,8 +22,7 @@ export function RecipesSection({ recipes }: RecipesSectionProps) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: prefersReducedMotion ? 0 : 0.12,
-        delayChildren: prefersReducedMotion ? 0 : 0.1,
+        staggerChildren: prefersReducedMotion ? 0 : 0.06,
       },
     },
   };
@@ -54,10 +53,10 @@ export function RecipesSection({ recipes }: RecipesSectionProps) {
       <div className="mx-auto max-w-[1280px]">
         {/* Section Header */}
         <motion.div
-          initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
+          initial={prefersReducedMotion ? undefined : { opacity: 0, y: 16 }}
           animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
           transition={{
-            duration: prefersReducedMotion ? 0.2 : 0.7,
+            duration: prefersReducedMotion ? 0.2 : 0.45,
             ease: [0.4, 0, 0.2, 1],
           }}
           className="mb-8 text-center md:mb-12"

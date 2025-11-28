@@ -412,8 +412,12 @@
   --color-accent-primary-hover: var(--accent-primary-hover);
 }
 
-/* Smooth transitions for theme changes */
-*:not([style*='transition']) {
+/* Limit transition helpers to interactive elements to avoid blocking paint */
+button,
+input,
+select,
+textarea,
+a {
   transition-property: color, background-color, border-color;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 200ms;

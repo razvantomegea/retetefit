@@ -32,8 +32,7 @@ export function Hero() {
       transition: prefersReducedMotion
         ? { duration: 0 }
         : {
-            staggerChildren: 0.15,
-            delayChildren: 0.1,
+            staggerChildren: 0.08,
           },
     },
   };
@@ -86,8 +85,7 @@ export function Hero() {
       transition: prefersReducedMotion
         ? { duration: 0 }
         : {
-            duration: 0.8,
-            delay: 0.4,
+            duration: 0.7,
             ease: [0.4, 0, 0.2, 1],
           },
     },
@@ -269,6 +267,7 @@ export function Hero() {
             alt="Healthy meal prep bowls with grilled chicken, quinoa, and fresh vegetables"
             fill
             priority={true}
+            fetchPriority="high"
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
