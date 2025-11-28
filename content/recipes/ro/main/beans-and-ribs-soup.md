@@ -49,7 +49,7 @@ Pentru că nu am o oală sub presiune suficient de mare, am gătit în mai multe
 - 1800g scărițe/costițe de porc afumate
 - 4L apă
 - 750g fasole
-- 2L pastă de tomate
+- 2L roșii pasate
 - 2 legături de pătrunjel proaspăt
 - 2 legături de mărar proaspăt
 - 1 legătură de leuștean proaspăt
