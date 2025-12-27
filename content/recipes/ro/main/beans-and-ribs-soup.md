@@ -30,6 +30,7 @@ galleryImages:
     - '/beans-and-ribs-soup/8.png'
     - '/beans-and-ribs-soup/9.png'
     - '/beans-and-ribs-soup/10.png'
+    - '/beans-and-ribs-soup/11.png'
 imageBrightness: 'light'
 author: 'Maingain'
 ---
@@ -46,7 +47,7 @@ Pentru că nu am o oală sub presiune suficient de mare, am gătit în mai multe
 - 400g rădăcină de păstârnac
 - 300g ceapă
 - 300g ardei roșu
-- 1800g scărițe/costițe de porc afumate
+- 1.8kg scărițe/costițe de porc afumate
 - 4L apă
 - 750g fasole
 - 2L roșii pasate
@@ -65,6 +66,6 @@ Pentru că nu am o oală sub presiune suficient de mare, am gătit în mai multe
 4. După ce costițele și fasolea s-au terminat de gătit, scoată grăsimea cu polonicul
 5. Folosind robotul de bucătărie, toacă morcovii, păstârnacul, ceapa și ardeiul în bucăți mici
 6. Taie pătrunjelul, mărarul și leușteanul proaspăt
-7. Pune legumele tocate, condimentele, vegeta și pasta de tomate în oala sub presiune și gătește timp de 10 minute
+7. Pune legumele tocate, condimentele, vegeta și pasta de tomate în oala sub presiune și gătește timp de 10 minute pe programul de tocăniță cu legume
 8. Amestecă legumele gătite împreună cu fasolea și costițele gătite
 9. Savurează!

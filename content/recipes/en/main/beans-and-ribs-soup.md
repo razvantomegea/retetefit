@@ -30,6 +30,7 @@ galleryImages:
     - '/beans-and-ribs-soup/8.png'
     - '/beans-and-ribs-soup/9.png'
     - '/beans-and-ribs-soup/10.png'
+    - '/beans-and-ribs-soup/11.png'
 imageBrightness: 'light'
 author: 'Maingain'
 ---
@@ -46,7 +47,7 @@ Because I don't have a big enough pressure cooker, I cooked in multiple batches:
 - 400g parsnip root
 - 300g onion
 - 300g red pepper
-- 1800g pork ribs
+- 1.8kg smoked pork ribs
 - 4L water
 - 750g beans
 - 2L tomato paste
@@ -65,6 +66,6 @@ Because I don't have a big enough pressure cooker, I cooked in multiple batches:
 4. After the ribs and beans have finished cooking, remove the fat with a ladle
 5. Using the food processor, chop the carrots, parsnip, onions, and peppers into small pieces
 6. Chop the fresh parsley, dill, and lovage
-7. Put the chopped vegetables, spices, seasoning, and the tomato paste in the pressure cooker and cook for 10 minutes
+7. Put the chopped vegetables, spices, seasoning, and the tomato paste in the pressure cooker and cook for 10 minutes on the vegetables stew program
 8. Mix the cooked vegetables together with the cooked beans and ribs
 9. Enjoy!
