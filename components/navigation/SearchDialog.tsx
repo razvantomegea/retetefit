@@ -95,14 +95,17 @@ export function SearchDialog({ open: controlledOpen, onOpenChange }: SearchDialo
 
   return (
     <>
-      <button
-        onClick={handleOpen}
-        className="w-full flex items-center gap-3 text-left text-lg px-4 py-3 rounded-md hover:bg-surface-elevated transition-colors cursor-pointer text-text-primary font-medium"
-        aria-label={t('search.title')}
-      >
-        <Search className="h-5 w-5 shrink-0" />
-        <span>{t('search.title')}</span>
-      </button>
+      {/* Only render button when not controlled (no onOpenChange prop) */}
+      {!onOpenChange && (
+        <button
+          onClick={handleOpen}
+          className="w-full flex items-center gap-3 text-left text-lg px-4 py-3 rounded-md hover:bg-surface-elevated transition-colors cursor-pointer text-text-primary font-medium"
+          aria-label={t('search.title')}
+        >
+          <Search className="h-5 w-5 shrink-0" />
+          <span>{t('search.title')}</span>
+        </button>
+      )}
 
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent open={open} className={dialogClassName}>

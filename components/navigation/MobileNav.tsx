@@ -1,6 +1,6 @@
 'use client';
 
-import { Menu, Moon, Sun } from 'lucide-react';
+import { Menu, Moon, Search, Sun } from 'lucide-react';
 import { useParams, usePathname, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
@@ -57,10 +57,24 @@ export function MobileNav() {
   };
 
   const handleSearchOpenChange = (value: boolean) => {
-    setSearchOpen(value);
     if (value) {
+      // Close the sheet first, then open the dialog
       handleClose();
+      // Use a small delay to ensure the sheet closes before opening the dialog
+      setTimeout(() => {
+        setSearchOpen(true);
+      }, 100);
+    } else {
+      setSearchOpen(false);
     }
+  };
+
+  // Handle search button click - ensure it opens the dialog after sheet closes
+  const handleSearchClick = () => {
+    handleClose();
+    setTimeout(() => {
+      setSearchOpen(true);
+    }, 100);
   };
 
   const currentIndex = LANGUAGES.findIndex((lang) => lang.code === currentLocale);
@@ -104,61 +118,77 @@ export function MobileNav() {
   );
 
   return (
-    <Sheet open={open} onOpenChange={setOpen}>
-      <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="lg:hidden w-10 h-10" aria-label="Open menu">
-          <Menu className="h-5 w-5" />
-        </Button>
-      </SheetTrigger>
-      <SheetContent side="right" className={sheetClassName} open={open}>
-        <SheetHeader className="flex-row items-center justify-between" showClose>
-          <SheetTitle onClick={handleClose} className="text-left">
-            <Logo />
-          </SheetTitle>
-          <SheetDescription className="sr-only">{t('nav.mobileMenu')}</SheetDescription>
-        </SheetHeader>
+    <>
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="lg:hidden w-10 h-10"
+            aria-label="Open menu"
+          >
+            <Menu className="h-5 w-5" />
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="right" className={sheetClassName} open={open}>
+          <SheetHeader className="flex-row items-center justify-between" showClose>
+            <SheetTitle onClick={handleClose} className="text-left">
+              <Logo />
+            </SheetTitle>
+            <SheetDescription className="sr-only">{t('nav.mobileMenu')}</SheetDescription>
+          </SheetHeader>
 
-        <div className="flex flex-col gap-6 mt-8">
-          {/* Navigation Links */}
-          <NavLinks
-            onLinkClick={handleClose}
-            className="flex-col items-start gap-1"
-            linkClassName="w-full justify-start text-lg px-4 py-3"
-          />
+          <div className="flex flex-col gap-6 mt-8">
+            {/* Navigation Links */}
+            <NavLinks
+              onLinkClick={handleClose}
+              className="flex-col items-start gap-1"
+              linkClassName="w-full justify-start text-lg px-4 py-3"
+            />
 
-          {/* Divider */}
-          <div className="border-t border-border" />
+            {/* Divider */}
+            <div className="border-t border-border" />
 
-          {/* Actions */}
-          <div className="flex flex-col items-start gap-1">
-            <SearchDialog open={searchOpen} onOpenChange={handleSearchOpenChange} />
-            <button
-              onClick={handleThemeToggle}
-              className={toggleClassName}
-              aria-label={toggleThemeAriaLabel}
-              disabled={!mounted}
-            >
-              {mounted && isDark ? (
-                <Sun className="h-6 w-6 shrink-0 text-amber-500" />
-              ) : mounted ? (
-                <Moon className="h-6 w-6 shrink-0 text-text-primary" />
-              ) : (
-                <div className="h-6 w-6 shrink-0" />
-              )}
-              <span>{toggleThemeLabel}</span>
-            </button>
+            {/* Actions */}
+            <div className="flex flex-col items-start gap-1">
+              <button
+                onClick={handleSearchClick}
+                className={toggleClassName}
+                aria-label={t('search.title')}
+              >
+                <Search className="h-6 w-6 shrink-0 text-text-primary" />
+                <span>{t('search.title')}</span>
+              </button>
+              <button
+                onClick={handleThemeToggle}
+                className={toggleClassName}
+                aria-label={toggleThemeAriaLabel}
+                disabled={!mounted}
+              >
+                {mounted && isDark ? (
+                  <Sun className="h-6 w-6 shrink-0 text-amber-500" />
+                ) : mounted ? (
+                  <Moon className="h-6 w-6 shrink-0 text-text-primary" />
+                ) : (
+                  <div className="h-6 w-6 shrink-0" />
+                )}
+                <span>{toggleThemeLabel}</span>
+              </button>
 
-            <button
-              onClick={handleLanguageToggle}
-              className={toggleClassName}
-              aria-label={t('nav.language.switchTo', { language: nextLangLabel })}
-            >
-              <span className="text-xl shrink-0">{nextLang.flag}</span>
-              <span>{nextLangLabel}</span>
-            </button>
+              <button
+                onClick={handleLanguageToggle}
+                className={toggleClassName}
+                aria-label={t('nav.language.switchTo', { language: nextLangLabel })}
+              >
+                <span className="text-xl shrink-0">{nextLang.flag}</span>
+                <span>{nextLangLabel}</span>
+              </button>
+            </div>
           </div>
-        </div>
-      </SheetContent>
-    </Sheet>
+        </SheetContent>
+      </Sheet>
+      {/* Render SearchDialog outside Sheet so it stays mounted when Sheet closes */}
+      <SearchDialog open={searchOpen} onOpenChange={handleSearchOpenChange} />
+    </>
   );
 }
