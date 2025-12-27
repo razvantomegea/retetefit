@@ -6,14 +6,14 @@ category: 'main'
 lang: 'ro'
 cookTime: 60
 servings: 14
-calories: 485
-protein: 32
-carbs: 54
-fat: 17
-fiber: 13
-weight: 717
-price: 12
-tags: ['high-protein', 'high-fiber']
+calories: 324
+protein: 31
+carbs: 36
+fat: 7.5
+fiber: 5
+weight: 710
+price: 10
+tags: ['cheap', 'high-protein']
 featured: true
 publishedAt: '2025-11-27'
 updatedAt: '2025-11-27'
