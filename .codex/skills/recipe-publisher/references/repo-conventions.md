@@ -69,7 +69,7 @@ After frontmatter, keep this order:
 
 1. Intro paragraphs with the same conversational style as existing recipes
 2. `## Ingredients` or `## Ingrediente`
-3. `## Instructions` or `## Instruc?iuni`
+3. `## Instructions` or `## Instrucțiuni`
 
 Optional sections are allowed, but current recipe files usually stop after instructions.
 

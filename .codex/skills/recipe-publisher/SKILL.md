@@ -21,10 +21,10 @@ Use this skill when a user wants a new recipe added to this repository from Roma
 
 - Keep one shared slug for both locales.
 - Follow the live repo conventions, not only the docs, if they differ.
+- Proofread the user-provided text before structuring it: fix typos, grammar, and punctuation in Romanian, then carry those corrections into the English translation. Do not change the meaning, quantities, or ingredient names.
 - Preserve the user's factual recipe data unless there is a clear inconsistency.
 - Translate naturally; do not do a literal line-by-line translation.
-- Convert only the English `price` field from RON to USD.
-- Browse for the current exchange rate when needed and mention the exact date used.
+- Convert only the English `price` field from RON to USD using the current-day rate from `cursbnr.ro`. Record the exact date and rate used.
 - Keep `publishedAt` and `updatedAt` on or before today's date.
 - Prefer minimal clarifying questions. If something minor can be inferred safely, proceed and state the assumption after the work.
 
@@ -35,7 +35,7 @@ Use the helper script in [`scripts/prepare-recipe-images.mjs`](scripts/prepare-r
 Default behavior:
 
 - sorts input images by timestamp
-- uses the latest image as `hero.png`
+- uses the latest image (last provided) as `hero.png` — this is always the hero, no need to ask
 - writes the remaining images as `1.png`, `2.png`, ... in chronological order
 - strips metadata and rewrites the output as compressed PNG files with `sharp`
 
@@ -51,7 +51,7 @@ Before committing, verify all of the following:
 - `image` points to `/<slug>/hero.png`
 - every `galleryImages` path exists on disk
 - nutrition values match between locales
-- Romanian price remains in RON and English price is converted to USD
+- Romanian price remains in RON and English price is converted to USD using the `cursbnr.ro` rate, with the date and rate noted
 - `author` is `Maingain`
 - no frontmatter keys drift from the current repo pattern
 
@@ -59,4 +59,4 @@ Before committing, verify all of the following:
 
 Use a short commit message such as `Add <slug> recipe` unless the user requests a different format.
 
-Push the branch after committing. If the branch has no upstream yet, use the normal non-interactive upstream push flow.
+Push the branch after committing. If the branch has no upstream yet, run `git push -u origin <branch-name>`.

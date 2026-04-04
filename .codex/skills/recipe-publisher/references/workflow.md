@@ -21,6 +21,8 @@ Expect most or all of the following:
 
 If one critical value is missing and it cannot be inferred safely, ask only for that missing item. Otherwise proceed and note the assumption.
 
+Proofread the provided text: fix typos, grammar, and punctuation in Romanian. Do not change the meaning, quantities, or ingredient names. Carry corrections into the English translation.
+
 ## 2. Inspect Existing Neighbors
 
 Open 1-2 recipe files in the target category for tone and formatting. Prefer recent files in the same category.
@@ -36,7 +38,7 @@ Open 1-2 recipe files in the target category for tone and formatting. Prefer rec
 - Start from the Romanian source because that is what the user provides.
 - Create both markdown files in the repo pattern.
 - Translate the full article into English.
-- Convert only the English `price` from RON to USD.
+- Convert only the English `price` from RON to USD using the current-day rate from `cursbnr.ro` (which reflects the National Bank of Romania official rate). Record the exact date and rate used in your working notes or commit message.
 
 ## 5. Prepare Images
 
@@ -56,7 +58,7 @@ corepack pnpm recipe:prepare-images --input "C:/Temp/recipe-<slug>" --slug "reci
 Defaults:
 
 - output folder: `public/<slug>`
-- hero selection: latest-timestamp image
+- hero selection: latest-timestamp image (always the hero — do not ask the user)
 - gallery order: chronological order after removing the hero
 
 If the user explicitly identifies a hero image, pass it with `--hero-file`.
@@ -74,7 +76,7 @@ If the user explicitly identifies a hero image, pass it with `--hero-file`.
 - Image paths point to files that exist.
 - `publishedAt` and `updatedAt` use today or an earlier date.
 - English and Romanian nutrition values match.
-- English `price` reflects the exchange-rate lookup.
+- English `price` was converted from the Romanian RON value using the `cursbnr.ro` rate for the recorded date, and the rate/date are noted.
 
 ## 8. Commit and Push
 
@@ -84,4 +86,4 @@ Unless the user says otherwise:
 2. Commit with a concise message such as `Add <slug> recipe`.
 3. Push the current branch.
 
-If push fails because the branch has no upstream, create the upstream with the standard non-interactive git push flow.
+If push fails because the branch has no upstream, run `git push -u origin <branch-name>` (replace `<branch-name>` with the current branch).
