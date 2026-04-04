@@ -13,7 +13,7 @@ fat: 21
 fiber: 9
 weight: 875
 price: 2.26
-tags: ['simple', 'quick']
+tags: ['simple', 'fast', 'cheap']
 featured: true
 publishedAt: '2026-04-04'
 updatedAt: '2026-04-04'
