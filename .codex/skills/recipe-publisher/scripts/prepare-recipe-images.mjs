@@ -137,8 +137,7 @@ async function writeImage(sharp, sourcePath, destinationPath, maxWidth, height) 
 
   if (height != null) {
     resizeOptions.height = height;
-    resizeOptions.fit = 'cover';
-    resizeOptions.position = 'attention';
+    resizeOptions.fit = 'inside';
   }
 
   await sharp(sourcePath)
