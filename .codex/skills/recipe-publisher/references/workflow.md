@@ -42,20 +42,26 @@ Open 1-2 recipe files in the target category for tone and formatting. Prefer rec
 
 ## 5. Prepare Images
 
-Images are typically pasted inline in the chat, not provided as a file path. When images are pasted:
+Images are uploaded by the user to the **`public/` root folder** (e.g. via GitHub's "Add file" > "Upload files" from a phone). The workflow picks them up from there automatically.
 
-1. Save each attached image to a temp folder (e.g. `C:/Temp/recipe-<slug>/`) naming them sequentially by conversation order.
-2. Run the helper script on that folder.
+### Steps
 
-If the user provides a local folder path instead, use it directly.
+1. Pull the latest changes from the branch so the uploaded images are available locally:
+   ```bash
+   git pull origin <branch-name>
+   ```
+2. Identify recipe images in `public/` root. These are all image files (`*.jpg`, `*.jpeg`, `*.png`, `*.webp`, `*.heic`) **excluding** known permanent assets: `hero.png`, `logo.png`.
+3. Copy the recipe images to a temp staging folder (e.g. `/tmp/recipe-<slug>/`).
+4. Run the helper script on that staging folder:
+   ```bash
+   corepack pnpm recipe:prepare-images --input "/tmp/recipe-<slug>" --slug "<slug>"
+   ```
+5. Delete the original uploaded images from `public/` root (the processed versions now live in `public/<slug>/`).
+6. Stage both the new `public/<slug>/` images and the deletions from `public/` root.
 
-Example:
+If the user provides a local folder path or explicitly pastes images inline instead, use that source directly and skip steps 1-3.
 
-```bash
-corepack pnpm recipe:prepare-images --input "C:/Temp/recipe-<slug>" --slug "recipe-slug" --hero latest
-```
-
-Defaults:
+### Defaults
 
 - output folder: `public/<slug>`
 - hero selection: latest-timestamp image (always the hero — do not ask the user)
