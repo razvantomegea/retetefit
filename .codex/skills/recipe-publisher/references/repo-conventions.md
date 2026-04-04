@@ -62,6 +62,7 @@ author: 'Maingain'
 - Use `hero.png` for the main image and `1.png`, `2.png`, ... for gallery images.
 - Keep `author: 'Maingain'`.
 - Prefer `imageBrightness: 'light'` unless the hero image is clearly dark.
+- Only use tags that already exist in the repo. The allowed tags are: `cheap`, `simple`, `fast`, `high-protein`, `high-fiber`, `low-carb`, `low-fat`, `vegan`. Do not invent new tags.
 
 ## Content Structure
 
