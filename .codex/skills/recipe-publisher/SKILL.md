@@ -17,13 +17,53 @@ Use this skill when a user wants a new recipe added to this repository from Roma
    ```bash
    git pull origin <branch-name>
    ```
-6. Find all image files (`*.jpg`, `*.jpeg`, `*.png`, `*.heic`, `*.webp`) directly in `public/` root — **not** in subfolders, and excluding `hero.png` and `logo.png`. Copy them to `/tmp/recipe-<slug>/`.
+6. Gather recipe images from `public/` root into a staging folder, skipping the
+   reserved site-wide assets defined below (`reservedAssets`).
+
+   ```bash
+   # reservedAssets: hero.png logo.png
+   mkdir -p /tmp/recipe-<slug>
+
+   # using fd (if available)
+   fd --max-depth 1 --extension jpg --extension jpeg --extension png \
+      --extension heic --extension webp . public/ \
+      --exclude hero.png --exclude logo.png \
+      --exec cp {} /tmp/recipe-<slug>/
+
+   # using POSIX find (fallback)
+   find public/ -maxdepth 1 -type f \
+      \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \
+         -o -iname "*.heic" -o -iname "*.webp" \) \
+      ! -name "hero.png" ! -name "logo.png" \
+      -exec cp {} /tmp/recipe-<slug>/ \;
+   ```
+
+   **`reservedAssets`** — files in `public/` root that are permanent site assets
+   and must never be treated as recipe images: `hero.png`, `logo.png`.
+   Add entries here when new site-wide assets are introduced.
+
 7. Run the prepare-images script on the staging folder:
    ```bash
    corepack pnpm recipe:prepare-images --input "/tmp/recipe-<slug>" --slug "<slug>"
    ```
    This writes processed images to `public/<slug>/` (hero + numbered gallery).
-8. Delete the original raw images from `public/` root (the processed versions now live in `public/<slug>/`).
+8. Delete the original raw images from `public/` root (processed versions now
+   live in `public/<slug>/`):
+
+   ```bash
+   # using fd (if available)
+   fd --max-depth 1 --extension jpg --extension jpeg --extension png \
+      --extension heic --extension webp . public/ \
+      --exclude hero.png --exclude logo.png \
+      --exec rm {}
+
+   # using POSIX find (fallback)
+   find public/ -maxdepth 1 -type f \
+      \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \
+         -o -iname "*.heic" -o -iname "*.webp" \) \
+      ! -name "hero.png" ! -name "logo.png" \
+      -delete
+   ```
 9. Verify paths, pricing, dates, and image output.
 10. Commit both the recipe files and the image changes, then push.
 

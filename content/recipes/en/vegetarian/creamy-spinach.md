@@ -24,6 +24,7 @@ galleryImages:
     - '/creamy-spinach/2.png'
     - '/creamy-spinach/3.png'
     - '/creamy-spinach/4.png'
+    - '/creamy-spinach/5.png'
 imageBrightness: 'light'
 author: 'Maingain'
 ---
