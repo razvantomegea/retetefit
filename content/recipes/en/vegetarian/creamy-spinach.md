@@ -7,13 +7,13 @@ lang: 'en'
 cookTime: 15
 servings: 4
 calories: 409
-protein: 26
+protein: 48
 carbs: 58
 fat: 8
 fiber: 14
 weight: 650
-price: 1.58
-tags: ['cheap', 'simple', 'fast', 'low-fat', 'high-fiber']
+price: 1.16
+tags: ['cheap', 'simple', 'fast', 'high-protein', 'low-fat', 'high-fiber']
 featured: true
 publishedAt: '2026-04-17'
 updatedAt: '2026-04-17'

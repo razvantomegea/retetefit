@@ -13,11 +13,19 @@ Use this skill when a user wants a new recipe added to this repository from Roma
 2. Read [`references/workflow.md`](references/workflow.md).
 3. Inspect 1-2 existing recipe files in the same category before drafting new content.
 4. Create the Romanian and English recipe markdown files.
-5. Pull the branch and collect raw images from the `public/` root folder (see Image Preparation below).
-6. Run `corepack pnpm recipe:prepare-images --input "/tmp/recipe-<slug>" --slug "<slug>"`.
-7. Delete the raw images from `public/` root after processing.
-8. Verify paths, pricing, dates, and image output.
-9. Commit and push unless the user asks you not to.
+5. Pull from the remote branch to get any images the user uploaded to `public/` root:
+   ```bash
+   git pull origin <branch-name>
+   ```
+6. Find all image files (`*.jpg`, `*.jpeg`, `*.png`, `*.heic`, `*.webp`) directly in `public/` root — **not** in subfolders, and excluding `hero.png` and `logo.png`. Copy them to `/tmp/recipe-<slug>/`.
+7. Run the prepare-images script on the staging folder:
+   ```bash
+   corepack pnpm recipe:prepare-images --input "/tmp/recipe-<slug>" --slug "<slug>"
+   ```
+   This writes processed images to `public/<slug>/` (hero + numbered gallery).
+8. Delete the original raw images from `public/` root (the processed versions now live in `public/<slug>/`).
+9. Verify paths, pricing, dates, and image output.
+10. Commit both the recipe files and the image changes, then push.
 
 ## Working Rules
 
