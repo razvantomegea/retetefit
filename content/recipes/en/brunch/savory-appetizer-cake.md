@@ -60,6 +60,6 @@ I prefer the muffin version: it portions itself, works for brunch or a picnic, a
 2. Chop the pepper, olives, and ham into small pieces (by hand or in a processor) and fold them into the batter.
 3. Grate the cheese and stir it in.
 4. Add salt, pepper, and the baking powder; mix until evenly combined.
-5. **Muffins (air fryer):** bake at 160 °C for 25 minutes. **Muffins (oven):** 180 °C for 30 minutes, without fan.
-6. **Loaf pan (no muffins):** bake 45 minutes at 180 °C without fan, then 15 minutes more with fan.
+5. For muffins in the air fryer, bake at 160 °C for 25 minutes. In the oven, bake the muffins at 180 °C for 30 minutes, without fan.
+6. For a loaf pan (no muffins), bake 45 minutes at 180 °C without fan, then 15 minutes more with fan.
 7. Let cool slightly and enjoy!

@@ -60,6 +60,6 @@ Checul aperitiv e rețeta pe care o fac când vreau ceva sățios, ușor de împ
 2. Taie ardeiul, măslinele și șunca în bucăți mici (cu cuțitul sau la robot) și încorporează-le în aluat.
 3. Rade cașcavalul și amestecă-l în compoziție.
 4. Adaugă sarea, piperul și praful de copt; amestecă până se omogenizează.
-5. **Brioșe (air fryer):** coace la 160 °C timp de 25 de minute. **Brioșe (cuptor):** 180 °C, 30 de minute, fără aerisire.
-6. **Tavă (fără brioșe):** coace 45 de minute la 180 °C fără aerisire, apoi încă 15 minute cu aerisire.
+5. Pentru brioșe la air fryer, coace la 160 °C timp de 25 de minute. La cuptor, coace brioșele la 180 °C timp de 30 de minute, fără aerisire.
+6. Pentru tavă (fără brioșe), coace 45 de minute la 180 °C fără aerisire, apoi încă 15 minute cu aerisire.
 7. Lasă să se răcească puțin și savurează!
