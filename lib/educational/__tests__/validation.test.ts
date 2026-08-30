@@ -80,4 +80,3 @@ describe('isString', () => {
     expect(isString('\nhello\n')).toBe(true);
   });
 });
-

@@ -20,8 +20,8 @@ updatedAt: '2026-04-04'
 image: '/cream-of-mushroom-soup/hero.png'
 imageAlt: 'Cream of Mushroom Soup'
 galleryImages:
-    - '/cream-of-mushroom-soup/1.png'
-    - '/cream-of-mushroom-soup/2.png'
+  - '/cream-of-mushroom-soup/1.png'
+  - '/cream-of-mushroom-soup/2.png'
 imageBrightness: 'light'
 author: 'Maingain'
 ---

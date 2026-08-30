@@ -16,23 +16,17 @@ function isExternalLink(href?: AnchorHTMLAttributes<HTMLAnchorElement>['href']) 
 }
 
 function mergeRelAttribute(rel?: string) {
-  const tokens = [
-    ...(rel ? rel.split(/\s+/).filter(Boolean) : []),
-    'noopener',
-    'noreferrer',
-  ];
+  const tokens = [...(rel ? rel.split(/\s+/).filter(Boolean) : []), 'noopener', 'noreferrer'];
 
   return Array.from(new Set(tokens)).join(' ');
 }
 
 export function enhanceAnchorProps(
-  props: AnchorHTMLAttributes<HTMLAnchorElement>,
+  props: AnchorHTMLAttributes<HTMLAnchorElement>
 ): EnhancedAnchorProps {
   const enhanced: EnhancedAnchorProps = { ...props };
 
-  const external =
-    props.target === '_blank' ||
-    isExternalLink(props.href);
+  const external = props.target === '_blank' || isExternalLink(props.href);
 
   if (!external) {
     if ('data-external' in enhanced) {
@@ -58,4 +52,3 @@ export const __testing = {
   isExternalLink,
   mergeRelAttribute,
 };
-

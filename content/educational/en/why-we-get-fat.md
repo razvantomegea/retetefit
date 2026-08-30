@@ -34,7 +34,7 @@ In the end, diet is still the most important aspect when trying to manage our bo
 
 ### The Answer to “How to Lose Fat (Easily)?”
 
-That is the question this blog will answer: make fat loss easy through fast, simple, and  delicious recipes that can be made at home by anyone.
+That is the question this blog will answer: make fat loss easy through fast, simple, and delicious recipes that can be made at home by anyone.
 
 I know I said earlier that food that's too delicious can be addictive, but these recipes are hard to overeat. They're low in calories and high in protein and fiber (high volume), so they help you feel full and satisfied with small portions.
 

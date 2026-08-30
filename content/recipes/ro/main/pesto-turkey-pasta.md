@@ -20,12 +20,12 @@ updatedAt: '2025-12-01'
 image: '/pesto-turkey-pasta/hero.png'
 imageAlt: 'Pesto Turkey Pasta'
 galleryImages:
-    - '/pesto-turkey-pasta/1.png'
-    - '/pesto-turkey-pasta/2.png'
-    - '/pesto-turkey-pasta/3.png'
-    - '/pesto-turkey-pasta/4.png'
-    - '/pesto-turkey-pasta/5.png'
-    - '/pesto-turkey-pasta/6.png'
+  - '/pesto-turkey-pasta/1.png'
+  - '/pesto-turkey-pasta/2.png'
+  - '/pesto-turkey-pasta/3.png'
+  - '/pesto-turkey-pasta/4.png'
+  - '/pesto-turkey-pasta/5.png'
+  - '/pesto-turkey-pasta/6.png'
 imageBrightness: 'light'
 author: 'Maingain'
 ---
@@ -54,4 +54,3 @@ Poți folosi grătarul, cuptorul sau tigaia pentru a găti curcanul (puiul) dac�
 4. Fierbe broccoli-ul conform instrucțiunilor de pe ambalaj (aprox. 6 minute)
 5. Pe o farfurie, pune pastele, curcanul, broccoli-ul și pesto-ul.
 6. Savurează!
-

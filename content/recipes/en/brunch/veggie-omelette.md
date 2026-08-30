@@ -21,8 +21,8 @@ image: '/veggie-omelette/hero.png'
 imageAlt: 'Veggie Omelette'
 imageBrightness: 'light'
 galleryImages:
-    - '/veggie-omelette/1.png'
-    - '/veggie-omelette/2.png'
+  - '/veggie-omelette/1.png'
+  - '/veggie-omelette/2.png'
 author: 'Maingain'
 ---
 

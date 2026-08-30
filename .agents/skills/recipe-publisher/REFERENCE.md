@@ -4,10 +4,10 @@ Live repo conventions. Prefer this over stale docs.
 
 ## Locations
 
-| Locale | Path |
-|--------|------|
-| RO | `content/recipes/ro/<category>/<slug>.md` |
-| EN | `content/recipes/en/<category>/<slug>.md` |
+| Locale | Path                                               |
+| ------ | -------------------------------------------------- |
+| RO     | `content/recipes/ro/<category>/<slug>.md`          |
+| EN     | `content/recipes/en/<category>/<slug>.md`          |
 | Images | `public/<slug>/` → `hero.png`, `1.png`, `2.png`, … |
 
 Categories: `brunch`, `desserts`, `main`, `vegetarian`.

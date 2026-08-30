@@ -1,7 +1,7 @@
-import { execSync } from "node:child_process";
+import { execSync } from 'node:child_process';
 
 try {
-  execSync("git config core.hooksPath .githooks", { stdio: "inherit" });
+  execSync('git config core.hooksPath .githooks', { stdio: 'inherit' });
 } catch {
-  console.warn("Could not set git hooks path (not a git repo?)");
+  console.warn('Could not set git hooks path (not a git repo?)');
 }

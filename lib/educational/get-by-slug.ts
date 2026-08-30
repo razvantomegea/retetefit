@@ -11,4 +11,3 @@ export function getEducationalArticleBySlug(
   const articles = getAllEducationalArticles(locale);
   return articles.find((article) => article.slug === slug) || null;
 }
-

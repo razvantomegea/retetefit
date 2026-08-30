@@ -1,4 +1,4 @@
-import { __testing,enhanceAnchorProps } from '../external-links';
+import { __testing, enhanceAnchorProps } from '../external-links';
 
 describe('enhanceAnchorProps', () => {
   it('should leave internal links unchanged', () => {
@@ -76,4 +76,3 @@ describe('isExternalLink', () => {
     expect(__testing.isExternalLink('/internal')).toBe(false);
   });
 });
-

@@ -72,4 +72,3 @@ export function EducationalContent({ content }: EducationalContentProps) {
     </motion.article>
   );
 }
-

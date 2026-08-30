@@ -20,15 +20,15 @@ updatedAt: '2025-12-27'
 image: '/potatoes-and-ribs-soup/hero.png'
 imageAlt: 'Potatoes and Ribs Soup'
 galleryImages:
-    - '/potatoes-and-ribs-soup/1.png'
-    - '/potatoes-and-ribs-soup/2.png'
-    - '/potatoes-and-ribs-soup/3.png'
-    - '/potatoes-and-ribs-soup/4.png'
-    - '/potatoes-and-ribs-soup/5.png'
-    - '/potatoes-and-ribs-soup/6.png'
-    - '/potatoes-and-ribs-soup/7.png'
-    - '/potatoes-and-ribs-soup/8.png'
-    - '/potatoes-and-ribs-soup/9.png'
+  - '/potatoes-and-ribs-soup/1.png'
+  - '/potatoes-and-ribs-soup/2.png'
+  - '/potatoes-and-ribs-soup/3.png'
+  - '/potatoes-and-ribs-soup/4.png'
+  - '/potatoes-and-ribs-soup/5.png'
+  - '/potatoes-and-ribs-soup/6.png'
+  - '/potatoes-and-ribs-soup/7.png'
+  - '/potatoes-and-ribs-soup/8.png'
+  - '/potatoes-and-ribs-soup/9.png'
 imageBrightness: 'light'
 author: 'Maingain'
 ---
@@ -55,7 +55,7 @@ Because I don't have a big enough pressure cooker, I cooked in multiple batches:
 - 1 tablespoon of vegeta
 - 1/2 teaspoon of black pepper
 - 1 tablespoon of paprika
-- (optional during serving) 1kg low-fat kefir or Greek yogurt 
+- (optional during serving) 1kg low-fat kefir or Greek yogurt
 
 ## Instructions
 

@@ -21,11 +21,11 @@ image: '/spinach-fish-salad/hero.png'
 imageAlt: 'Spinach Fish Salad'
 imageBrightness: 'light'
 galleryImages:
-    - '/spinach-fish-salad/1.png'
-    - '/spinach-fish-salad/2.png'
-    - '/spinach-fish-salad/3.png'
-    - '/spinach-fish-salad/4.png'
-    - '/spinach-fish-salad/5.png'
+  - '/spinach-fish-salad/1.png'
+  - '/spinach-fish-salad/2.png'
+  - '/spinach-fish-salad/3.png'
+  - '/spinach-fish-salad/4.png'
+  - '/spinach-fish-salad/5.png'
 author: 'Maingain'
 ---
 

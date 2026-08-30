@@ -26,19 +26,19 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Script | Purpose |
-|--------|---------|
-| `pnpm dev` | Dev server |
-| `pnpm build` | Production build |
-| `pnpm start` | Start production server |
-| `pnpm lint` | ESLint |
-| `pnpm format` / `format:check` | Prettier |
-| `pnpm test` / `test:watch` | Jest |
-| `pnpm recipe:prepare-images` | Compress/rename recipe photos |
-| `pnpm version:bump` | Patch-bump ahead of latest `v*` tag |
-| `pnpm version:check` | Assert version ready for release |
-| `pnpm prerelease` | format + lint + test + build |
-| `pnpm release:on-main` | Tag + CHANGELOG + GitHub Release (CI on `main`) |
+| Script                         | Purpose                                         |
+| ------------------------------ | ----------------------------------------------- |
+| `pnpm dev`                     | Dev server                                      |
+| `pnpm build`                   | Production build                                |
+| `pnpm start`                   | Start production server                         |
+| `pnpm lint`                    | ESLint                                          |
+| `pnpm format` / `format:check` | Prettier                                        |
+| `pnpm test` / `test:watch`     | Jest                                            |
+| `pnpm recipe:prepare-images`   | Compress/rename recipe photos                   |
+| `pnpm version:bump`            | Patch-bump ahead of latest `v*` tag             |
+| `pnpm version:check`           | Assert version ready for release                |
+| `pnpm prerelease`              | format + lint + test + build                    |
+| `pnpm release:on-main`         | Tag + CHANGELOG + GitHub Release (CI on `main`) |
 
 ## Project structure
 

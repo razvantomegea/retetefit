@@ -86,4 +86,3 @@ export function EducationalHero({ article, className }: EducationalHeroProps) {
     </div>
   );
 }
-

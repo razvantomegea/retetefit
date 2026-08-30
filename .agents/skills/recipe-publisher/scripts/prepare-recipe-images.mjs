@@ -3,21 +3,12 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 
-const SUPPORTED_EXTENSIONS = new Set([
-  '.jpg',
-  '.jpeg',
-  '.png',
-  '.webp',
-  '.avif',
-  '.tif',
-  '.tiff',
-]);
+const SUPPORTED_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.avif', '.tif', '.tiff']);
 
 const NATURAL_COLLATOR = new Intl.Collator(undefined, {
   numeric: true,
   sensitivity: 'base',
 });
-
 
 function parseArgs(argv) {
   const args = {};
@@ -96,9 +87,7 @@ async function collectFiles(inputDir) {
 
 function resolveHero(files, heroMode, heroFile) {
   if (heroFile) {
-    const selected = files.find(
-      (file) => file.name.toLowerCase() === heroFile.toLowerCase(),
-    );
+    const selected = files.find((file) => file.name.toLowerCase() === heroFile.toLowerCase());
 
     if (!selected) {
       throw new Error(`Could not find --hero-file "${heroFile}" in the input folder.`);
@@ -124,7 +113,7 @@ async function ensureSharp() {
     return sharpModule.default;
   } catch {
     throw new Error(
-      'The "sharp" package is required. Install dependencies with "corepack pnpm install" before running this script.',
+      'The "sharp" package is required. Install dependencies with "corepack pnpm install" before running this script.'
     );
   }
 }
@@ -223,5 +212,3 @@ main().catch((error) => {
   console.error(error.message);
   process.exit(1);
 });
-
-

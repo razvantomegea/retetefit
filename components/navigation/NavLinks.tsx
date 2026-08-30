@@ -23,8 +23,7 @@ export function NavLinks({ onLinkClick, className, linkClassName }: NavLinksProp
 
   const allNavItems = [
     ...NAV_LINKS.map((link) => ({ ...link, type: 'link' as const })),
-    ...NAV_CATEGORIES.map((cat) => ({ ...cat, type: 'category' as const }))
-    
+    ...NAV_CATEGORIES.map((cat) => ({ ...cat, type: 'category' as const })),
   ];
 
   return (

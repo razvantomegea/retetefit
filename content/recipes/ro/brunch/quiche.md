@@ -20,16 +20,16 @@ updatedAt: '2025-11-13'
 image: '/quiche/hero.png'
 imageAlt: 'Quiche bogat în proteine'
 galleryImages:
-    - '/quiche/1.png'
-    - '/quiche/2.png'
-    - '/quiche/3.png'
-    - '/quiche/4.png'
-    - '/quiche/5.png'
-    - '/quiche/6.png'
-    - '/quiche/7.png'
-    - '/quiche/8.png'
-    - '/quiche/9.png'
-    - '/quiche/10.png'
+  - '/quiche/1.png'
+  - '/quiche/2.png'
+  - '/quiche/3.png'
+  - '/quiche/4.png'
+  - '/quiche/5.png'
+  - '/quiche/6.png'
+  - '/quiche/7.png'
+  - '/quiche/8.png'
+  - '/quiche/9.png'
+  - '/quiche/10.png'
 imageBrightness: 'light'
 author: 'Maingain'
 ---
@@ -57,4 +57,3 @@ author: 'Maingain'
 6. Toarnă compoziția în coșul friteuzei sau în tavă și niveleaz-o.
 7. Gătește timp de 17 minute la 180 C (asigură-te că ai preîncălzit cuptorul, dacă îl folosești).
 8. Savurează!
-

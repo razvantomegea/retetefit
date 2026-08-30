@@ -14,14 +14,16 @@ Both recipe pages and educational article pages use Next.js's `generateMetadata`
 ✅ **Rich article metadata** including author, publish dates, and keywords  
 ✅ **Twitter Card support** with large image previews  
 ✅ **Multi-language support** with alternate language URLs  
-✅ **SEO-optimized** with robots directives and canonical URLs  
+✅ **SEO-optimized** with robots directives and canonical URLs
 
 ## Files Modified
 
 ### 1. Recipe Pages
+
 **File:** `app/[locale]/[category]/[slug]/page.tsx`
 
 Generates metadata for recipe pages including:
+
 - Recipe title, description, and image
 - Cooking time, servings, and nutritional info in keywords
 - Recipe author and publish dates
@@ -29,9 +31,11 @@ Generates metadata for recipe pages including:
 - Twitter and Open Graph images
 
 ### 2. Educational Articles
+
 **File:** `app/[locale]/educational/[slug]/page.tsx`
 
 Generates metadata for educational articles including:
+
 - Article title, description, and featured image
 - Health and nutrition-related keywords
 - Author and publish dates
@@ -119,6 +123,7 @@ NEXT_PUBLIC_SITE_URL=https://your-production-domain.com
 ### Educational Articles Metadata
 
 Similar structure to recipes but with:
+
 - Education-focused keywords (nutrition, health, weight loss, diet, fitness)
 - No category-specific URL structure
 - Same author and image handling
@@ -135,6 +140,7 @@ Similar structure to recipes but with:
 ### Image Handling
 
 The application automatically:
+
 1. Reads image path from markdown frontmatter (`image: '/recipe/hero.png'`)
 2. Converts to absolute URL using `NEXT_PUBLIC_SITE_URL`
 3. Ensures compatibility with all social platforms
@@ -152,6 +158,7 @@ Use these tools to verify how your links appear:
 ### 2. Manual Testing
 
 Share a link on:
+
 - WhatsApp (mobile)
 - Telegram (mobile/desktop)
 - Facebook
@@ -175,7 +182,7 @@ If you update an OG image and social platforms show the old version:
 title: 'Recipe Title'
 slug: 'recipe-slug'
 description: 'Recipe description for social sharing'
-image: '/recipe/hero.png'  # Must be in /public folder
+image: '/recipe/hero.png' # Must be in /public folder
 imageAlt: 'Descriptive alt text'
 author: 'Maingain'
 publishedAt: '2025-11-13'
@@ -191,7 +198,7 @@ updatedAt: '2025-11-13'
 title: 'Article Title'
 slug: 'article-slug'
 description: 'Article description for social sharing'
-image: '/article/hero.png'  # Must be in /public folder
+image: '/article/hero.png' # Must be in /public folder
 imageAlt: 'Descriptive alt text'
 author: 'Maingain'
 publishedAt: '2025-11-07'
@@ -201,15 +208,15 @@ updatedAt: '2025-11-07'
 
 ## Social Platform Compatibility
 
-| Platform | Status | Image Preview | Additional Notes |
-|----------|--------|---------------|------------------|
-| WhatsApp | ✅ | Large | Requires absolute URL |
-| Telegram | ✅ | Large | Requires absolute URL |
-| Facebook | ✅ | Large | Uses og:image |
-| Twitter/X | ✅ | Large | Uses twitter:card |
-| LinkedIn | ✅ | Medium | Uses og:image |
-| iMessage | ✅ | Medium | Uses og:image |
-| Slack | ✅ | Medium | Uses og:image |
+| Platform  | Status | Image Preview | Additional Notes      |
+| --------- | ------ | ------------- | --------------------- |
+| WhatsApp  | ✅     | Large         | Requires absolute URL |
+| Telegram  | ✅     | Large         | Requires absolute URL |
+| Facebook  | ✅     | Large         | Uses og:image         |
+| Twitter/X | ✅     | Large         | Uses twitter:card     |
+| LinkedIn  | ✅     | Medium        | Uses og:image         |
+| iMessage  | ✅     | Medium        | Uses og:image         |
+| Slack     | ✅     | Medium        | Uses og:image         |
 
 ## Troubleshooting
 
@@ -277,6 +284,7 @@ Example location: `app/[locale]/[category]/[slug]/opengraph-image.tsx`
 ## Support
 
 For issues or questions about Open Graph configuration, check:
+
 1. Browser console for metadata rendering
 2. Page source (`View Page Source`) to verify meta tags
 3. Social media debuggers for platform-specific issues

@@ -20,4 +20,3 @@ export function getAllEducationalArticles(locale: Locale): EducationalArticle[] 
     return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
   });
 }
-
