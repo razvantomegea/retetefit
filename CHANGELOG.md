@@ -6,6 +6,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 Versions are auto-released on every merge to `main`.
 
+## [1.0.1] - 2026-08-30
+
+- Add Fallow configuration and update testing setup (e800bb2)
+
 ## [1.0.0] - 2026-08-30
 
 - Add savory appetizer cake (chec aperitiv) recipe ([#10](https://github.com/razvantomegea/retetefit/pull/10)) (009d09e)
