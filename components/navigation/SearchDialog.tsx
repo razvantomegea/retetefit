@@ -8,6 +8,7 @@ import { useTheme } from 'next-themes';
 import { startTransition, useCallback, useEffect, useRef, useState } from 'react';
 
 import { Dialog, DialogClose, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { DataTestId } from '@/lib/constants/data-test-id';
 
 interface SearchDialogProps {
   open?: boolean;
@@ -101,6 +102,7 @@ export function SearchDialog({ open: controlledOpen, onOpenChange }: SearchDialo
           onClick={handleOpen}
           className="w-full flex items-center gap-3 text-left text-lg px-4 py-3 rounded-md hover:bg-surface-elevated transition-colors cursor-pointer text-text-primary font-medium"
           aria-label={t('search.title')}
+          data-testid={DataTestId.SearchTrigger}
         >
           <Search className="h-5 w-5 shrink-0" />
           <span>{t('search.title')}</span>
@@ -134,6 +136,7 @@ export function SearchDialog({ open: controlledOpen, onOpenChange }: SearchDialo
                   autoCapitalize="off"
                   spellCheck="false"
                   enterKeyHint="search"
+                  data-testid={DataTestId.SearchInput}
                 />
                 {query && (
                   <button

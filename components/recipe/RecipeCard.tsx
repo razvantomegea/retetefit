@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
+import { DataTestId } from '@/lib/constants/data-test-id';
 import { getCategorySlug } from '@/lib/navigation';
 import { cn } from '@/lib/utils';
 import type { RecipeMetadata } from '@/types';
@@ -77,6 +78,7 @@ export function RecipeCard({ recipe, className }: RecipeCardProps) {
           className
         )}
         aria-label={`${recipe.title} - ${t('viewRecipe')}`}
+        data-testid={DataTestId.RecipeCard(recipe.slug)}
       >
         {/* Image Container with Category Badge */}
         <motion.div

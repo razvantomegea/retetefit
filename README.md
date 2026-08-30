@@ -26,19 +26,24 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Scripts
 
-| Script                         | Purpose                                         |
-| ------------------------------ | ----------------------------------------------- |
-| `pnpm dev`                     | Dev server                                      |
-| `pnpm build`                   | Production build                                |
-| `pnpm start`                   | Start production server                         |
-| `pnpm lint`                    | ESLint                                          |
-| `pnpm format` / `format:check` | Prettier                                        |
-| `pnpm test` / `test:watch`     | Jest                                            |
-| `pnpm recipe:prepare-images`   | Compress/rename recipe photos                   |
-| `pnpm version:bump`            | Patch-bump ahead of latest `v*` tag             |
-| `pnpm version:check`           | Assert version ready for release                |
-| `pnpm prerelease`              | format + lint + test + build                    |
-| `pnpm release:on-main`         | Tag + CHANGELOG + GitHub Release (CI on `main`) |
+| Script                         | Purpose                                                                  |
+| ------------------------------ | ------------------------------------------------------------------------ |
+| `pnpm dev`                     | Dev server                                                               |
+| `pnpm build`                   | Production build                                                         |
+| `pnpm start`                   | Start production server                                                  |
+| `pnpm lint`                    | ESLint                                                                   |
+| `pnpm format` / `format:check` | Prettier                                                                 |
+| `pnpm test` / `test:watch`     | Vitest unit tests                                                        |
+| `pnpm test:coverage`           | Vitest with 90% line/statement/function, 80% branch thresholds on `lib/` |
+| `pnpm test:e2e`                | Playwright smoke tests (Chromium, port 3001)                             |
+| `pnpm test:e2e:ui`             | Playwright UI mode                                                       |
+| `pnpm test:e2e:report`         | Open last Playwright HTML report                                         |
+| `pnpm fallow` / `fallow:audit` | Code-health audit (new issues only vs local baselines)                   |
+| `pnpm recipe:prepare-images`   | Compress/rename recipe photos                                            |
+| `pnpm version:bump`            | Patch-bump ahead of latest `v*` tag                                      |
+| `pnpm version:check`           | Assert version ready for release                                         |
+| `pnpm prerelease`              | format + lint + coverage + e2e + build + fallow                          |
+| `pnpm release:on-main`         | Tag + CHANGELOG + GitHub Release (CI on `main`)                          |
 
 ## Project structure
 
@@ -49,10 +54,34 @@ app/                               # Next.js App Router
 components/
 content/recipes/{en,ro}/           # Recipe markdown
 content/educational/               # Educational articles
+e2e/                               # Playwright smoke specs + fixtures
 lib/
 messages/                          # next-intl strings
 public/<slug>/                     # Recipe images
-scripts/                           # version bump / release helpers
+scripts/                           # version bump / release / e2e helpers
+test/                              # Vitest setup
+vitest.config.ts
+playwright.config.ts
+.fallowrc.json
+```
+
+## Testing
+
+```bash
+pnpm test:coverage     # unit coverage gate (CI uses this)
+pnpm test:e2e          # Playwright smoke (install Chromium once: pnpm exec playwright install chromium)
+pnpm fallow audit      # local audit vs .fallow-baselines/
+pnpm fallow audit --ci # CI mode (used in release workflow)
+```
+
+Coverage includes `lib/` with thresholds in [`vitest.config.ts`](vitest.config.ts). Content loaders and App Router UI are covered by E2E smoke rather than unit thresholds.
+
+[Fallow](https://github.com/fallow-rs/fallow) audits dead code, duplication, and complexity. Config: [`.fallowrc.json`](.fallowrc.json). Generate baselines locally:
+
+```bash
+pnpm fallow health --save-baseline .fallow-baselines/health.json
+pnpm fallow dupes --save-baseline .fallow-baselines/dupes.json
+pnpm fallow dead-code --save-baseline .fallow-baselines/dead-code.json
 ```
 
 ## Agent skills
@@ -69,8 +98,8 @@ Also see [Content Management](docs/CONTENT_MANAGEMENT.md).
 
 [`.github/workflows/release.yml`](.github/workflows/release.yml) runs on PRs and pushes to `main`:
 
-1. **verify** — version check (when applicable), `pnpm lint`, `pnpm build`, `pnpm test`
-2. **release** (push to `main` only) — CHANGELOG, git tag `vX.Y.Z`, GitHub Release
+1. **verify** — version check (when applicable), `pnpm lint`, `pnpm build`, `pnpm test:coverage` (uploads `coverage/`), Playwright Chromium + `pnpm test:e2e`, `pnpm fallow audit --ci`
+2. **release** (push to `main` only) — CHANGELOG, git tag `vX.Y.Z`, GitHub Release, then attaches coverage summary + `coverage-report.zip`
 
 Bump with `pnpm version:bump` before merging to `main` when needed. Commits containing `[skip release]` skip the release job. First release version is `1.0.0`.
 

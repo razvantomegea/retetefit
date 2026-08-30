@@ -6,6 +6,7 @@ import { useParams, usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
 import { defaultLocale } from '@/i18n/config';
+import { DataTestId } from '@/lib/constants/data-test-id';
 import { NAV_CATEGORIES, NAV_LINKS } from '@/lib/navigation';
 import { cn } from '@/lib/utils';
 
@@ -37,6 +38,7 @@ export function NavLinks({ onLinkClick, className, linkClassName }: NavLinksProp
             key={item.id}
             href={href}
             onClick={onLinkClick}
+            data-testid={item.type === 'category' ? DataTestId.NavCategoryLink(item.id) : undefined}
             className={cn(
               'px-4 py-2.5 rounded-md text-base font-medium transition-colors relative',
               'hover:bg-surface-elevated',

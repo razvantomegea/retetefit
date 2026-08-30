@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { startTransition, useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
+import { DataTestId } from '@/lib/constants/data-test-id';
 import { LANGUAGES } from '@/lib/navigation';
 
 interface SwitchLanguageParams {
@@ -71,6 +72,7 @@ export function LanguageSwitcher() {
       className="w-10 h-10 rounded-md hover:bg-surface-elevated transition-colors"
       aria-label={t('switchTo', { lang: nextLangLabel })}
       title={t('switchTo', { lang: nextLangLabel })}
+      data-testid={DataTestId.LanguageSwitcher}
     >
       <span className="text-lg leading-none">{nextLang.flag}</span>
       <span className="sr-only">{nextLangLabel}</span>

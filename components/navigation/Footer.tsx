@@ -8,6 +8,7 @@ import { FaFacebook, FaInstagram, FaPinterest } from 'react-icons/fa';
 
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { defaultLocale } from '@/i18n/config';
+import { DataTestId } from '@/lib/constants/data-test-id';
 import { NAV_CATEGORIES } from '@/lib/navigation';
 import { cn } from '@/lib/utils';
 
@@ -95,6 +96,7 @@ export default function Footer({ className }: FooterProps) {
                     <motion.li key={category.id} variants={itemVariants}>
                       <Link
                         href={href}
+                        data-testid={DataTestId.FooterCategoryLink(category.id)}
                         className="text-sm text-text-secondary hover:text-green-500 dark:hover:text-green-400 transition-colors duration-200 inline-block"
                       >
                         {t(category.labelKey)}

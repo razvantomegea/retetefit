@@ -23,5 +23,9 @@ describe('navigation helpers', () => {
       expect(getCategorySlug('desserts')).toBe('desserts');
       expect(getCategorySlug('brunch')).toBe('brunch');
     });
+
+    it('should fall back to the category value when not in nav', () => {
+      expect(getCategorySlug('unknown' as never)).toBe('unknown');
+    });
   });
 });

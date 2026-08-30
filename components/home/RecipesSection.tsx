@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 
 import { RecipeCard } from '@/components/recipe/RecipeCard';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { DataTestId } from '@/lib/constants/data-test-id';
 import type { RecipeMetadata } from '@/types';
 
 interface RecipesSectionProps {
@@ -49,6 +50,7 @@ export function RecipesSection({ recipes }: RecipesSectionProps) {
       id="recipes"
       className="bg-background px-6 py-12 md:px-8 md:py-16"
       aria-labelledby="recipes-heading"
+      data-testid={DataTestId.HomeRecipesSection}
     >
       <div className="mx-auto max-w-[1280px]">
         {/* Section Header */}

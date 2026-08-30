@@ -16,7 +16,7 @@ Read `README.md` before planning; update it before marking work complete.
 
 - Package manager: `pnpm`.
 - Stack: Next.js App Router, React, TypeScript, Tailwind, next-intl, markdown recipes under `content/recipes/{locale}/`.
-- After a task is finished, ensure verify steps from `.github/workflows/release.yml` pass locally (`pnpm lint`, `pnpm test`, `pnpm build`, and `pnpm version:check` when releasing).
+- After a task is finished, ensure verify steps from `.github/workflows/release.yml` pass locally (`pnpm lint`, `pnpm test:coverage`, `pnpm test:e2e`, `pnpm build`, `pnpm fallow audit --ci`, and `pnpm version:check` when releasing).
 
 ## Agent skills
 

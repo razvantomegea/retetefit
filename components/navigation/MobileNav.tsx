@@ -15,6 +15,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
+import { DataTestId } from '@/lib/constants/data-test-id';
 import { LANGUAGES } from '@/lib/navigation';
 
 import { switchLanguage } from './LanguageSwitcher';
@@ -126,6 +127,7 @@ export function MobileNav() {
             size="icon"
             className="lg:hidden w-10 h-10"
             aria-label="Open menu"
+            data-testid={DataTestId.MobileMenuTrigger}
           >
             <Menu className="h-5 w-5" />
           </Button>

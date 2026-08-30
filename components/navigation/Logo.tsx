@@ -5,12 +5,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
+import { DataTestId } from '@/lib/constants/data-test-id';
+
 export function Logo() {
   const params = useParams();
   const locale = params?.locale || 'ro';
 
   return (
-    <Link href={`/${locale}`} className="flex items-center gap-3 group" aria-label="MainGain Home">
+    <Link
+      href={`/${locale}`}
+      className="flex items-center gap-3 group"
+      aria-label="MainGain Home"
+      data-testid={DataTestId.LogoHome}
+    >
       <motion.div
         className="relative h-10 w-10 overflow-hidden rounded-lg transition-transform"
         whileHover={{ scale: 1.05 }}

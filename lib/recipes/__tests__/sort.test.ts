@@ -109,4 +109,19 @@ describe('sortRecipes', () => {
     const sorted = sortRecipes(recipes, 'newest');
     expect(sorted).not.toBe(recipes);
   });
+
+  it('should return copy unchanged for unknown sort option', () => {
+    const sorted = sortRecipes(recipes, 'unknown' as never);
+    expect(sorted).toEqual(recipes);
+    expect(sorted).not.toBe(recipes);
+  });
+
+  it('should treat invalid dates as equal when sorting newest', () => {
+    const withBadDates: RecipeMetadata[] = [
+      createMockRecipe('a', 'not-a-date', 10, 100, 10),
+      createMockRecipe('b', 'also-bad', 20, 200, 20),
+    ];
+    const sorted = sortRecipes(withBadDates, 'newest');
+    expect(sorted.map((r) => r.slug)).toEqual(['a', 'b']);
+  });
 });

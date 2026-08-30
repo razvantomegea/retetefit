@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { DataTestId } from '@/lib/constants/data-test-id';
 
 export function Hero() {
   const t = useTranslations('hero');
@@ -116,6 +117,7 @@ export function Hero() {
     <section
       className="relative md:min-h-[calc(100vh-120px)] flex flex-col items-center justify-center overflow-hidden bg-linear-to-b from-surface to-background px-6 py-12 text-center md:grid md:grid-cols-2 md:items-center md:gap-12 md:px-8 md:py-20"
       aria-label="Hero section"
+      data-testid={DataTestId.HomeHero}
     >
       {/* Subtle animated background gradient overlay */}
       <div className="absolute inset-0 bg-linear-to-br from-green-50/30 via-transparent to-transparent dark:from-green-950/20" />
@@ -204,6 +206,7 @@ export function Hero() {
           className="text-5xl font-normal leading-tight tracking-tight dark:font-normal md:text-6xl"
           variants={itemVariants}
           style={{ lineHeight: 1.1, color: 'var(--text-primary)' }}
+          data-testid={DataTestId.HomeHeroTitle}
         >
           {t('title')}
         </motion.h1>

@@ -1,0 +1,17 @@
+export const DataTestId = {
+  HomeHero: 'home-hero',
+  HomeHeroTitle: 'home-hero-title',
+  HomeRecipesSection: 'home-recipes-section',
+  RecipeCard: (slug: string) => `recipe-card-${slug}`,
+  RecipeTitle: 'recipe-title',
+  CategoryTitle: 'category-title',
+  EducationalTitle: 'educational-title',
+  SearchTrigger: 'search-trigger',
+  SearchInput: 'search-input',
+  SearchResults: 'search-results',
+  LanguageSwitcher: 'language-switcher',
+  MobileMenuTrigger: 'mobile-menu-trigger',
+  NavCategoryLink: (id: string) => `nav-category-${id}`,
+  FooterCategoryLink: (id: string) => `footer-category-${id}`,
+  LogoHome: 'logo-home',
+} as const;

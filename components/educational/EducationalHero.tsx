@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
 import { useReducedMotion } from '@/hooks/useReducedMotion';
+import { DataTestId } from '@/lib/constants/data-test-id';
 import { cn } from '@/lib/utils';
 import type { EducationalArticle } from '@/types';
 
@@ -33,7 +34,10 @@ export function EducationalHero({ article, className }: EducationalHeroProps) {
         animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
       >
-        <h1 className="text-4xl font-bold leading-tight text-text-primary md:text-5xl lg:text-6xl">
+        <h1
+          className="text-4xl font-bold leading-tight text-text-primary md:text-5xl lg:text-6xl"
+          data-testid={DataTestId.EducationalTitle}
+        >
           {article.title}
         </h1>
         <p className="text-xl leading-relaxed text-text-secondary md:text-2xl">

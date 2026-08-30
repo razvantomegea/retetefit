@@ -5,6 +5,7 @@ import { getTranslations } from 'next-intl/server';
 import { NotFound } from '@/components/common/NotFound';
 import { RecipeCard } from '@/components/recipe/RecipeCard';
 import { BASE_URL } from '@/lib/constants';
+import { DataTestId } from '@/lib/constants/data-test-id';
 import { getCategoryFromSlug } from '@/lib/navigation';
 import { getRecipesByCategory, sortRecipes } from '@/lib/recipes';
 import type { Locale, SortOption } from '@/types';
@@ -75,7 +76,12 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
       <div className="mx-auto max-w-[1280px] px-6 py-12 md:px-8 md:py-16">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="mb-4 text-4xl font-bold text-text-primary md:text-5xl">{categoryName}</h1>
+          <h1
+            className="mb-4 text-4xl font-bold text-text-primary md:text-5xl"
+            data-testid={DataTestId.CategoryTitle}
+          >
+            {categoryName}
+          </h1>
           <p className="text-lg text-text-secondary">
             {t('recipeCount', { count: recipes.length })}
           </p>

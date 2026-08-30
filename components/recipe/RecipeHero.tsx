@@ -20,6 +20,7 @@ import { useState } from 'react';
 import { Gallery } from '@/components/recipe/Gallery';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { defaultLocale } from '@/i18n/config';
+import { DataTestId } from '@/lib/constants/data-test-id';
 import { getCategorySlug } from '@/lib/navigation';
 import { cn } from '@/lib/utils';
 import type { Recipe } from '@/types';
@@ -134,7 +135,10 @@ export function RecipeHero({ recipe, className }: RecipeHeroProps) {
         </div>
 
         {/* Title */}
-        <h1 className="text-3xl font-bold leading-tight text-text-primary md:text-4xl">
+        <h1
+          className="text-3xl font-bold leading-tight text-text-primary md:text-4xl"
+          data-testid={DataTestId.RecipeTitle}
+        >
           {recipe.title}
         </h1>
 

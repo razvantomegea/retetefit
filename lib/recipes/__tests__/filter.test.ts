@@ -1,6 +1,16 @@
+import { beforeEach, vi } from 'vitest';
+
 import type { Category, RecipeMetadata } from '@/types';
 
 import { applyFilters, buildFilters, VALID_CATEGORIES } from '../filter';
+
+const { mockGetAllRecipes } = vi.hoisted(() => ({
+  mockGetAllRecipes: vi.fn(),
+}));
+
+vi.mock('../get-all', () => ({
+  getAllRecipes: mockGetAllRecipes,
+}));
 
 describe('buildFilters', () => {
   it('should return empty object for no params', () => {
@@ -220,5 +230,45 @@ describe('applyFilters', () => {
   it('should handle empty tags array in filters', () => {
     const filtered = applyFilters(mockRecipes, { tags: [] });
     expect(filtered).toHaveLength(4);
+  });
+});
+
+describe('filterRecipes', () => {
+  const mockRecipes: RecipeMetadata[] = [
+    {
+      slug: 'recipe-1',
+      title: 'Recipe recipe-1',
+      description: 'Test recipe',
+      category: 'main',
+      lang: 'en',
+      cookTime: 15,
+      servings: 4,
+      calories: 200,
+      protein: 20,
+      carbs: 20,
+      fat: 10,
+      fiber: 5,
+      tags: [],
+      price: 10,
+      featured: false,
+      publishedAt: '2024-01-01',
+      updatedAt: '2024-01-01',
+      image: '/test.jpg',
+      imageAlt: 'Test image',
+      author: 'Test Author',
+      readingTime: 5,
+    },
+  ];
+
+  beforeEach(() => {
+    mockGetAllRecipes.mockReset();
+    mockGetAllRecipes.mockReturnValue(mockRecipes);
+  });
+
+  it('should load recipes for locale and apply filters', async () => {
+    const { filterRecipes } = await import('../filter');
+    const filtered = filterRecipes({ category: 'main' }, 'en');
+    expect(mockGetAllRecipes).toHaveBeenCalledWith('en');
+    expect(filtered).toEqual(mockRecipes);
   });
 });

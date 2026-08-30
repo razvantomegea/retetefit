@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 
 import { NotFound } from '@/components/common/NotFound';
 import { RecipeCard } from '@/components/recipe/RecipeCard';
+import { DataTestId } from '@/lib/constants/data-test-id';
 import { performSearch } from '@/lib/recipes';
 import enMessages from '@/messages/en.json';
 import roMessages from '@/messages/ro.json';
@@ -118,7 +119,10 @@ async function SearchResults({ recipes, locale }: SearchResultsProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div
+      className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+      data-testid={DataTestId.SearchResults}
+    >
       {recipes.map((recipe) => (
         <RecipeCard key={recipe.slug} recipe={recipe} />
       ))}

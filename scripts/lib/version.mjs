@@ -36,15 +36,16 @@ export function readPkgVersion() {
 }
 
 const APP_VERSION_FILE = 'lib/app-version.ts';
-const PACKAGED_APP_VERSION_PATTERN = /export const PACKAGED_APP_VERSION = "[^"]+";/;
+// Accept single or double quotes (Prettier may rewrite either form).
+const PACKAGED_APP_VERSION_PATTERN = /export const PACKAGED_APP_VERSION = (["'])([^"']+)\1;/;
 
 export function readAppVersionFile() {
   const content = readFileSync(APP_VERSION_FILE, 'utf8');
-  const match = content.match(/export const PACKAGED_APP_VERSION = "([^"]+)";/);
+  const match = content.match(PACKAGED_APP_VERSION_PATTERN);
   if (!match) {
     throw new Error(`${APP_VERSION_FILE} missing PACKAGED_APP_VERSION export`);
   }
-  return match[1];
+  return match[2];
 }
 
 export function writeAppVersionFile(version) {

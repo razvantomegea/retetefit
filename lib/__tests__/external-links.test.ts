@@ -75,4 +75,19 @@ describe('isExternalLink', () => {
   it('should treat relative links as internal', () => {
     expect(__testing.isExternalLink('/internal')).toBe(false);
   });
+
+  it('should treat non-string href as internal', () => {
+    expect(__testing.isExternalLink(undefined)).toBe(false);
+  });
+});
+
+describe('enhanceAnchorProps data-external cleanup', () => {
+  it('should strip leftover data-external from internal links', () => {
+    const result = enhanceAnchorProps({
+      href: '/about',
+      'data-external': 'true',
+    } as Parameters<typeof enhanceAnchorProps>[0]);
+
+    expect(result['data-external']).toBeUndefined();
+  });
 });
