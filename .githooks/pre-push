@@ -1,0 +1,13 @@
+#!/bin/sh
+while read local_ref local_sha remote_ref remote_sha; do
+  if [ "$remote_ref" = "refs/heads/main" ]; then
+    node scripts/bump-version.mjs || exit 1
+    if ! git diff --quiet -- package.json lib/app-version.ts; then
+      echo ""
+      echo "Version files were bumped. Commit them, then push again:"
+      echo "  git add package.json lib/app-version.ts && git commit -m \"chore: bump version\""
+      exit 1
+    fi
+  fi
+done
+exit 0

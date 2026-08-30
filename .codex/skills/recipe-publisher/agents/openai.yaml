@@ -1,4 +1,0 @@
-interface:
-  display_name: "Recipe Publisher"
-  short_description: "Create bilingual recipe content"
-  default_prompt: "Use $recipe-publisher to turn my Romanian recipe notes and photos into repo-ready Romanian and English recipe content, prepare the images, then commit and push the changes."

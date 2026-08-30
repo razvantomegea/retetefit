@@ -1,4 +1,4 @@
-import { enhanceAnchorProps, __testing } from '../external-links';
+import { __testing,enhanceAnchorProps } from '../external-links';
 
 describe('enhanceAnchorProps', () => {
   it('should leave internal links unchanged', () => {
@@ -15,7 +15,7 @@ describe('enhanceAnchorProps', () => {
     expect(result.rel).toBe('noopener noreferrer');
     expect(result.title).toBe(__testing.EXTERNAL_WARNING_TITLE);
     expect(result['data-external']).toBe('true');
-    expect(result.target).toBeUndefined();
+    expect(result.target).toBe('_blank');
   });
 
   it('should preserve existing rel values while adding security tokens', () => {

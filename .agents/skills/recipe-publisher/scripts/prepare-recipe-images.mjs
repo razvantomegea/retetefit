@@ -120,8 +120,8 @@ function resolveHero(files, heroMode, heroFile) {
 
 async function ensureSharp() {
   try {
-    const module = await import('sharp');
-    return module.default;
+    const sharpModule = await import('sharp');
+    return sharpModule.default;
   } catch {
     throw new Error(
       'The "sharp" package is required. Install dependencies with "corepack pnpm install" before running this script.',
