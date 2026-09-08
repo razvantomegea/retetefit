@@ -70,18 +70,22 @@ playwright.config.ts
 ```bash
 pnpm test:coverage     # unit coverage gate (CI uses this)
 pnpm test:e2e          # Playwright smoke (install Chromium once: pnpm exec playwright install chromium)
-pnpm fallow audit      # local audit vs .fallow-baselines/
-pnpm fallow audit --ci # CI mode (used in release workflow)
+pnpm fallow audit      # local audit of changes vs default branch (new-only gate)
+pnpm fallow audit --ci --changed-since origin/main  # CI mode (used in release workflow)
 ```
 
 Coverage includes `lib/` with thresholds in [`vitest.config.ts`](vitest.config.ts). Content loaders and App Router UI are covered by E2E smoke rather than unit thresholds.
 
-[Fallow](https://github.com/fallow-rs/fallow) audits dead code, duplication, and complexity. Config: [`.fallowrc.json`](.fallowrc.json). Generate baselines locally:
+[Fallow](https://github.com/fallow-rs/fallow) audits dead code, duplication, and complexity on **changed files** (`gate: new-only`). Config: [`.fallowrc.json`](.fallowrc.json). Optional local baselines (gitignored):
 
 ```bash
+mkdir -p .fallow-baselines
 pnpm fallow health --save-baseline .fallow-baselines/health.json
 pnpm fallow dupes --save-baseline .fallow-baselines/dupes.json
 pnpm fallow dead-code --save-baseline .fallow-baselines/dead-code.json
+pnpm fallow audit --dead-code-baseline .fallow-baselines/dead-code.json \
+  --health-baseline .fallow-baselines/health.json \
+  --dupes-baseline .fallow-baselines/dupes.json
 ```
 
 ## Agent skills
@@ -98,7 +102,7 @@ Also see [Content Management](docs/CONTENT_MANAGEMENT.md).
 
 [`.github/workflows/release.yml`](.github/workflows/release.yml) runs on PRs and pushes to `main`:
 
-1. **verify** — version check (when applicable), `pnpm lint`, `pnpm build`, `pnpm test:coverage` (uploads `coverage/`), Playwright Chromium + `pnpm test:e2e`, `pnpm fallow audit --ci`
+1. **verify** — version check (when applicable), `pnpm lint`, `pnpm build`, `pnpm test:coverage` (uploads `coverage/`), Playwright Chromium + `pnpm test:e2e`, `pnpm fallow audit --ci --changed-since origin/main`
 2. **release** (push to `main` only) — CHANGELOG, git tag `vX.Y.Z`, GitHub Release, then attaches coverage summary + `coverage-report.zip`
 
 Bump with `pnpm version:bump` before merging to `main` when needed. Commits containing `[skip release]` skip the release job. First release version is `1.0.0`.

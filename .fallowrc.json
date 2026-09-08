@@ -15,10 +15,7 @@
     "minOccurrences": 3
   },
   "audit": {
-    "gate": "new-only",
-    "healthBaseline": ".fallow-baselines/health.json",
-    "deadCodeBaseline": ".fallow-baselines/dead-code.json",
-    "dupesBaseline": ".fallow-baselines/dupes.json"
+    "gate": "new-only"
   },
   "rules": {
     "unused-dependencies": "warn"

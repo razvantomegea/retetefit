@@ -62,7 +62,9 @@ jobs:
           path: playwright-report/
           retention-days: 7
 
-      - run: pnpm fallow audit --ci
+      # PR checkouts have origin/main but usually no local `main` branch; fallow
+      # auto-detects the short name `main` and fails without an explicit ref.
+      - run: pnpm fallow audit --ci --changed-since origin/main
 
   release:
     needs: verify
