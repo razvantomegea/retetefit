@@ -6,6 +6,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 Versions are auto-released on every merge to `main`.
 
+## [1.0.2] - 2026-09-08
+
+- Add peas-and-sausage-stew recipe (Mazăre cu cârnat) ([#11](https://github.com/razvantomegea/retetefit/pull/11)) (99b4717)
+
 ## [1.0.1] - 2026-08-30
 
 - Add Fallow configuration and update testing setup (e800bb2)
