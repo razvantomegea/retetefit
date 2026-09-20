@@ -6,6 +6,10 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 Versions are auto-released on every merge to `main`.
 
+## [1.0.3] - 2026-09-20
+
+- Add Ciorbă de Pui (chicken-soup) recipe ([#12](https://github.com/razvantomegea/retetefit/pull/12)) (7bddd7c)
+
 ## [1.0.2] - 2026-09-08
 
 - Add peas-and-sausage-stew recipe (Mazăre cu cârnat) ([#11](https://github.com/razvantomegea/retetefit/pull/11)) (99b4717)
