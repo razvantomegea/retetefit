@@ -6,6 +6,12 @@ Format based on [Keep a Changelog](https://keepachangelog.com/).
 
 Versions are auto-released on every merge to `main`.
 
+## [1.0.4] - 2026-10-23
+
+- chore: sync AGENTS.md (c633015)
+- chore: bump version after security pin (d163cac)
+- chore(security): pin Node.js to patched Oct 2026 releases (ebb69af)
+
 ## [1.0.3] - 2026-09-20
 
 - Add Ciorbă de Pui (chicken-soup) recipe ([#12](https://github.com/razvantomegea/retetefit/pull/12)) (7bddd7c)
