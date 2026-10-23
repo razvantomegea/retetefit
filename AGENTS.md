@@ -1,23 +1,24 @@
 # AGENTS.md
 
-**Follow** [`../AGENTS.md`](../AGENTS.md) — universal agent governance for `C:\Projects`. Copies: `%USERPROFILE%\.cursor\rules\universal-agent-governance.mdc`, `%USERPROFILE%\.codex\AGENTS.md`.
+`c:\Projects` is a workspace of separate product repos. This file is the universal policy. Keep it in sync with `%USERPROFILE%\.cursor\rules\universal-agent-governance.mdc` and `%USERPROFILE%\.codex\AGENTS.md`. A product repo's README and `docs/` win for local facts.
 
-Read that file and apply it. Local sections below are this repository only. On conflict, `../AGENTS.md` wins.
+## Rules
 
-## This repository
+- Stay in the requested scope.
+- Do not print secrets or read `.env` files.
+- Do not delete data, force-push, or change auth, migrations, or architecture unless the request explicitly includes that.
+- Do not add dependencies.
+- Do not change a test to make an implementation pass.
+- Do not run package-manager or project scripts unless the request asks for that command. Otherwise name the command and wait.
+- UI changes get checked in the browser when a browser is available.
+- Read the repo before inventing a convention: README, neighboring code, tests, and the formatter or linter config.
 
-Healthy recipe website (ReteteFit / Maingain) — bilingual en/ro.
+## Ownership
 
-Documentation: `README.md`.
+Implement the request. For non-trivial work, state the behavior you are implementing and the assumption you made, in a few sentences, before a large diff. Skip that when the request says to implement directly.
 
-When shipping user-facing changes, keep `README.md` in sync in the same PR/session. Update at minimum: links, features, project structure, routes, testing workflow, legal/env/deployment.
+## Find, don't preload
 
-Read `README.md` before planning; update it before marking work complete.
-
-- Package manager: `pnpm`.
-- Stack: Next.js App Router, React, TypeScript, Tailwind, next-intl, markdown recipes under `content/recipes/{locale}/`.
-- After a task is finished, ensure verify steps from `.github/workflows/release.yml` pass locally (`pnpm lint`, `pnpm test:coverage`, `pnpm test:e2e`, `pnpm build`, `pnpm fallow audit --ci`, and `pnpm version:check` when releasing).
-
-## Agent skills
-
-- Publish a new recipe from ingredients + unit prices, instructions, and photos: [`.agents/skills/recipe-publisher/SKILL.md`](.agents/skills/recipe-publisher/SKILL.md).
+- Product behavior: that repo's README and `docs/`
+- Hard-to-reverse decisions: `docs/adr/`
+- Task workflows: skills, only when the task matches
